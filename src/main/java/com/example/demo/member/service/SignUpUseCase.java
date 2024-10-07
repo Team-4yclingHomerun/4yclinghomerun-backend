@@ -1,5 +1,10 @@
 package com.example.demo.member.service;
 
+import com.example.demo.member.dto.MemberSignUpRequest;
+import com.example.demo.member.entity.Member;
+
+import java.util.UUID;
+
 /**
  * packageName    : com.example.demo.member.service
  * fileName       : SignUpUseCase
@@ -12,4 +17,7 @@ package com.example.demo.member.service;
  * 10/2/24        JAEIK       최초 생성
  */
 public interface SignUpUseCase {
+    Member signUp(Member member);
+    Member signUp(MemberSignUpRequest member);
+    void deleteMember(UUID id);
 }

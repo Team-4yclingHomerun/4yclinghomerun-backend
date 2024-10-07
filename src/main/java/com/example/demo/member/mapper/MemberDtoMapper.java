@@ -1,5 +1,6 @@
 package com.example.demo.member.mapper;
 
+import com.example.demo.member.dto.MemberSignInRequest;
 import com.example.demo.member.dto.MemberSignUpRequest;
 import com.example.demo.member.entity.Member;
 import org.mapstruct.Mapper;
@@ -20,4 +21,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface MemberDtoMapper {
     Member toEntity(MemberSignUpRequest dto);
+
+    Member signInToEntity(MemberSignInRequest signInRequest);
 }

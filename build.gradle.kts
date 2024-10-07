@@ -57,6 +57,9 @@ dependencies {
 	// password encoder
 	implementation("org.springframework.security:spring-security-crypto")
 	runtimeOnly("org.bouncycastle:bcprov-jdk18on:1.78.1")
+    // swagger
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
+
 }
 
 tasks.withType<Test> {

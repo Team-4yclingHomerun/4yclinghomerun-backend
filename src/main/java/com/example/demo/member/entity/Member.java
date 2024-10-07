@@ -28,6 +28,7 @@ public class Member extends UuidBaseEntity {
     private String username;
     private String password;
     private String nickname;
+    private String email;
     @Enumerated(EnumType.STRING)
     private MemberStatus status;
     private Instant createdAt;
