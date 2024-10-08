@@ -18,7 +18,7 @@ import lombok.Builder;
  * 10/5/24        JAEIK       최초 생성
  */
 @Builder
-public record MemberSignInRequest(
+public record MemberSignInRequest (
         @Schema(description = "로그인 아이디", example = "user95")
         @NotBlank(message = "사용자 이름을 입력해주세요.")
         @Pattern(regexp = "^[A-Za-z\\d]+$",

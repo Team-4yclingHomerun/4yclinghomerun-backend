@@ -57,6 +57,12 @@ dependencies {
 	// password encoder
 	implementation("org.springframework.security:spring-security-crypto")
 	runtimeOnly("org.bouncycastle:bcprov-jdk18on:1.78.1")
+	// Jwt
+	dependencies {
+		implementation("io.jsonwebtoken:jjwt-api:0.12.3") //인터페이스 제공
+		implementation("io.jsonwebtoken:jjwt-impl:0.12.3") //인터페이스 구현체
+		implementation("io.jsonwebtoken:jjwt-jackson:0.12.3") // JSON 처리
+	}
     // swagger
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
 

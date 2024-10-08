@@ -14,5 +14,11 @@ spring:
     username: root
     password: root
 
+jwt:
+  secret_key: yclighomeurnFinalProJectYclighomeurnFinalProJect
+
+
+
 server:
   port: 8080
+
