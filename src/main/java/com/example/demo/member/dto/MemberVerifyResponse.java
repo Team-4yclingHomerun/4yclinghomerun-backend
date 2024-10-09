@@ -16,6 +16,7 @@ import lombok.Builder;
  */
 @Builder
 public record MemberVerifyResponse(
-        boolean isValid       // Role role
+        boolean isValid
+        // Role role
 ) {
 }

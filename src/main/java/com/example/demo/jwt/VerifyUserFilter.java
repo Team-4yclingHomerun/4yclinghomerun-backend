@@ -41,15 +41,20 @@ public class VerifyUserFilter implements Filter {
         String requestURI = httpServletRequest.getRequestURI();
         if ((httpServletRequest.getMethod().equals("POST") && requestURI.equals("/yclinghomerun/signIn") )) {
             try {
+                // 로그인 요청 데이터 파싱
                 MemberSignInRequest memberSignInRequest = objectMapper.readValue(request.getReader(), MemberSignInRequest.class);
+                // 사용자 인증 검증
                 MemberVerifyResponse verifyResponse = memberService.verifyUser(memberSignInRequest);
                 if (verifyResponse.isValid()) {
+                    // 인증 성공 시 사용자 정보를 요청에 설정
                     request.setAttribute(AUTHENTICATE_USER, new AuthenticateMember(memberSignInRequest.username()));
                 } else {
                     throw new IllegalArgumentException();
                 }
+                // 다음 필터로 요청 전달
                 filterChain.doFilter(request, response);
             } catch (Exception e) {
+                // 예외 발생 시 에러 응답
                 HttpServletResponse httpServletResponse = (HttpServletResponse) response;
                 httpServletResponse.sendError(HttpStatus.BAD_REQUEST.value());
             }
