@@ -34,6 +34,7 @@ public class Member extends UuidBaseEntity {
     private Instant createdAt;
     private Instant updatedAt;
 
+
     public void updatePassword(String password) {
         this.password = password;
     }

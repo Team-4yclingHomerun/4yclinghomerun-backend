@@ -48,28 +48,26 @@ public class JwtProvider {
     }
 
     //JWT 토큰을 캡슐화 생성 메서드
-    public JwtToken createJwtToken(UUID id, String username, Role role) {
-        String accessToken = createAccessToken(id, username, role);
+    public JwtToken createJwtToken(String username ) {
+        String accessToken = createAccessToken(username);
         return new JwtToken(accessToken);
     }
 
     // 액세스 토큰 생성 메서드
-    public String createAccessToken(UUID id, String username, Role role) {
+    public String createAccessToken(String username) {
         Map<String, Object> claims = new HashMap<>();
 
-        claims.put("id", id);
         claims.put("username", username);
-        if (role == Role.USER) {
-            claims.put("isUser", true);
-            claims.put("isAdmin", false);
-        }else if (role == Role.ADMIN) {
-            claims.put("isUser", false);
-            claims.put("isAdmin", true);
-        }
+//        if (role == Role.USER) {
+//            claims.put("isUser", true);
+//            claims.put("isAdmin", false);
+//        }else if (role == Role.ADMIN) {
+//            claims.put("isUser", false);
+//            claims.put("isAdmin", true);
+//        }
         Date expiration = new Date(System.currentTimeMillis() + ACCESS_TOKEN_TIME);
 
         return ACCESS_TOKEN_TIME + Jwts.builder()
-                .subject(id.toString())
                 .claims(claims)
                 .expiration(expiration)
                 .signWith(getSignWith())

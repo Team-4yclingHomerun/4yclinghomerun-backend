@@ -1,8 +1,13 @@
 package com.example.demo.member.service;
 
+import com.example.demo.jwt.JwtProvider;
+import com.example.demo.jwt.JwtToken;
 import com.example.demo.member.dto.MemberSignInRequest;
+import com.example.demo.member.dto.MemberSignInResponse;
 import com.example.demo.member.dto.MemberSignUpRequest;
+import com.example.demo.member.dto.MemberVerifyResponse;
 import com.example.demo.member.entity.Member;
+import com.example.demo.member.entity.Role;
 import com.example.demo.member.mapper.MemberDtoMapper;
 import com.example.demo.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +35,7 @@ public class MemberService
     private final MemberRepository memberRepository;
     private final MemberDtoMapper memberDtoMapper;
     private final PasswordEncoder passwordEncoder;
+    private final JwtProvider jwtProvider;
 
     @Override
     public Member signUp(Member member) {
@@ -53,8 +59,34 @@ public class MemberService
     }
 
     @Override
-    public Member signIn(MemberSignInRequest signInRequest) {
-        Member loginMember = memberDtoMapper.signInToEntity(signInRequest);
-        return loginMember;
+    public MemberSignInResponse signIn(MemberSignInRequest signInRequest) {
+//        MemberVerifyResponse verifyResponse = verifyUser(signInRequest);
+//        System.out.println("Verify Response: " + verifyResponse.isValid());
+//        if (!verifyResponse.isValid()) {
+//            throw new IllegalArgumentException("로그인가 비밀번호가 잘못되었습니다.");
+//        }
+        // Role role = verifyResponse.role();
+        JwtToken jwtToken = jwtProvider.createJwtToken(signInRequest.username());
+        System.out.println("Generated JWT Token: " + jwtToken.getAccessToken());
+        return new MemberSignInResponse(signInRequest.username(), signInRequest.password(), jwtToken.getAccessToken());
+    }
+
+    @Override
+    public MemberVerifyResponse verifyUser(MemberSignInRequest signInRequest) {
+        Member member = memberRepository.findByUsername(signInRequest.username());
+        if (member == null) {
+            return MemberVerifyResponse.builder()
+                    .isValid(false)
+                    .build();
+        }
+        boolean passwordMatches = passwordEncoder.matches(signInRequest.password(), member.getPassword());
+        if (!passwordMatches) {
+            return MemberVerifyResponse.builder()
+                    .isValid(false)
+                    .build();
+        }
+        return MemberVerifyResponse.builder()
+                .isValid(true)
+                .build();
     }
 }

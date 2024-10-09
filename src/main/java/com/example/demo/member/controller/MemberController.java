@@ -1,6 +1,7 @@
 package com.example.demo.member.controller;
 
 import com.example.demo.member.dto.MemberSignInRequest;
+import com.example.demo.member.dto.MemberSignInResponse;
 import com.example.demo.member.dto.MemberSignUpRequest;
 import com.example.demo.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -49,8 +50,8 @@ public class MemberController {
     @ApiResponse(responseCode = "400", description = "정규화에 맞추어서 입력하세요")
     @PostMapping("/login")
     ResponseEntity<?> login(@Valid @RequestBody MemberSignInRequest request) {
-        memberService.signIn(request);
-        return ResponseEntity.ok(request);
+        MemberSignInResponse signInResponse =memberService.signIn(request);
+        return ResponseEntity.ok(signInResponse);
     }
 
 }

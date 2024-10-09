@@ -1,7 +1,9 @@
 package com.example.demo.member.service;
 
 import com.example.demo.member.dto.MemberSignInRequest;
+import com.example.demo.member.dto.MemberSignInResponse;
 import com.example.demo.member.dto.MemberSignUpRequest;
+import com.example.demo.member.dto.MemberVerifyResponse;
 import com.example.demo.member.entity.Member;
 
 /**
@@ -16,5 +18,6 @@ import com.example.demo.member.entity.Member;
  * 10/2/24        JAEIK       최초 생성
  */
 public interface SignInUseCase {
-    Member signIn(MemberSignInRequest signInRequest);
+    MemberSignInResponse signIn(MemberSignInRequest signInRequest);
+    MemberVerifyResponse verifyUser(MemberSignInRequest signInRequest);
 }
