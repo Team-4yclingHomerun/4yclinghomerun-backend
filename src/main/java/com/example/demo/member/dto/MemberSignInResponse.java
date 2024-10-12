@@ -1,5 +1,7 @@
 package com.example.demo.member.dto;
 
+import java.util.UUID;
+
 /**
  * packageName    : com.example.demo.member.dto
  * fileName       : MemberSignInResponse

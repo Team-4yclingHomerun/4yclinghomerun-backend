@@ -2,6 +2,8 @@ package com.example.demo.auth;
 
 import com.example.demo.member.entity.Role;
 
+import java.util.UUID;
+
 /**
  * packageName    : com.example.demo.auth
  * fileName       : AuthenticateMember

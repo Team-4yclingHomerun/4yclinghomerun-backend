@@ -1,11 +1,14 @@
 package com.example.demo.member.service;
 
+import com.example.demo.auth.AuthenticateMember;
+import com.example.demo.exception.CustomException;
+import com.example.demo.exception.DeleteMemberErrorCode;
+import com.example.demo.exception.SignInErrorCode;
+import com.example.demo.exception.SignUpErrorCode;
+import com.example.demo.jpa.support.UuidBaseEntity;
 import com.example.demo.jwt.JwtProvider;
 import com.example.demo.jwt.JwtToken;
-import com.example.demo.member.dto.MemberSignInRequest;
-import com.example.demo.member.dto.MemberSignInResponse;
-import com.example.demo.member.dto.MemberSignUpRequest;
-import com.example.demo.member.dto.MemberVerifyResponse;
+import com.example.demo.member.dto.*;
 import com.example.demo.member.entity.Member;
 import com.example.demo.member.entity.Role;
 import com.example.demo.member.mapper.MemberDtoMapper;
@@ -14,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -46,34 +50,50 @@ public class MemberService
         member.updatePassword(encodedPassword);
         return memberRepository.save(member);
     }
-
+    // 회원가입
     @Override
-    public Member signUp(MemberSignUpRequest dto) {
-        Member member = memberDtoMapper.toEntity(dto);
+    public Member signUp(MemberSignUpRequest request) {
+        if (memberRepository.existsByUsername(request.username())) {
+            throw new CustomException(SignUpErrorCode.CONFLICTED_USERNAME);
+        }
+        if (memberRepository.existsByEmail(request.email())) {
+            throw new CustomException(SignUpErrorCode.CONFLICTED_EMAIL);
+        }
+        if (memberRepository.existsByNickname(request.nickname())) {
+            throw new CustomException(SignUpErrorCode.CONFLICTED_USERNAME);
+        }
+        Member member = memberDtoMapper.toEntity(request);
         return signUp(member);
     }
-
+    // 회원 삭제
     @Override
     public void deleteMember(UUID id) {
-        memberRepository.deleteById(id);
+        Optional<Member> member = memberRepository.findById(id);
+        if (member.isEmpty()) {
+            throw new CustomException(DeleteMemberErrorCode.MEMBER_NOT_FOUND);
+        }
+        try {
+            memberRepository.deleteById(id);
+        } catch (CustomException ce) {
+            throw new CustomException(DeleteMemberErrorCode.DATABASE_ERROR);
+        }
     }
-
+    // 로그인
     @Override
     public MemberSignInResponse signIn(MemberSignInRequest signInRequest) {
-//        MemberVerifyResponse verifyResponse = verifyUser(signInRequest);
-//        System.out.println("Verify Response: " + verifyResponse.isValid());
-//        if (!verifyResponse.isValid()) {
-//            throw new IllegalArgumentException("로그인가 비밀번호가 잘못되었습니다.");
-//        }
-        // Role role = verifyResponse.role();
-        JwtToken jwtToken = jwtProvider.createJwtToken(signInRequest.username());
-        System.out.println("Generated JWT Token: " + jwtToken.getAccessToken());
-        return new MemberSignInResponse(signInRequest.username(), signInRequest.password(), jwtToken.getAccessToken());
+            Member member = memberRepository.findByUsername(signInRequest.username())
+                    .orElseThrow(() -> new CustomException(SignInErrorCode.NOT_FOUND_USERNAME));
+            if (!passwordEncoder.matches(signInRequest.password(), member.getPassword())) {
+                throw new CustomException(SignInErrorCode.PASSWORD_MISMATCH);
+            }
+            JwtToken jwtToken = jwtProvider.createJwtToken(signInRequest.username());
+            return new MemberSignInResponse(signInRequest.username(), signInRequest.password(), jwtToken.getAccessToken());
     }
-
+    // 아이디, 패스워드 인증 메서드
     @Override
     public MemberVerifyResponse verifyUser(MemberSignInRequest signInRequest) {
-        Member member = memberRepository.findByUsername(signInRequest.username());
+        Member member = memberRepository.findByUsername(signInRequest.username())
+                .orElseThrow(()->new CustomException(SignInErrorCode.NOT_FOUND_USERNAME));
         if (member == null) {
             return MemberVerifyResponse.builder()
                     .isValid(false)
@@ -89,4 +109,5 @@ public class MemberService
                 .isValid(true)
                 .build();
     }
+
 }
