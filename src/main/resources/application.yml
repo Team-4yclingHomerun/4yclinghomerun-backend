@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: prod
   config:
     import:
       - app/authorization/authorization.yml
