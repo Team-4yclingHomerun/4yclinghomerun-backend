@@ -48,23 +48,12 @@ public class MemberService
     private final JwtAuthenticationProxyService jwtProvider;
 
     @Override
-    @Transactional
-    public Member signUp(Member member) {
+    public Member signUp(Member member ) {
         if (member.getPassword() == null) {
             throw new IllegalArgumentException("Password cannot be null");
         }
         String encodedPassword = passwordEncoder.encode(member.getPassword());
         member.updatePassword(encodedPassword);
-
-        Roles userRole = roleRepository.findByRoleName(Role.USER);
-        if (userRole == null) {
-            throw new IllegalArgumentException("권한을 찾을 수 없습니다.");
-        }
-        if (member.getRoles() == null) {
-            member.setRoles(new HashSet<>()); // roles가 null이면 빈 Set으로 초기화
-        }
-        member.getRoles().add(userRole);
-        log.debug("After adding roles: {}", member.getRoles());
 
         return memberRepository.save(member);
     }
@@ -80,8 +69,12 @@ public class MemberService
         if (memberRepository.existsByNickname(request.nickname())) {
             throw new CustomException(SignUpErrorCode.CONFLICTED_NICKNAME);
         }
-        Member member = memberDtoMapper.toEntity(request, status, createAt, updateAt);
-
+        Roles userRole = roleRepository.findByRoleName(Role.USER);
+        if (userRole == null) {
+            throw new IllegalArgumentException("권한을 찾을 수 없습니다.");
+        }
+        Member member = memberDtoMapper.toEntity(request, status, createAt, updateAt, userRole);
+        member.addRole(userRole);
         return signUp(member);
     }
     // 회원 삭제

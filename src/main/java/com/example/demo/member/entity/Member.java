@@ -42,24 +42,19 @@ public class Member extends UuidBaseEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Roles> roles = new HashSet<>();
 
-    public Member(String username, String password, String nickname, String email) {
+    public Member(String username, String password, String nickname, String email, Roles role) {
         this.username = username;
         this.password = password;
         this.nickname = nickname;
         this.email = email;
         this.status = MemberStatus.ACTIVE;
-
+        this.roles = Set.of(role);
     }
-    public Member(Roles role) {
-        this.roles = new HashSet<>();
-        this.roles.add(role);  // 첫 번째 역할 추가
-    }
-    public Member(Set<Roles> roles) {
-        this.roles = roles;
-    }
-
-    public void setRoles(Set<Roles> roles) {
-        this.roles = roles;
+    public void addRole(Roles role) {
+        if (this.roles == null) {
+            this.roles = new HashSet<>();
+        }
+        this.roles.add(role);
     }
 
     public void updatePassword(String password) {

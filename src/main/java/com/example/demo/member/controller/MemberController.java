@@ -6,6 +6,7 @@ import com.example.demo.member.dto.MemberSignInResponse;
 import com.example.demo.member.dto.MemberSignUpRequest;
 import com.example.demo.member.entity.MemberStatus;
 import com.example.demo.member.entity.Role;
+import com.example.demo.member.entity.Roles;
 import com.example.demo.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
