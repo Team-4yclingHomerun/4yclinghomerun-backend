@@ -3,6 +3,9 @@ package com.example.demo.member.dto;
 import com.example.demo.member.entity.Role;
 import lombok.Builder;
 
+import java.util.Set;
+import java.util.UUID;
+
 /**
  * packageName    : com.example.demo.member.dto
  * fileName       : MemberVerifyResponse
@@ -16,7 +19,8 @@ import lombok.Builder;
  */
 @Builder
 public record MemberVerifyResponse(
-        boolean isValid
-        // Role role
+        boolean isValid,
+        UUID id,
+        Set<Role> roles
 ) {
 }

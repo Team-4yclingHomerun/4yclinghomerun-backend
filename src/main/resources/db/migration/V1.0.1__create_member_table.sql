@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS auth.member
     created_at  TIMESTAMP       DEFAULT NOW(),
     updated_at  TIMESTAMP,
 
+
     CONSTRAINT uq_member_username UNIQUE (username),
     CONSTRAINT uq_member_nickname UNIQUE (nickname)
 );

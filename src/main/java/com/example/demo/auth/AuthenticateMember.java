@@ -2,6 +2,7 @@ package com.example.demo.auth;
 
 import com.example.demo.member.entity.Role;
 
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -16,8 +17,8 @@ import java.util.UUID;
  * 10/9/24        JAEIK       최초 생성
  */
 public record AuthenticateMember(
-        String username
-
-        //Role role
+        UUID id,
+        String username,
+        Set<Role> role
 ) {
 }

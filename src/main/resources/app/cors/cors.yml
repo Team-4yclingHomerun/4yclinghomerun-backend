@@ -1,0 +1,12 @@
+demo:
+  cors:
+    allow-credentials: true
+    allowed-headers: "*"
+    allowed-origins:
+      - http://localhost:3000
+      - https://localhost:3000
+      - http://localhost:3010
+      - https://localhost:3010
+    allowed-methods: "*"
+    expose-headers:  "*"
+    max-age: 3_600

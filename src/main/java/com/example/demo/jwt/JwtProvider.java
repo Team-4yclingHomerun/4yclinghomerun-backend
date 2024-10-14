@@ -1,14 +1,18 @@
 package com.example.demo.jwt;
 
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SecurityException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
-import java.util.*;
+import java.util.Base64;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * packageName    : com.example.demo.jwt
@@ -22,53 +26,28 @@ import java.util.*;
  * 10/8/24        JAEIK       최초 생성
  */
 @Slf4j
-@Component
 public class JwtProvider {
-
-    private static String key;
-    private static String keyBase64Encoded;
-    private static SecretKey signWith;
+    private final SecretKey secretKey;
+    private final long maxAge;
 
     // Jwt 생성하고 검증하는데 필요한 비밀키를 설정
-    public JwtProvider(@Value("${jwt.secret_key}") String keyParam) {
-        key = keyParam;
-        keyBase64Encoded = Base64.getEncoder().encodeToString(key.getBytes());
-        signWith = Keys.hmacShaKeyFor(keyBase64Encoded.getBytes());
-
-    }
-
-    public static String getKey() {
-        return key;
-    }
-
-    public static SecretKey getSignWith() {
-        return signWith;
-    }
-
-    //JWT 토큰을 캡슐화 생성 메서드
-    public JwtToken createJwtToken(String username) {
-        String accessToken = createAccessToken(username);
-        return new JwtToken(accessToken);
+    public JwtProvider(String key, long maxAge) {
+        String keyBase64Encoded = Base64.getEncoder().withoutPadding().encodeToString(key.getBytes());
+        secretKey = Keys.hmacShaKeyFor(keyBase64Encoded.getBytes());
+        this.maxAge = maxAge;
     }
 
     // 액세스 토큰 생성 메서드
-    public String createAccessToken(String username) {
-        Map<String, Object> claims = new HashMap<>();
+    public String create(String subject, Map<String, ?> claimMap) {
+        Date issuedAt = new Date();
+        Date expiration = new Date(System.currentTimeMillis() + maxAge);
 
-        claims.put("username", username);
-//        if (role == Role.USER) {
-//            claims.put("isUser", true);
-//            claims.put("isAdmin", false);
-//        }else if (role == Role.ADMIN) {
-//            claims.put("isUser", false);
-//            claims.put("isAdmin", true);
-//        }
-        Date expiration = new Date(System.currentTimeMillis() + JwtProperties.ACCESS_TOKEN_EXPIRATION_TIME);
-
-        return JwtProperties.ACCESS_TOKEN_EXPIRATION_TIME + Jwts.builder()
-                .claims(claims)
-                .expiration(expiration)
-                .signWith(getSignWith())
+        return Jwts.builder()
+                .subject(subject)
+                .claims(claimMap)
+                .issuedAt(issuedAt)
+                .expiration(expiration) //유효 기간
+                .signWith(secretKey) // 서명 설정
                 .compact();
     }
 
@@ -76,7 +55,7 @@ public class JwtProvider {
     public boolean validateToken(String token) {
         try {
             Claims claims = Jwts.parser()
-                    .verifyWith((SecretKey) signWith)
+                    .verifyWith(secretKey)
                     .build()
                     .parseSignedClaims(token)
                     .getPayload();
@@ -93,21 +72,6 @@ public class JwtProvider {
 
         }
         return false;
-    }
-    // Jwt 토큰 파싱 메서드
-    public Jws<Claims> parseClaims(String token) {
-        Jws<Claims> claimsJws;
-        try {
-            claimsJws = Jwts.parser()
-                    .verifyWith(getSignWith())
-                    .build()
-                    .parseSignedClaims(token);
-        } catch (ExpiredJwtException eje) {
-            return null;
-        } catch (JwtException je) {
-            throw new IllegalArgumentException("잘못된 토큰입니다.");
-        }
-        return claimsJws;
     }
 }
 

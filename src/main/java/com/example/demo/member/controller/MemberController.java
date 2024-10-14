@@ -1,8 +1,11 @@
 package com.example.demo.member.controller;
 
+import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.member.dto.MemberSignInRequest;
 import com.example.demo.member.dto.MemberSignInResponse;
 import com.example.demo.member.dto.MemberSignUpRequest;
+import com.example.demo.member.entity.MemberStatus;
+import com.example.demo.member.entity.Role;
 import com.example.demo.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -12,7 +15,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
 import java.util.UUID;
+
+import static com.example.demo.auth.AuthorizationConstants.LOGIN_MEMBER_ATTRIBUTE;
 
 /**
  * packageName    : com.example.demo.member.controller
@@ -36,16 +42,22 @@ public class MemberController {
     @ApiResponse(responseCode = "400", description = "정규화에 맞추어서 입력하세요")
     @PostMapping("/signUp")
     ResponseEntity<?> createMember(@Valid @RequestBody MemberSignUpRequest request) {
-        memberService.signUp(request);
+        MemberStatus status = MemberStatus.ACTIVE;
+        Instant createAt = Instant.now();
+        Instant updateAt = createAt;
+        memberService.signUp(request, status, createAt, updateAt);
         return ResponseEntity.ok(request);
     }
+
     @Operation(summary = "멤버 삭제", description = "UUID를 통해서 멤버를 삭제합니다.")
     @ApiResponse(responseCode = "400", description = "정규화에 맞추어서 입력하세요")
-    @DeleteMapping("/deleteMember/{id}")
-    ResponseEntity<?> deleteMember(@PathVariable UUID id) {
+    @DeleteMapping("/me")
+    ResponseEntity<?> deleteMember(@RequestAttribute(LOGIN_MEMBER_ATTRIBUTE) AuthenticateMember member) {
+        UUID id = member.id();
         memberService.deleteMember(id);
         return ResponseEntity.noContent().build();
     }
+
     @Operation(summary = "로그인", description = "사용자가 로그인을 합니다.")
     @ApiResponse(responseCode = "400", description = "정규화에 맞추어서 입력하세요")
     @PostMapping("/login")
@@ -53,5 +65,4 @@ public class MemberController {
         MemberSignInResponse signInResponse =memberService.signIn(request);
         return ResponseEntity.ok(signInResponse);
     }
-
 }

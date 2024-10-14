@@ -1,4 +1,9 @@
 spring:
+  config:
+    import:
+      - app/authorization/authorization.yml
+      - app/cors/cors.yml
+
   flyway:
     baseline-on-migrate: true
 
@@ -7,6 +12,8 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+    hibernate:
+      ddl-auto: none
 
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -15,7 +22,8 @@ spring:
     password: root
 
 jwt:
-  secret_key: yclighomeurnFinalProJectYclighomeurnFinalProJect
+  secret-key: ${JWT_SECRET:yclighomeurnFinalProJectYclighomeurnFinalProJect}
+  max-age: ${JWT_MAX_AGE:3600000}
 
 logging:
   level:
@@ -23,4 +31,3 @@ logging:
 
 server:
   port: 8080
-

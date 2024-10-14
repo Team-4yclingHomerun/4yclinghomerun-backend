@@ -4,6 +4,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
 
 /**
  * packageName    : com.example.demo.jpa.support
@@ -17,6 +18,7 @@ import jakarta.persistence.MappedSuperclass;
  * 10/2/24        JAEIK       최초 생성
  */
 @MappedSuperclass
+@Getter
 public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

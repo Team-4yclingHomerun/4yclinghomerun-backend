@@ -47,7 +47,11 @@ public class VerifyUserFilter implements Filter {
                 MemberVerifyResponse verifyResponse = memberService.verifyUser(memberSignInRequest);
                 if (verifyResponse.isValid()) {
                     // 인증 성공 시 사용자 정보를 요청에 설정
-                    request.setAttribute(AUTHENTICATE_USER, new AuthenticateMember(memberSignInRequest.username()));
+                    request.setAttribute(AUTHENTICATE_USER, new AuthenticateMember(
+                            verifyResponse.id(),
+                            memberSignInRequest.username(),
+                            verifyResponse.roles())
+                    );
                 } else {
                     throw new IllegalArgumentException();
                 }

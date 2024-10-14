@@ -15,7 +15,8 @@ import org.springframework.http.HttpStatus;
  */
 public enum SignInErrorCode implements ErrorCode {
     NOT_FOUND_USERNAME("존재하지 않는 유저 입니다.", HttpStatus.NOT_FOUND),
-    PASSWORD_MISMATCH("비밀번호가 일치하지 않습니다.", HttpStatus.UNAUTHORIZED);
+    PASSWORD_MISMATCH("비밀번호가 일치하지 않습니다.", HttpStatus.UNAUTHORIZED),
+    NO_ROLE_FOUND_MEMBER("권환이 등록되지 않는 유저입니다.", HttpStatus.INTERNAL_SERVER_ERROR);
 
     private final String message;
     private final HttpStatus status;
