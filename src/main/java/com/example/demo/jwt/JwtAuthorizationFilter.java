@@ -53,7 +53,8 @@ public class JwtAuthorizationFilter implements Filter {
             "/yclinghomerun/login",
             "/swagger-ui.html",
             "/swagger-ui/**",
-            "/v3/api-docs/**"};
+            "/v3/api-docs/**",
+            "/public/**"};
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;
 
