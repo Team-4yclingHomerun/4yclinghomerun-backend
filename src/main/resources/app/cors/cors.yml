@@ -8,6 +8,7 @@ demo:
       - http://localhost:3010
       - https://localhost:3010
       - http://54.181.1.100:8080
+      - http://localhost:5173
     allowed-methods: "*"
     expose-headers:  "*"
     max-age: 3_600
