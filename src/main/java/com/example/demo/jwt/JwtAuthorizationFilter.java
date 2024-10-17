@@ -54,7 +54,9 @@ public class JwtAuthorizationFilter implements Filter {
             "/swagger-ui.html",
             "/swagger-ui/**",
             "/v3/api-docs/**",
-            "/public/**"};
+            "/public/**",
+            "/oauth/*",
+            "/oauth/login/kakao"};
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;
 

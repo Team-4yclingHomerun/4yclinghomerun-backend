@@ -1,9 +1,6 @@
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://54.181.1.100:5432/postgres
-    username: kimjaeik
-    password: 1815
+
+
   jpa:
     properties:
       hibernate:
@@ -12,4 +9,9 @@ spring:
     hibernate:
       ddl-auto: none
 
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5442/auth
+    username: root
+    password: root
 

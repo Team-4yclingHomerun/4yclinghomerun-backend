@@ -2,6 +2,8 @@ package com.example.demo.jwt;
 
 import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.member.entity.Role;
+import com.example.demo.member.service.MemberService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import jakarta.servlet.*;
@@ -29,7 +31,8 @@ import java.util.stream.Collectors;
 public class JwtFilter /* implements Filter */ {
     private final JwtParser jwtParser;
     private final JwtProvider jwtProvider;
-//    @Override
+
+    //    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         // HTTP 요청에서 토큰 추출
