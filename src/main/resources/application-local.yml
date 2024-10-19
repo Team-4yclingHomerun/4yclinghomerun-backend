@@ -14,4 +14,7 @@ spring:
     url: jdbc:postgresql://localhost:5442/auth
     username: root
     password: root
-
+  flyway:
+    locations:
+      - db/migration
+      - db/migration/local

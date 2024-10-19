@@ -36,7 +36,7 @@ public class AuthCodeRequestUrlProviderComposite {
         mapping = providers.stream()
                 .collect(Collectors.toMap(
                         AuthCodeRequestUrlProvider::supportServer,
-                        Function.identity()
+                        identity()
                 ));
         log.info("Providers received: {}", providers);
 
@@ -45,6 +45,7 @@ public class AuthCodeRequestUrlProviderComposite {
     public String provide(OauthServerType oauthServerType) {
         return getProvider(oauthServerType).provide();
     }
+
     private AuthCodeRequestUrlProvider getProvider(OauthServerType oauthServerType) {
         System.out.println("provide kakao:" + mapping.containsKey(oauthServerType));
         return Optional.ofNullable(mapping.get(oauthServerType))

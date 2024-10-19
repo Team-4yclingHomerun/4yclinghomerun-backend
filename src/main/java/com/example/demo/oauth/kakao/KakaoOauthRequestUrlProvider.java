@@ -1,11 +1,14 @@
-package com.example.demo.oauth;
+package com.example.demo.oauth.kakao;
 
+import com.example.demo.oauth.OauthServerType;
 import com.example.demo.oauth.authcode.AuthCodeRequestUrlProvider;
-import com.example.demo.web.properties.KakaoOauthProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * packageName    : com.example.demo.oauth
@@ -18,28 +21,30 @@ import org.springframework.web.util.UriComponentsBuilder;
  * -----------------------------------------------------------
  * 10/17/24        JAEIK       최초 생성
  */
-@RequiredArgsConstructor
-@Slf4j
 @Component
+@Slf4j
 public class KakaoOauthRequestUrlProvider implements AuthCodeRequestUrlProvider {
 
-    private final KakaoOauthProperties kakaoOauthProperties;
+    private final String url;
 
-    @Override
-    public OauthServerType supportServer() {
-        log.info("Returning server type: {}", OauthServerType.KAKAO);
-        return OauthServerType.KAKAO;
-    }
-    @Override
-    public String provide() {
-        String uri = UriComponentsBuilder  // URI 구성하는데 특화된 빌더
+    public KakaoOauthRequestUrlProvider(KakaoOauthProperties kakaoOauthProperties) {
+        this.url = UriComponentsBuilder  // URI 구성하는데 특화된 빌더
                 .fromUriString("https://kauth.kakao.com/oauth/authorize")
                 .queryParam("response_type", "code")
                 .queryParam("client_id", kakaoOauthProperties.clientId())
                 .queryParam("redirect_uri", kakaoOauthProperties.redirectUri())
                 .queryParam("scope", String.join(",", kakaoOauthProperties.scope()))
                 .toUriString();
-        System.out.println("Generated URL: " + uri);
-        return uri;
+    }
+
+    @Override
+    public OauthServerType supportServer() {
+        log.info("Returning server type: {}", OauthServerType.KAKAO);
+        return OauthServerType.KAKAO;
+    }
+
+    @Override
+    public String provide() {
+        return url;
     }
 }

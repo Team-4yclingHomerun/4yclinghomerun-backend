@@ -39,6 +39,11 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+	// Spring WebFlux WebClient와 같은 비동기식 HTTP 클라이언트를 지원합니다.
+	//  spring-boot-starter-web vs spring-boot-starter-webflux 택 1
+	//  spring-boot-starter-web (webmvc, tomcat)
+	//  spring-boot-starter-webflux (webflux, reactive, netty)
+	// implementation("org.springframework.boot:spring-boot-starter-webflux")
 
 	// database
 	runtimeOnly("org.postgresql:postgresql:42.7.4")
@@ -70,7 +75,7 @@ dependencies {
     // swagger
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
 	// Oauth
-	implementation ("org.springframework.boot:spring-boot-starter-oauth2-client")
+	// implementation ("org.springframework.boot:spring-boot-starter-oauth2-client")
 }
 
 tasks.withType<Test> {

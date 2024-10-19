@@ -56,7 +56,9 @@ public class JwtAuthorizationFilter implements Filter {
             "/v3/api-docs/**",
             "/public/**",
             "/oauth/*",
-            "/oauth/login/kakao"};
+            "/oauth/login/kakao",
+            "/login/auth/redirected/kakao"
+    };
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;
 

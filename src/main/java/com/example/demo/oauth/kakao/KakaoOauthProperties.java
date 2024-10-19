@@ -1,4 +1,4 @@
-package com.example.demo.web.properties;
+package com.example.demo.oauth.kakao;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
@@ -17,9 +17,9 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesBindin
 @ConfigurationProperties("demo.oauth")
 @ConfigurationPropertiesBinding
 public record KakaoOauthProperties(
-    String clientId,
-    String clientSecret,
-    String redirectUri,
-    String[] scope
+        String clientId,
+        String clientSecret,
+        String redirectUri,
+        String[] scope
 ) {
 }

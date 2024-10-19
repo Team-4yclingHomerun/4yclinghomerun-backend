@@ -1,8 +1,5 @@
 package com.example.demo.config;
 
-import com.example.demo.jwt.JwtFilter;
-import com.example.demo.jwt.JwtParser;
-import com.example.demo.jwt.JwtProvider;
 import com.example.demo.jwt.VerifyUserFilter;
 import com.example.demo.member.service.MemberService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +7,6 @@ import jakarta.servlet.Filter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter;
 
 /**
  * packageName    : com.example.demo.config
@@ -47,5 +43,4 @@ public class WebConfig {
 //        filterRegistrationBean.addUrlPatterns("/oauth/*");
 //        return filterRegistrationBean;
 //    }
-
 }

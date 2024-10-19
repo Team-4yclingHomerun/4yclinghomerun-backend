@@ -1,6 +1,7 @@
 package com.example.demo.member.entity;
 
 import com.example.demo.jpa.support.UuidBaseEntity;
+import com.example.demo.oauth.OauthMember;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -50,6 +51,8 @@ public class Member extends UuidBaseEntity {
         this.status = MemberStatus.ACTIVE;
         this.roles = Set.of(role);
     }
+
+
     public void addRole(Roles role) {
         if (this.roles == null) {
             this.roles = new HashSet<>();
