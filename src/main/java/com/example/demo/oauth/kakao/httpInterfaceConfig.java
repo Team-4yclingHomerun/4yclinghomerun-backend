@@ -25,16 +25,18 @@ public class httpInterfaceConfig {
     public KakaoApiClient kakaoApiClient() {
         return createApiClient(KakaoApiClientService.class);
     }
+
     @Bean
     public GoogleApiClient googleApiClient() {
         return createApiClient(GoogleApiClient.class);
     }
+
     private <T> T createApiClient(Class<T> clientClass) {
-        RestClient restClient =RestClient.create();
+        RestClient restClient = RestClient.create();
         RestClientAdapter restClientAdapter = RestClientAdapter.create(restClient);
         HttpServiceProxyFactory factory = HttpServiceProxyFactory
                 .builderFor(restClientAdapter)
                 .build();
         return factory.createClient(clientClass);
+    }
 }
-

@@ -32,13 +32,14 @@ public class GoogleApiClientService implements GoogleApiClient{
         return restClient.post()
                 .uri("https://oauth2.googleapis.com/token")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .body(params)
                 .retrieve()
                 .body(GoogleToken.class);
     }
 
     @Override
     public GoogleMemberResponse fetchMember(String bearerToken) {
-        return restClient.post()
+        return restClient.get()
                 .uri("https://accounts.google.com/o/oauth2/v2/auth")
                 .header(JwtProperties.ACCESS_TOKEN_HEADER, bearerToken)
                 .retrieve()
