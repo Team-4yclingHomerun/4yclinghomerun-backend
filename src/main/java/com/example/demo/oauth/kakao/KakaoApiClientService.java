@@ -20,7 +20,7 @@ import org.springframework.web.client.RestClient;
  * 10/19/24        JAEIK       최초 생성
  */
 @Service
-public class KakaoApiClientImpl implements KakaoApiClient{
+public class KakaoApiClientService implements KakaoApiClient{
 
     @Override
     public KakaoToken fetchToken(MultiValueMap<String, String> params) {

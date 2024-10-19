@@ -3,12 +3,9 @@ package com.example.demo.oauth.kakao;
 import com.example.demo.oauth.google.GoogleApiClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.support.RestClientAdapter;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
-
-import java.net.http.HttpClient;
 
 /**
  * packageName    : com.example.demo.oauth.kakao
@@ -26,7 +23,7 @@ public class httpInterfaceConfig {
 
     @Bean
     public KakaoApiClient kakaoApiClient() {
-        return createApiClient(KakaoApiClientImpl.class);
+        return createApiClient(KakaoApiClientService.class);
     }
     @Bean
     public GoogleApiClient googleApiClient() {

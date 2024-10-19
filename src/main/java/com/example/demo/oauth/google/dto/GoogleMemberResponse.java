@@ -1,4 +1,4 @@
-package com.example.demo.oauth.google;
+package com.example.demo.oauth.google.dto;
 
 import com.example.demo.oauth.OauthId;
 import com.example.demo.oauth.OauthMember;

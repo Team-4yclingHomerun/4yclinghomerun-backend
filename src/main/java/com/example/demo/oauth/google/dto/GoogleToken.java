@@ -1,4 +1,4 @@
-package com.example.demo.oauth.google;
+package com.example.demo.oauth.google.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

@@ -27,7 +27,7 @@ import org.springframework.util.MultiValueMap;
 @Slf4j
 public class KakaoMemberClient implements OauthMemberClient {
 
-    private final KakaoApiClientImpl kakaoApiClient;
+    private final KakaoApiClientService kakaoApiClient;
     private final KakaoOauthProperties kakaoOauthProperties;
 
     @Override

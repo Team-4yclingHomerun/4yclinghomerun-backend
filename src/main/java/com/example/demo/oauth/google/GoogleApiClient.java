@@ -1,6 +1,8 @@
 package com.example.demo.oauth.google;
 
 import com.example.demo.jwt.JwtProperties;
+import com.example.demo.oauth.google.dto.GoogleMemberResponse;
+import com.example.demo.oauth.google.dto.GoogleToken;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
