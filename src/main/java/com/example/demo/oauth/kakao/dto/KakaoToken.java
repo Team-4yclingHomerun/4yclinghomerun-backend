@@ -1,4 +1,4 @@
-package com.example.demo.oauth.kakao;
+package com.example.demo.oauth.kakao.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

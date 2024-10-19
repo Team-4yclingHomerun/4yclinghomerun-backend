@@ -2,9 +2,7 @@ package com.example.demo.oauth.kakao;
 
 import com.example.demo.jwt.JwtProperties;
 import com.example.demo.oauth.kakao.dto.KakaoMemberResponse;
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
+import com.example.demo.oauth.kakao.dto.KakaoToken;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;

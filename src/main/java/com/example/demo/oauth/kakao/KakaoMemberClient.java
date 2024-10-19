@@ -4,14 +4,12 @@ import com.example.demo.oauth.OauthMember;
 import com.example.demo.oauth.OauthMemberClient;
 import com.example.demo.oauth.OauthServerType;
 import com.example.demo.oauth.kakao.dto.KakaoMemberResponse;
+import com.example.demo.oauth.kakao.dto.KakaoToken;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springdoc.core.models.RequestBodyInfo;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestClient;
 
 /**
  * packageName    : com.example.demo.oauth.kakao
