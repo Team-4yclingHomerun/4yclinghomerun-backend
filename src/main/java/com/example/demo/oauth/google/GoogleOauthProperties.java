@@ -16,7 +16,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesBindin
  */
 @ConfigurationProperties("demo.oauth.google")
 @ConfigurationPropertiesBinding
-public record googleOauthProperties(
+public record GoogleOauthProperties(
         String clientId,
         String clientSecret,
         String redirectUri,
