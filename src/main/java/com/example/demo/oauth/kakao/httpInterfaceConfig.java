@@ -1,5 +1,6 @@
 package com.example.demo.oauth.kakao;
 
+import com.example.demo.oauth.google.GoogleApiClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
@@ -32,4 +33,14 @@ public class httpInterfaceConfig {
                 .build();
         return factory.createClient(KakaoApiClient.class);
     }
+    @Bean
+    public GoogleApiClient googleApiClient() {
+        RestClient restClient =RestClient.create();
+        RestClientAdapter restClientAdapter = RestClientAdapter.create(restClient);
+        HttpServiceProxyFactory factory = HttpServiceProxyFactory
+                .builderFor(restClientAdapter)
+                .build();
+        return factory.createClient(GoogleApiClient.class);
+    }
 }
+
