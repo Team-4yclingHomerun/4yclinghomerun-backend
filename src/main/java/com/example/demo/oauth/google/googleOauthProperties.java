@@ -1,22 +1,22 @@
-package com.example.demo.oauth.kakao;
+package com.example.demo.oauth.google;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 
 /**
- * packageName    : com.example.demo.oauth.properties
- * fileName       : KakaoOauthProperties
+ * packageName    : com.example.demo.oauth.google
+ * fileName       : googleOauthProperties
  * author         : JAEIK
- * date           : 10/17/24
+ * date           : 10/20/24
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 10/17/24        JAEIK       최초 생성
+ * 10/20/24        JAEIK       최초 생성
  */
-@ConfigurationProperties("demo.oauth.kakao")
+@ConfigurationProperties("demo.oauth.google")
 @ConfigurationPropertiesBinding
-public record KakaoOauthProperties(
+public record googleOauthProperties(
         String clientId,
         String clientSecret,
         String redirectUri,
