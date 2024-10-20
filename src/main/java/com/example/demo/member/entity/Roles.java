@@ -1,6 +1,7 @@
 package com.example.demo.member.entity;
 
 import com.example.demo.jpa.support.BaseEntity;
+import com.example.demo.oauth.OauthMember;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,6 +31,8 @@ public class Roles extends BaseEntity {
     private Role roleName;
     @ManyToMany(mappedBy = "roles")
     private Set<Member> members = new HashSet<>();
+    @ManyToMany
+    private Set<OauthMember> oauthMembers = new HashSet<>();
 
     public Roles(Role roleName) {
         this.roleName = roleName;

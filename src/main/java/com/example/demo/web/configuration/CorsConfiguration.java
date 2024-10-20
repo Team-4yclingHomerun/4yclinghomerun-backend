@@ -1,9 +1,11 @@
 package com.example.demo.web.configuration;
 
+import com.example.demo.oauth.OauthServerTypeConverter;
 import com.example.demo.web.properties.DemoCorsProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -37,6 +39,10 @@ public class CorsConfiguration implements WebMvcConfigurer {
                 .allowedMethods(cors.allowedMethods())
                 .exposedHeaders(cors.exposeHeaders())
                 .maxAge(cors.maxAge());
+    }
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new OauthServerTypeConverter());
     }
 
     private void log() {

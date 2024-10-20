@@ -15,10 +15,14 @@ import com.example.demo.member.repository.MemberRepository;
 import com.example.demo.member.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.time.Instant;
 import java.util.*;
 
@@ -41,6 +45,7 @@ import static org.hibernate.validator.internal.util.Contracts.assertTrue;
 public class MemberService
         implements SignUpUseCase, SignInUseCase, PasswordResetUseCase {
 
+
     private final MemberRepository memberRepository;
     private final RoleRepository roleRepository;
     private final MemberDtoMapper memberDtoMapper;
@@ -54,7 +59,6 @@ public class MemberService
         }
         String encodedPassword = passwordEncoder.encode(member.getPassword());
         member.updatePassword(encodedPassword);
-
         return memberRepository.save(member);
     }
     // 회원가입

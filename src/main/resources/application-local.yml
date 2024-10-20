@@ -1,9 +1,6 @@
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://54.181.1.100:5432/postgres
-    username: kimjaeik
-    password: 1815
+
+
   jpa:
     properties:
       hibernate:
@@ -12,4 +9,12 @@ spring:
     hibernate:
       ddl-auto: none
 
-
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${LOCAL_DATABASE_URI}
+    username: ${LOCAL_DATABASE_ROOT}
+    password: ${LOCAL_DATABASE_PASSWORD}
+  flyway:
+    locations:
+      - db/migration
+      - db/migration/local

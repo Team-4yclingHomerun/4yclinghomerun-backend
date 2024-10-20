@@ -26,7 +26,6 @@ import java.net.http.HttpRequest;
  * -----------------------------------------------------------
  * 10/9/24        JAEIK       최초 생성
  */
-@Component
 @RequiredArgsConstructor
 public class VerifyUserFilter implements Filter {
     public static final String AUTHENTICATE_USER = "authenticateUser";

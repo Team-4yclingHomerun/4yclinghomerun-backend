@@ -1,14 +1,22 @@
 spring:
   profiles:
-    active: prod
+    active: local
   config:
     import:
+      - optional:file:.env[.properties]
       - app/authorization/authorization.yml
       - app/cors/cors.yml
+      - app/oauth/oauth.yml
 
   flyway:
     baseline-on-migrate: true
 
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SERVER_DATABASE_URI}
+    username: ${SERVER_DATABASE_ROOT}
+    password: ${SERVER_DATABASE_PASSWORD}
   jpa:
     properties:
       hibernate:
@@ -17,14 +25,8 @@ spring:
     hibernate:
       ddl-auto: none
 
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5442/auth
-    username: root
-    password: root
-
 jwt:
-  secret-key: ${JWT_SECRET:yclighomeurnFinalProJectYclighomeurnFinalProJect}
+  secret-key: ${JWT_SECRET_KEY}
   max-age: ${JWT_MAX_AGE:3600000}
 
 logging:
