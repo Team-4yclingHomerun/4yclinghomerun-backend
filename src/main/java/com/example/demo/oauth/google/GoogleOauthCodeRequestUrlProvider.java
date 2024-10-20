@@ -17,14 +17,14 @@ import org.springframework.web.util.UriComponentsBuilder;
  * 10/20/24        JAEIK       최초 생성
  */
 @Component
-public class GoogleAuthCodeRequestUrlProvider implements AuthCodeRequestUrlProvider {
+public class GoogleOauthCodeRequestUrlProvider implements AuthCodeRequestUrlProvider {
 
     private final String url;
 
-    public GoogleAuthCodeRequestUrlProvider(GoogleOauthProperties googleOauthProperties) {
+    public GoogleOauthCodeRequestUrlProvider(GoogleOauthProperties googleOauthProperties) {
         this.url = UriComponentsBuilder
                 .fromHttpUrl("https://accounts.google.com/o/oauth2/v2/auth")
-                .queryParam("response_style", "code")
+                .queryParam("response_type", "code")
                 .queryParam("client_id", googleOauthProperties.clientId())
                 .queryParam("redirect_uri", googleOauthProperties.redirectUri())
                 .queryParam("scope", String.join(".", googleOauthProperties.scope()))

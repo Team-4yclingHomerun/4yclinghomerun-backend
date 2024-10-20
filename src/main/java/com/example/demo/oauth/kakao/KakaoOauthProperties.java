@@ -20,6 +20,6 @@ public record KakaoOauthProperties(
         String clientId,
         String clientSecret,
         String redirectUri,
-        String[] scope
+        String scope
 ) {
 }

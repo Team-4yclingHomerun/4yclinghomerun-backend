@@ -6,6 +6,7 @@ import com.example.demo.oauth.google.dto.GoogleToken;
 import com.example.demo.oauth.kakao.dto.KakaoMemberResponse;
 import com.example.demo.oauth.kakao.dto.KakaoToken;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
@@ -40,7 +41,7 @@ public class GoogleApiClientService implements GoogleApiClient{
     @Override
     public GoogleMemberResponse fetchMember(String bearerToken) {
         return restClient.get()
-                .uri("https://accounts.google.com/o/oauth2/v2/auth")
+                .uri("https://www.googleapis.com/oauth2/v3/userinfo")
                 .header(JwtProperties.ACCESS_TOKEN_HEADER, bearerToken)
                 .retrieve()
                 .body(GoogleMemberResponse.class);
