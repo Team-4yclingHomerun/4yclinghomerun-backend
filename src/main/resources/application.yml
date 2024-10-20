@@ -13,9 +13,9 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://54.181.1.100:5432/postgres
-    username: kimjaeik
-    password: 1815 # 1111
+    url: ${SERVER_DATABASE_URI}
+    username: ${SERVER_DATABASE_ROOT}
+    password: ${SERVER_DATABASE_PASSWORD}
   jpa:
     properties:
       hibernate:
@@ -25,8 +25,8 @@ spring:
       ddl-auto: none
 
 jwt:
-  secret-key: ${JWT_SECRET:yclighomeurnFinalProJectYclighomeurnFinalProJect}
-  max-age: ${JWT_MAX_AGE:3600000}
+  secret-key: ${JWT_SECRET}
+  max-age: ${JWT_MAX_AGE}
 
 logging:
   level:

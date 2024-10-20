@@ -11,9 +11,9 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5442/auth
-    username: root
-    password: root
+    url: ${LOCAL_DATABASE_URI}
+    username: ${LOCAL_DATABASE_ROOT}
+    password: ${LOCAL_DATABASE_PASSWORD}
   flyway:
     locations:
       - db/migration
