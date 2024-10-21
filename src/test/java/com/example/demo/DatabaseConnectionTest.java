@@ -23,7 +23,7 @@ import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 public class DatabaseConnectionTest {
     @Test
     public void testDatabaseConnection() {
-        String url = "jdbc:postgresql://54.181.1.100:5432/auth?sslmode=require";
+        String url = "jdbc:postgresql://15.165.10.252:5432/auth?sslmode=require";
         String username = "kimjaeik";
         String password = "1815";
 
