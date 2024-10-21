@@ -76,6 +76,8 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
 	// Oauth
 	// implementation ("org.springframework.boot:spring-boot-starter-oauth2-client")
+	// email
+	implementation ("org.springframework.boot:spring-boot-starter-mail")
 }
 
 tasks.withType<Test> {
