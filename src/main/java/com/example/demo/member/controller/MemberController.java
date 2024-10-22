@@ -40,7 +40,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @Operation(summary = "회원가입", description = "사용자가 회원가입을 합니다.")
-    @ApiResponse(responseCode = "400", description = "정규화에 맞추어서 입력하세요")
+    @ApiResponse(responseCode = "400", description = "형식에 맞추어서 입력하세요")
     @PostMapping("/signUp")
     ResponseEntity<?> createMember(@Valid @RequestBody MemberSignUpRequest request) {
         MemberStatus status = MemberStatus.ACTIVE;
@@ -51,7 +51,7 @@ public class MemberController {
     }
 
     @Operation(summary = "멤버 삭제", description = "UUID를 통해서 멤버를 삭제합니다.")
-    @ApiResponse(responseCode = "400", description = "정규화에 맞추어서 입력하세요")
+    @ApiResponse(responseCode = "400", description = "형식에 맞추어서 입력하세요")
     @DeleteMapping("/me")
     ResponseEntity<?> deleteMember(@RequestAttribute(LOGIN_MEMBER_ATTRIBUTE) AuthenticateMember member) {
         UUID id = member.id();
@@ -60,7 +60,7 @@ public class MemberController {
     }
 
     @Operation(summary = "로그인", description = "사용자가 로그인을 합니다.")
-    @ApiResponse(responseCode = "400", description = "정규화에 맞추어서 입력하세요")
+    @ApiResponse(responseCode = "400", description = "형식에 맞추어서 입력하세요")
     @PostMapping("/login")
     ResponseEntity<?> login(@Valid @RequestBody MemberSignInRequest request) {
         MemberSignInResponse signInResponse =memberService.signIn(request);

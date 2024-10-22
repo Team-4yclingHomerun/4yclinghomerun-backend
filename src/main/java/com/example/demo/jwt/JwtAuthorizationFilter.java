@@ -59,7 +59,10 @@ public class JwtAuthorizationFilter implements Filter {
             "/oauth/login/kakao",
             "/oauth/login/google",
             "/login/auth/redirected/kakao",
-            "/login/auth/redirected/google"
+            "/login/auth/redirected/google",
+            "/member/send-email",
+            "/member/verify-email",
+            "/member/duplicate-email"
     };
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;
