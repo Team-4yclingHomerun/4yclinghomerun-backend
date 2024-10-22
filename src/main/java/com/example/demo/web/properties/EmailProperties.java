@@ -16,7 +16,7 @@ import java.util.Properties;
  * -----------------------------------------------------------
  * 10/22/24        JAEIK       최초 생성
  */
-@ConfigurationProperties("demo.email")
+@ConfigurationProperties("demo.spring.mail")
 @ConfigurationPropertiesBinding
 public record EmailProperties(
         String host,
@@ -28,7 +28,8 @@ public record EmailProperties(
         boolean starttlsRequired,
         int connectionTimeout,
         int timeout,
-        int writeTimeout
+        int writeTimeout,
+        int authCodeExpirationMillis
 
 ) {
 }

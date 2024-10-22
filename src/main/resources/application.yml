@@ -7,7 +7,7 @@ spring:
       - app/authorization/authorization.yml
       - app/cors/cors.yml
       - app/oauth/oauth.yml
-      - app/email/email.yml
+      - app/mail/mail.yml
 
   flyway:
     baseline-on-migrate: true
