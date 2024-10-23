@@ -42,7 +42,7 @@ public class EmailController {
 
     @Operation(summary = "인증 유효성검사", description = "인증코드를 받고 유효성검사를 합니다.")
     @PostMapping("/verify-email")
-    public ResponseEntity<?> verifyCheckEmail(@Valid @RequestBody VerifyCheckEmailRequest checkEmailRequest, String code) {
+    public ResponseEntity<?> verifyCheckEmail(@Valid @RequestBody VerifyCheckEmailRequest checkEmailRequest) {
         verifyEmailService.verifyCode(checkEmailRequest.email(), checkEmailRequest.code());
         return ResponseEntity.ok().body("인증이 완료 되었습니다.");
 
