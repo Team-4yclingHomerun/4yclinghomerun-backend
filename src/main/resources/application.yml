@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active:
+    active: local
   config:
     import:
       - optional:file:.env[.properties]
@@ -32,7 +32,7 @@ jwt:
 
 logging:
   level:
-    org.springframework.web: DEBUG
+    org.springframework.web: info
 
 server:
   port: 8080

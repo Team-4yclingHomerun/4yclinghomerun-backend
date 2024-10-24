@@ -1,6 +1,7 @@
 package com.example.demo.exception;
 
 import lombok.Builder;
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.http.HttpStatus;
  * -----------------------------------------------------------
  * 10/12/24        JAEIK       최초 생성
  */
+@Getter
 public class ApiResponseError {
     private final String errorCode;
     private final String message;
