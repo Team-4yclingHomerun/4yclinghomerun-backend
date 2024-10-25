@@ -1,5 +1,6 @@
 package com.example.demo.member.service;
 
+import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.exception.CustomException;
 import com.example.demo.exception.DeleteMemberErrorCode;
 import com.example.demo.exception.SignInErrorCode;
@@ -53,7 +54,7 @@ public class MemberService
     private final JwtAuthenticationProxyService jwtProvider;
 
     @Override
-    public Member signUp(Member member ) {
+    public Member signUp(Member member) {
         if (member.getPassword() == null) {
             throw new IllegalArgumentException("Password cannot be null");
         }
@@ -61,6 +62,7 @@ public class MemberService
         member.updatePassword(encodedPassword);
         return memberRepository.save(member);
     }
+
     // 회원가입
     @Override
     public Member signUp(MemberSignUpRequest request, MemberStatus status, Instant createAt, Instant updateAt) {
@@ -81,6 +83,7 @@ public class MemberService
         member.addRole(userRole);
         return signUp(member);
     }
+
     // 회원 삭제
     @Override
     public void deleteMember(UUID id) {
@@ -90,32 +93,49 @@ public class MemberService
         }
         try {
             member.get().setToDeletedMember();
-            // memberRepository.deleteById(id);
+            memberRepository.save(member.get());
         } catch (Exception e) {
             throw new CustomException(DeleteMemberErrorCode.DATABASE_ERROR, e);
         }
     }
+
     // 로그인
     @Override
     public MemberSignInResponse signIn(MemberSignInRequest signInRequest) {
-            Member member = memberRepository.findByUsername(signInRequest.username())
-                    .orElseThrow(() -> new CustomException(SignInErrorCode.NOT_FOUND_USERNAME));
-            if (!passwordEncoder.matches(signInRequest.password(), member.getPassword())) {
-                throw new CustomException(SignInErrorCode.PASSWORD_MISMATCH);
-            }
-            // 권환 가져옴
-            if (member.getRoles().isEmpty()) {
-                throw SignInErrorCode.NO_ROLE_FOUND_MEMBER.defaultException();
-            }
+        Member member = memberRepository.findByUsername(signInRequest.username())
+                .orElseThrow(() -> new CustomException(SignInErrorCode.NOT_FOUND_USERNAME));
+        if (!passwordEncoder.matches(signInRequest.password(), member.getPassword())) {
+            throw new CustomException(SignInErrorCode.PASSWORD_MISMATCH);
+        }
+        // 권환 가져옴
+        if (member.getRoles().isEmpty()) {
+            throw SignInErrorCode.NO_ROLE_FOUND_MEMBER.defaultException();
+        }
 
-            Role role = null;
-            for (var item : member.getRoles()) {
-                role = item.getRoleName();
-            }
+        Role role = null;
+        for (var item : member.getRoles()) {
+            role = item.getRoleName();
+        }
 
-            JwtToken jwtToken = jwtProvider.createJwtToken(member.getId(), member.getUsername(), role);
-            return new MemberSignInResponse(signInRequest.username(), signInRequest.password(), jwtToken.getAccessToken());
+        JwtToken jwtToken = jwtProvider.createJwtToken(member.getId(), member.getUsername(), role);
+        return new MemberSignInResponse(signInRequest.username(), signInRequest.password(), jwtToken.getAccessToken());
     }
+
+    // 아이디 중복체크
+    public UsernameCheckResponse checkUsernameAvailability(UsernameCheckRequest request) {
+        if (memberRepository.existsByUsername(request.username())) {
+            throw SignUpErrorCode.CONFLICTED_USERNAME.defaultException();
+        }
+        return new UsernameCheckResponse("사용 가능한 아이디입니다.", request.username());
+    }
+    // 닉네임 중복체크
+    public NicknameCheckResponse checkNicknameAvailability(NicknameCheckRequest request) {
+        if (memberRepository.existsByNickname(request.nickName())) {
+            throw SignUpErrorCode.CONFLICTED_NICKNAME.defaultException();
+        }
+        return new NicknameCheckResponse("사용 가능한 닉네임입니다.", request.nickName());
+    }
+
     // 아이디, 패스워드 인증 메서드
     @Override
     public MemberVerifyResponse verifyUser(MemberSignInRequest signInRequest) {

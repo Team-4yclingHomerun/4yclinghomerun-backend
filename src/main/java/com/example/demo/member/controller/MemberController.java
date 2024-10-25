@@ -4,6 +4,10 @@ import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.member.dto.MemberSignInRequest;
 import com.example.demo.member.dto.MemberSignInResponse;
 import com.example.demo.member.dto.MemberSignUpRequest;
+import com.example.demo.member.dto.NicknameCheckRequest;
+import com.example.demo.member.dto.NicknameCheckResponse;
+import com.example.demo.member.dto.UsernameCheckRequest;
+import com.example.demo.member.dto.UsernameCheckResponse;
 import com.example.demo.member.entity.MemberStatus;
 import com.example.demo.member.entity.Role;
 import com.example.demo.member.entity.Roles;
@@ -65,5 +69,17 @@ public class MemberController {
     ResponseEntity<?> login(@Valid @RequestBody MemberSignInRequest request) {
         MemberSignInResponse signInResponse =memberService.signIn(request);
         return ResponseEntity.ok(signInResponse);
+    }
+    @Operation(summary = "아이디 중복체크", description = "사용자가 아이디 중복체크 합니다.")
+    @PostMapping("/verify-username")
+    ResponseEntity<?> checkUsername(@Valid @RequestBody UsernameCheckRequest request) {
+        UsernameCheckResponse response = memberService.checkUsernameAvailability(request);
+        return ResponseEntity.ok().body(response);
+    }
+    @Operation(summary = "닉네임 중복체크", description = "사용자가 닉네임을 중복체크 합니다.")
+    @PostMapping("/verify-nickname")
+    ResponseEntity<?> checkNickname(@Valid @RequestBody NicknameCheckRequest request) {
+        NicknameCheckResponse response = memberService.checkNicknameAvailability(request);
+        return ResponseEntity.ok().body(response);
     }
 }

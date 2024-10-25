@@ -51,6 +51,9 @@ public class JwtAuthorizationFilter implements Filter {
     private final String[] whiteListUris = {
             "/yclinghomerun/signUp",
             "/yclinghomerun/login",
+            "/yclinghomerun/verify-username",
+            "/yclinghomerun/me",
+            "/yclinghomerun/verify-nickname",
             "/swagger-ui.html",
             "/swagger-ui/**",
             "/v3/api-docs/**",

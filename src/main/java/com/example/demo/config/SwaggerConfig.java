@@ -29,6 +29,8 @@ public class SwaggerConfig {
         SecurityScheme apiKey = new SecurityScheme()
                 .type(Type.APIKEY)
                 .in(In.HEADER)
+                .scheme("bearer")
+                .bearerFormat("JWT")
                 .name(JwtProperties.ACCESS_TOKEN_HEADER);
 
         SecurityRequirement securityRequirement = new SecurityRequirement()
