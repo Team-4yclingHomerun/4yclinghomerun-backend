@@ -1,5 +1,6 @@
 package com.example.demo.email.controller;
 
+import com.example.demo.email.dto.EmailSignUpOrLoginResponse;
 import com.example.demo.email.service.EmailSendService;
 import com.example.demo.email.service.VerifyEmailService;
 import com.example.demo.email.dto.EmailCertificationRequest;
@@ -48,10 +49,10 @@ public class EmailController {
 
     }
 
-    @Operation(summary = "이메일 중복검사", description = "인증코드를 보내기전에 중복검사를 합니다.")
+    @Operation(summary = "이메일 중복검사", description = "중복확인 후 중복확인되면 로그인 없으면 회원가입을 합니다.")
     @PostMapping("duplicate-email")
     public ResponseEntity<?> duplicateCheckEmail(@RequestBody EmailCertificationRequest certificationRequest) {
-        EmailCertificationResponse response = verifyEmailService.duplicateEmail(certificationRequest.email());
+        EmailSignUpOrLoginResponse response = verifyEmailService.duplicateEmail(certificationRequest.email());
         return ResponseEntity.ok().body(response);
     }
 }

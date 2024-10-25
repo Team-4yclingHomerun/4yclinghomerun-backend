@@ -6,18 +6,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * packageName    : com.example.demo.email.dto
- * fileName       : EmailCerticationResponse
+ * fileName       : EmailSignUpOrLoginResponse
  * author         : JAEIK
- * date           : 10/23/24
+ * date           : 10/25/24
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 10/23/24        JAEIK       최초 생성
+ * 10/25/24        JAEIK       최초 생성
  */
-public record EmailCertificationResponse(
+public record EmailSignUpOrLoginResponse(
         String message,
-        String email
-
+        String email,
+        @JsonInclude(Include.NON_NULL)
+        @JsonProperty("access_token")
+        String accessToken
 ) {
 }
