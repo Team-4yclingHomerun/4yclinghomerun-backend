@@ -19,16 +19,16 @@ import org.springframework.context.annotation.Configuration;
  * -----------------------------------------------------------
  * 10/17/24        JAEIK       최초 생성
  */
-@Configuration
+//@Configuration
 public class WebConfig {
-    @Bean
-    public FilterRegistrationBean verifyUserFilter(ObjectMapper mapper, MemberService memberService) {
-        FilterRegistrationBean<Filter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
-        filterFilterRegistrationBean.setFilter(new VerifyUserFilter(mapper, memberService));
-        filterFilterRegistrationBean.setOrder(1);
-        filterFilterRegistrationBean.addUrlPatterns("/yclinghomerun/login", "/yclinghomerun/signUp");
-        return filterFilterRegistrationBean;
-    }
+//    @Bean
+//    public FilterRegistrationBean verifyUserFilter(ObjectMapper mapper, MemberService memberService) {
+//        FilterRegistrationBean<Filter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
+//        filterFilterRegistrationBean.setFilter(new VerifyUserFilter(mapper, memberService));
+//        filterFilterRegistrationBean.setOrder(1);
+//        filterFilterRegistrationBean.addUrlPatterns("/yclinghomerun/login", "/yclinghomerun/signUp");
+//        return filterFilterRegistrationBean;
+//    }
 //    @Bean
 //    public FilterRegistrationBean jwtFilter(JwtParser parser, JwtProvider jwtProvider) {
 //        FilterRegistrationBean<Filter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
