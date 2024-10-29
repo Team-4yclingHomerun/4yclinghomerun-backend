@@ -3,7 +3,7 @@ demo:
    kakao:
     client-id: ${KAKAO_CLIENT_ID}  # Rest API 키
     client-secret: ${KAKAO_CLIENT_SECRET}
-    redirect-uri: https://4yclinghomerun.duckdns.org/login/auth/redirected/kakao
+    redirect-uri: http://localhost:5173/oauth/kakao
     scope: profile_nickname, profile_image
 
    google:
