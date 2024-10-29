@@ -65,7 +65,9 @@ public class JwtAuthorizationFilter implements Filter {
             "/login/auth/redirected/google",
             "/member/send-email",
             "/member/verify-email",
-            "/member/duplicate-email"
+            "/member/duplicate-email",
+            "/ws/chat",
+            "/chat"
     };
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;

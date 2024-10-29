@@ -39,11 +39,11 @@ public class OauthController {
     @Operation(
             summary = "소셜로그인 리다이렉션 주소(로그인창)",
             description = "사용자가 소셜 로그인 할 수 있도록 로그인 창으로 리아디렉션 합니다.")
-    @GetMapping("/{oauthServerType}")
+    @GetMapping("/{oauthservertype}")
     ResponseEntity<?> redirectAuthCodeRequestUrl
-            (@PathVariable OauthServerType oauthServerType,
+            (@PathVariable OauthServerType oauthservertype,
              HttpServletResponse response) {
-        String redirectUrl = oauthService.getAuthCodeRequestUrl(oauthServerType);
+        String redirectUrl = oauthService.getAuthCodeRequestUrl(oauthservertype);
         log.info("Redirect URL: {}", redirectUrl);
         System.out.println(redirectUrl);
         response.sendRedirect(redirectUrl);
@@ -53,13 +53,13 @@ public class OauthController {
     @Operation(
             summary = "소셜로그인",
             description = "사용자가 OAuth 서버에 로그인 하여 인증 코드를 사용해서 로그인 한다.")
-    @GetMapping("/login/{oauthServerType}")
+    @PostMapping("/login/{oauthservertype}")
     ResponseEntity<?> login(
-            @PathVariable OauthServerType oauthServerType,
+            @PathVariable OauthServerType oauthservertype,
             @RequestParam("code") String code
     ) {
-        log.info("OAuth Server Type: {}, Code: {}", oauthServerType, code);
-        JwtToken login = oauthService.login(oauthServerType, code);
+        log.info("OAuth Server Type: {}, Code: {}", oauthservertype, code);
+        JwtToken login = oauthService.login(oauthservertype, code);
         log.info("Login Successful: {}", login);
         return ResponseEntity.ok(login);
     }
