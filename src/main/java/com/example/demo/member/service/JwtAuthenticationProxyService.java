@@ -1,5 +1,6 @@
 package com.example.demo.member.service;
 
+import com.example.demo.jwt.JwtProperties;
 import com.example.demo.jwt.JwtProvider;
 import com.example.demo.jwt.JwtToken;
 import com.example.demo.member.entity.Role;
@@ -53,7 +54,8 @@ public class JwtAuthenticationProxyService {
         claims.put("id", id.toString());
         claims.put("role", role.toString()); // enum 열거형 객체타입이니 문자열 변환
 
-        return jwtProvider.create(username, claims);
+        String token = jwtProvider.create(username, claims);
+        return JwtProperties.ACCESS_TOKEN_PREFIX + token;
     }
 
 //    private String createAccessTokenOauthMember(OauthMember oauthMember, Role role) {

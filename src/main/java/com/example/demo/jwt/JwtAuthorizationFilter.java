@@ -65,7 +65,9 @@ public class JwtAuthorizationFilter implements Filter {
             "/login/auth/redirected/google",
             "/member/send-email",
             "/member/verify-email",
-            "/member/duplicate-email"
+            "/member/duplicate-email",
+            "/ws/chat",
+            "/chat"
     };
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;
@@ -91,6 +93,7 @@ public class JwtAuthorizationFilter implements Filter {
             String token = authorization.substring(ACCESS_TOKEN_PREFIX.length());
             // JWT 기반으로 사용자 인증정보 추출
             AuthenticateMember authenticateMember = getAuthenticateMember(token);
+            log.debug("AuthenticateMember added to request attributes: {}", authenticateMember);
             // 사용자의 권환 확인
             verifyAuthorization(httpServletRequest.getMethod(), httpServletRequest.getRequestURI(), authenticateMember);
             log.info("값 : {}", authenticateMember.username());
@@ -131,6 +134,7 @@ public class JwtAuthorizationFilter implements Filter {
     private AuthenticateMember getAuthenticateMember(String token) {
         Map<String, Object> claims = jwtParser.parseClaims(token);
 
+        log.debug("Parsed claims: {}", claims);
         if (!(claims.get("id") instanceof String uuidString)) {
             throw new Error("...");
         }
@@ -143,6 +147,7 @@ public class JwtAuthorizationFilter implements Filter {
 
         UUID id = UUID.fromString(uuidString);
         Role role = Role.valueOf(roleString);
+
 
         return new AuthenticateMember(id, username, Set.of(role));
     }

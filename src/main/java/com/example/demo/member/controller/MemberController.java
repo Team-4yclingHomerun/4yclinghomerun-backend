@@ -57,7 +57,7 @@ public class MemberController {
     @Operation(summary = "멤버 삭제", description = "UUID를 통해서 멤버를 삭제합니다.")
     @ApiResponse(responseCode = "400", description = "형식에 맞추어서 입력하세요")
     @DeleteMapping("/me")
-    ResponseEntity<?> deleteMember(@RequestAttribute(LOGIN_MEMBER_ATTRIBUTE) AuthenticateMember member) {
+    ResponseEntity<?> deleteMember(@RequestAttribute(name = LOGIN_MEMBER_ATTRIBUTE) AuthenticateMember member) {
         UUID id = member.id();
         memberService.deleteMember(id);
         return ResponseEntity.noContent().build();
