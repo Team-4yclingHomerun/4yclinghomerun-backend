@@ -78,6 +78,9 @@ dependencies {
 	// implementation ("org.springframework.boot:spring-boot-starter-oauth2-client")
 	// email
 	implementation ("org.springframework.boot:spring-boot-starter-mail")
+
+	// webSocket
+	implementation("org.springframework.boot:spring-boot-starter-websocket")
 }
 
 tasks.withType<Test> {
