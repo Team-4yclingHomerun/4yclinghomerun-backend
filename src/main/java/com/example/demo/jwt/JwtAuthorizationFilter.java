@@ -49,6 +49,7 @@ public class JwtAuthorizationFilter implements Filter {
 
     // 인증 없이 접근 가능한 URI
     private final String[] whiteListUris = {
+            "/",
             "/yclinghomerun/signUp",
             "/yclinghomerun/login",
             "/yclinghomerun/verify-username",

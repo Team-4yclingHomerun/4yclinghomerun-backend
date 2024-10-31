@@ -6,5 +6,5 @@ demo:
       - http://localhost:5173
       - https://localhost:5173
     allowed-methods: "*" # ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-    expose-headers: "*" # ["Content-Type", "Authorization"]
-    max-age: 3_600
+    expose-headers: "*" # ["Content-Type", "Authorization"] 프론트가 접근할 헤더
+    max-age: 3_600 # preflight 요청 캐시 시간
