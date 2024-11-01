@@ -13,6 +13,6 @@ package com.example.demo.member.dto;
  */
 public record NicknameCheckResponse(
         String message,
-        String nickName
+        String nickname
 ) {
 }

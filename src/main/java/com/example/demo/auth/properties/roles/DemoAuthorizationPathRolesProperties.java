@@ -16,8 +16,8 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesBindin
  */
 @ConfigurationPropertiesBinding
 public record DemoAuthorizationPathRolesProperties(
-        String pattern,
-        String[] methods,
+        String pattern, // URI 경로 예: "/api/admin/**", "/api/user/*"
+        String[] methods, // GET , POST , PUT , DELETE 중
         Role[] roles
 ) {
 }

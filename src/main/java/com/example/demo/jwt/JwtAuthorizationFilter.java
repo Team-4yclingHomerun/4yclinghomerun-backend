@@ -50,14 +50,13 @@ public class JwtAuthorizationFilter implements Filter {
     // 인증 없이 접근 가능한 URI
     private final String[] whiteListUris = {
             "/",
-            "/yclinghomerun/signUp",
-            "/yclinghomerun/login",
-            "/yclinghomerun/verify-username",
-            "/yclinghomerun/me",
-            "/yclinghomerun/verify-nickname",
             "/swagger-ui.html",
             "/swagger-ui/**",
             "/v3/api-docs/**",
+            "/yclinghomerun/user/signUp",
+            "/yclinghomerun/user/login",
+            "/yclinghomerun/user/verify-username",
+            "/yclinghomerun/user/verify-nickname",
             "/public/**",
             "/oauth/*",
             "/oauth/login/kakao",
@@ -67,6 +66,7 @@ public class JwtAuthorizationFilter implements Filter {
             "/member/send-email",
             "/member/verify-email",
             "/member/duplicate-email",
+            "/api/player/*",
             "/ws/chat",
             "/chat"
     };
@@ -104,7 +104,7 @@ public class JwtAuthorizationFilter implements Filter {
 
             filterChain.doFilter(servletRequest, servletResponse);
         } catch (JsonParseException e) {
-            log.error("Json 파싱 예외 발생");
+            log.error("Json 파싱 예외 발생: {}", e.getMessage());
             httpServletResponse.sendError(HttpStatus.BAD_REQUEST.value());
         } catch (MalformedJwtException | UnsupportedJwtException e) {
             log.error("Jwt 예외 발생");
@@ -123,37 +123,38 @@ public class JwtAuthorizationFilter implements Filter {
         log.info("요청 URI: {}", uri);
         return PatternMatchUtils.simpleMatch(whiteListUris, uri);
     }
-    private boolean isSwaggerRequest(String uri) {
-        return uri.startsWith("/swagger-ui") || uri.startsWith("/v3/api-docs");
-    }
 
     private boolean hasAuthorizationWithPrefix(String authorizationToken) {
         return authorizationToken != null && authorizationToken.startsWith(ACCESS_TOKEN_PREFIX);
     }
 
-    // Jwt 토큰에서 사용자 인증 정보를 가져오는 메서드
+    /* Jwt 토큰에서 사용자 인증 정보를 가져오는 메서드
+      - 토큰 정보 object 타입이 일치하는지 확인한다 일치하지않으면 예외
+    */
     private AuthenticateMember getAuthenticateMember(String token) {
         Map<String, Object> claims = jwtParser.parseClaims(token);
 
         log.debug("Parsed claims: {}", claims);
         if (!(claims.get("id") instanceof String uuidString)) {
-            throw new Error("...");
+            throw new IllegalArgumentException("'id'는 String 타입이어야 합니다.");
         }
-        if (!(claims.get("username") instanceof String username)) {
-            throw new Error("...");
+        if (!(claims.get("sub") instanceof String username)) {
+            throw new IllegalArgumentException("'sub'은 String 타입이어야 합니다.");
         }
         if (!(claims.get("role") instanceof String roleString)) { // "USER"
-            throw new Error("...");
+            throw new Error("'role'은 String 타입이어야 합니다.");
         }
 
         UUID id = UUID.fromString(uuidString);
         Role role = Role.valueOf(roleString);
 
-
         return new AuthenticateMember(id, username, Set.of(role));
     }
 
-    // 사용자의 권환을 확인하는 메서드
+    /* 사용자의 권환을 확인하는 메서드
+      -  authorization.yml 권한설정된 URI 목록,메서드를 반복하면서 검증 수행
+      -  비트연산을 이용해 1일경우 권한일치
+     */
     private void verifyAuthorization(String method, String uri, AuthenticateMember member) throws AccessDeniedException {
         Role[] uesrRoles = new Role[member.role().size()];
         member.role().toArray(uesrRoles);
@@ -175,8 +176,63 @@ public class JwtAuthorizationFilter implements Filter {
         }
 
         throw new AccessDeniedException("매칭되는 권한이 없습니다.");
+    }
 
-//        switch (uesrRoles) {
+    private boolean verify(
+            String currentMethod,
+            String currentUri,
+            Role[] currentRoles,
+            String requiredMethod,
+            String requiredUriPattern,
+            Role... requiredRoles
+    ) throws AccessDeniedException {
+        if (!Objects.equals(currentMethod, requiredMethod)) {
+            return false;
+        }
+        if(PatternMatchUtils.simpleMatch(requiredUriPattern, currentUri)) {
+            int maskedRole = roleBits(currentRoles) & roleBits(requiredRoles);
+
+            if (maskedRole == 0) {
+                throw new AccessDeniedException(Arrays.toString(requiredRoles) + " 권한이 없습니다.");
+            }
+            return true;
+        }
+        log.debug("Current Method: {}", currentMethod);
+        log.debug("Current URI: {}", currentUri);
+        log.debug("Current Roles: {}", Arrays.toString(currentRoles));
+        log.debug("Required Method: {}", requiredMethod);
+        log.debug("Required URI Pattern: {}", requiredUriPattern);
+        log.debug("Required Roles: {}", Arrays.toString(requiredRoles));
+        return false;
+    }
+
+    private int roleBits(Role... roles) {
+        int bit = 0;
+        for (var role : roles) {
+            bit |= role.bit();
+        }
+        return bit;
+    }
+
+    private boolean isSwaggerRequest(String uri) {
+        return uri.startsWith("/swagger-ui") || uri.startsWith("/v3/api-docs");
+    }
+
+
+
+    //    private void checkRolesForUri(String uri, Role[] currentRole) throws AccessDeniedException {
+//        if (PatternMatchUtils.simpleMatch
+//                ("/admin/**", uri) && !Arrays.asList(currentRole).contains(Role.ADMIN)) {
+//            throw new AccessDeniedException("어드민 권한이 필요 합니다.");
+//        }
+//        if (PatternMatchUtils.simpleMatch
+//                ("/user/**", uri) && !Arrays.asList(currentRole).contains(Role.USER)) {
+//            throw new AccessDeniedException("유저 권한이 필요합니다.");
+//        }
+//    }
+
+
+    //        switch (uesrRoles) {
 //            case Role[] ignore
 //                    when verify(method, uri, uesrRoles, "GET", "*/admin", Role.ADMIN) -> {}
 //            case Role[] ignore
@@ -195,34 +251,4 @@ public class JwtAuthorizationFilter implements Filter {
 //                    when verify(method, uri, uesrRoles, "DELETE", "*/admin/**", Role.ADMIN) ->  {}
 //            default -> throw new Error();
 //        };
-    }
-
-    private boolean verify(
-            String currentMethod,
-            String currentUri,
-            Role[] currentRoles,
-            String requiredMethod,
-            String requiredUriPattern,
-            Role... requiredRoles
-    ) throws AccessDeniedException {
-        if (!Objects.equals(currentMethod, requiredMethod)) {
-            return false;
-        }
-        if(PatternMatchUtils.simpleMatch(requiredUriPattern, currentUri)) {
-            int maskedRole = roleBits(currentRoles) & roleBits(requiredRoles);
-            if (maskedRole == 0) {
-                throw new AccessDeniedException(Arrays.toString(requiredRoles) + " 권한이 없습니다.");
-            }
-            return true;
-        }
-        return false;
-    }
-
-    private int roleBits(Role... roles) {
-        int bit = 0;
-        for (var role : roles) {
-            bit |= role.bit();
-        }
-        return bit;
-    }
 }

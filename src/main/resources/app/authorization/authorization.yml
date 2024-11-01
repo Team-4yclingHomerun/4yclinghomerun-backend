@@ -17,3 +17,19 @@ demo:
           - DELETE
         roles:
           - ADMIN
+      - pattern: "*/user"
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+        roles:
+         - USER
+      - pattern: "*/user/**"
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+        roles:
+         - USER

@@ -25,6 +25,6 @@ public record NicknameCheckRequest(
         )
         @Size(min = 3, message = "닉네임은 3글자 이상이어야 합니다.")
         @Size(max = 30, message = "닉네임은 30글자 이하여야 합니다.")
-        String nickName
+        String nickname
 ) {
 }

@@ -43,11 +43,6 @@ public class JwtAuthenticationProxyService {
         return new JwtToken(accessToken);
     }
 
-//    public JwtToken createJwtToken(OauthMember oauthMember, Role role) {
-//        String accessToken = createAccessTokenOauthMember(oauthMember, role);
-//        return new JwtToken(accessToken);
-//    }
-
     private String createAccessToken(UUID id, String username, Role role) {
         // preconditions: nonnull, ... (throw error/exception, assert, ...)
         Map<String, Object> claims = new HashMap<>();
@@ -57,6 +52,11 @@ public class JwtAuthenticationProxyService {
         String token = jwtProvider.create(username, claims);
         return JwtProperties.ACCESS_TOKEN_PREFIX + token;
     }
+
+    //    public JwtToken createJwtToken(OauthMember oauthMember, Role role) {
+//        String accessToken = createAccessTokenOauthMember(oauthMember, role);
+//        return new JwtToken(accessToken);
+//    }
 
 //    private String createAccessTokenOauthMember(OauthMember oauthMember, Role role) {
 //        Map<String, Object> claims = new HashMap<>();

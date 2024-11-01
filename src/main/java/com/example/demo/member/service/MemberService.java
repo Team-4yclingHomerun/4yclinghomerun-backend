@@ -130,10 +130,10 @@ public class MemberService
     }
     // 닉네임 중복체크
     public NicknameCheckResponse checkNicknameAvailability(NicknameCheckRequest request) {
-        if (memberRepository.existsByNickname(request.nickName())) {
+        if (memberRepository.existsByNickname(request.nickname())) {
             throw SignUpErrorCode.CONFLICTED_NICKNAME.defaultException();
         }
-        return new NicknameCheckResponse("사용 가능한 닉네임입니다.", request.nickName());
+        return new NicknameCheckResponse("사용 가능한 닉네임입니다.", request.nickname());
     }
 
     // 아이디, 패스워드 인증 메서드
