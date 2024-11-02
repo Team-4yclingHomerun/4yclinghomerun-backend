@@ -51,29 +51,6 @@ public class JwtProvider {
                 .signWith(secretKey) // 서명 설정
                 .compact();
     }
-
-    // Jwt 토큰 검증 메소드
-    public boolean validateToken(String token) {
-        try {
-            Claims claims = Jwts.parser()
-                    .verifyWith(secretKey)
-                    .build()
-                    .parseSignedClaims(token)
-                    .getPayload();
-
-            return !claims.getExpiration().before(new Date());
-        } catch (SecurityException | MalformedJwtException e) {
-            log.error("잘못된 JWT 서명입니다");
-        } catch (ExpiredJwtException e) {
-            log.error("만료된 JWT 토큰입니다.");
-        } catch (UnsupportedJwtException e) {
-            log.error("지원되지 않는 JWT 토큰입니다.");
-        } catch (IllegalArgumentException e) {
-            log.error("JWT 토큰이 잘못되었습니다.");
-
-        }
-        return false;
-    }
 }
 
 

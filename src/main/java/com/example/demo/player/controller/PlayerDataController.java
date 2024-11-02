@@ -5,6 +5,8 @@ import com.example.demo.player.dto.PlayerResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.core.util.Json;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,7 @@ import java.util.List;
  * 10/31/24       JAEIK       최초 생성
  */
 @RestController
+@Tag(name = "Json데이터:player")
 @RequestMapping("/api/player")
 public class PlayerDataController {
 
@@ -63,6 +66,70 @@ public class PlayerDataController {
     public ResponseEntity<JsonNode> getMockCoachDetail() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/player/coachdetail/pcode=89620.json");
+        JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
+    }
+
+    @GetMapping("/infielderdetail")
+    public ResponseEntity<JsonNode> getMockInfielderDetail() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getResourceAsStream("/data/player/infielderdetail/pcode=68050.json");
+        JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
+    }
+
+    @GetMapping("/outfielderdetail")
+    public ResponseEntity<JsonNode> getOutFielderDetail() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getResourceAsStream("/data/player/outfielderdetail/pcode=67025.json");
+        JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
+    }
+
+    @GetMapping("/pitcherdetail")
+    public ResponseEntity<JsonNode> getPitcherDetail() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getResourceAsStream("/data/player/pitcherdetail/pcode=53006.json");
+        JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
+    }
+
+    @GetMapping("/cheerleader")
+    public ResponseEntity<JsonNode> getCheerleader() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getResourceAsStream("/data/player/cheerleader.json");
+        JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
+    }
+
+    @GetMapping("/coachlist")
+    public ResponseEntity<JsonNode> getCoachList() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getResourceAsStream("/data/player/coachlist.json");
+        JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
+    }
+
+    @GetMapping("/infielderlist")
+    public ResponseEntity<JsonNode> getInfielderList() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getResourceAsStream("/data/player/infielderlist.json");
+        JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
+    }
+
+    @GetMapping("/outfielderlist")
+    public ResponseEntity<JsonNode> getOutFielderList() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getResourceAsStream("/data/player/outfielderlist.json");
+        JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
+    }
+
+    @GetMapping("/pitcherlist")
+    public ResponseEntity<JsonNode> getPitcherList() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getResourceAsStream("/data/player/pitcherlist.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
         return ResponseEntity.ok(jsonNode);
     }

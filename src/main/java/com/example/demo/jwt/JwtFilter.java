@@ -37,7 +37,7 @@ public class JwtFilter /* implements Filter */ {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         // HTTP 요청에서 토큰 추출
         String token = resolveToken(httpServletRequest);
-        if (token != null && jwtProvider.validateToken(token)) {
+        if (token != null && jwtParser.validateToken(token)) {
             // 유효한 토큰에서 클레임을 파싱
             Map<String, Object> claims = jwtParser.parseClaims(token);
             if (claims != null) {

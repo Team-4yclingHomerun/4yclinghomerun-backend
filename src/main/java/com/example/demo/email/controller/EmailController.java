@@ -7,6 +7,7 @@ import com.example.demo.email.dto.EmailCertificationRequest;
 import com.example.demo.email.dto.EmailCertificationResponse;
 import com.example.demo.email.dto.VerifyCheckEmailRequest;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequiredArgsConstructor
+@Tag(name = "이메일 인증", description = "이메일인증 API")
 @RequestMapping("/member")
 public class EmailController {
 

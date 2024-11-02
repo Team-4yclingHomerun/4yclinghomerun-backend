@@ -5,6 +5,7 @@ import com.example.demo.oauth.OauthServerType;
 import com.example.demo.oauth.kakao.dto.OauthCodeVerifyRequest;
 import com.example.demo.oauth.service.OauthService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @Slf4j
+@Tag(name = "소셜로그인", description = "소셜로그인 API")
 @RequestMapping("/oauth")
 public class OauthController {
 

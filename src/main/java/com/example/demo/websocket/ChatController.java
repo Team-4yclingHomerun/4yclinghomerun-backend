@@ -1,6 +1,7 @@
 package com.example.demo.websocket;
 
 import com.example.demo.websocket.dto.ChatRoom;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ import java.util.List;
  */
 @RequiredArgsConstructor
 @RestController
+@Tag(name = "채팅", description = "채팅 API")
 @RequestMapping("/chat")
 public class ChatController {
 

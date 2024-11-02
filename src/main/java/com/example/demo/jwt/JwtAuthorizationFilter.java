@@ -132,9 +132,13 @@ public class JwtAuthorizationFilter implements Filter {
       - 토큰 정보 object 타입이 일치하는지 확인한다 일치하지않으면 예외
     */
     private AuthenticateMember getAuthenticateMember(String token) {
-        Map<String, Object> claims = jwtParser.parseClaims(token);
+        if (!jwtParser.validateToken(token)) {
+            throw new IllegalArgumentException("유효하지 않은 JWT 토큰 입니다.");
+        }
 
+        Map<String, Object> claims = jwtParser.parseClaims(token);
         log.debug("Parsed claims: {}", claims);
+
         if (!(claims.get("id") instanceof String uuidString)) {
             throw new IllegalArgumentException("'id'는 String 타입이어야 합니다.");
         }
