@@ -1,0 +1,1138 @@
+
+{
+  "code": 200,
+  "result": {
+    "previewData": {
+      "awayStandings": {
+        "d": 2,
+        "era": "5.11",
+        "hr": 145,
+        "hra": "0.279",
+        "l": 70,
+        "name": "KT",
+        "rank": 5,
+        "seriesOutcome": {
+          "d": 0,
+          "l": 2,
+          "w": 2
+        },
+        "w": 72,
+        "wra": "0.507"
+      },
+      "awayStarter": {
+        "currentPitKindStats": [
+          {
+            "pit_rt": 36.0999984741211,
+            "speed": 129,
+            "type": "CHUP"
+          },
+          {
+            "pit_rt": 35.7999992370606,
+            "speed": 143,
+            "type": "FAST"
+          },
+          {
+            "pit_rt": 15.5,
+            "speed": 133,
+            "type": "SLID"
+          }
+        ],
+        "currentSeasonStats": {
+          "bb": 42,
+          "er": 85,
+          "era": "4.88",
+          "gameCount": 29,
+          "gday": "20241011",
+          "hit": 164,
+          "hp": 7,
+          "hr": 26,
+          "inn": "156.2",
+          "inn2": "156 2/3",
+          "kk": 159,
+          "l": 10,
+          "r": 88,
+          "s": 0,
+          "teamCode": "KT",
+          "teamName": "KT",
+          "w": 13,
+          "whip": "1.31"
+        },
+        "currentSeasonStatsOnOpponents": {
+          "bb": 4,
+          "er": 10,
+          "era": "8.44",
+          "gameCount": 2,
+          "inn": "10.2",
+          "kk": 8,
+          "l": 1,
+          "s": 0,
+          "w": 1
+        },
+        "playerInfo": {
+          "backnum": "18",
+          "birth": "19961004",
+          "height": "187.0",
+          "hitType": "우언우타",
+          "name": "엄상백",
+          "pCode": "65056",
+          "weight": "72.0"
+        }
+      },
+      "awayTeamLineUp": {
+        "batterCandidate": [
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "68089",
+            "playerName": "조대현",
+            "pos": "2",
+            "position": "포수"
+          },
+          {
+            "batsThrows": "좌타",
+            "hitType": "우투좌타",
+            "playerCode": "50054",
+            "playerName": "천성호",
+            "pos": "4",
+            "position": "2루수"
+          },
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "62556",
+            "playerName": "신본기",
+            "pos": "6",
+            "position": "유격수"
+          },
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "79402",
+            "playerName": "김상수",
+            "pos": "6",
+            "position": "유격수"
+          },
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "64007",
+            "playerName": "문상철",
+            "pos": "7",
+            "position": "좌익수"
+          },
+          {
+            "batsThrows": "좌타",
+            "hitType": "좌투좌타",
+            "playerCode": "53058",
+            "playerName": "정준영",
+            "pos": "9",
+            "position": "우익수"
+          },
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "64012",
+            "playerName": "송민섭",
+            "pos": "9",
+            "position": "우익수"
+          }
+        ],
+        "fullLineUp": [
+          {
+            "backnum": "18",
+            "batsThrows": "우언",
+            "birth": "19961004",
+            "height": "187.0",
+            "hitType": "우완언더",
+            "playerCode": "65056",
+            "playerName": "엄상백",
+            "position": "1",
+            "positionName": "선발투수",
+            "weight": "72.0"
+          },
+          {
+            "backnum": "53",
+            "batorder": 1,
+            "batsThrows": "좌타",
+            "birth": "19951121",
+            "height": "181.0",
+            "hitType": "우투좌타",
+            "playerCode": "64004",
+            "playerName": "김민혁",
+            "position": "7",
+            "positionName": "좌익수",
+            "weight": "71.0"
+          },
+          {
+            "backnum": "3",
+            "batorder": 2,
+            "batsThrows": "양타",
+            "birth": "19900524",
+            "height": "189.0",
+            "hitType": "우투양타",
+            "playerCode": "67025",
+            "playerName": "로하스",
+            "position": "9",
+            "positionName": "우익수",
+            "weight": "102.0"
+          },
+          {
+            "backnum": "22",
+            "batorder": 3,
+            "batsThrows": "우타",
+            "birth": "19900117",
+            "height": "187.0",
+            "hitType": "우투우타",
+            "playerCode": "78548",
+            "playerName": "장성우",
+            "position": "2",
+            "positionName": "포수",
+            "weight": "100.0"
+          },
+          {
+            "backnum": "50",
+            "batorder": 4,
+            "batsThrows": "좌타",
+            "birth": "19990729",
+            "height": "184.0",
+            "hitType": "우투좌타",
+            "playerCode": "68050",
+            "playerName": "강백호",
+            "position": "0",
+            "positionName": "지명타자",
+            "weight": "98.0"
+          },
+          {
+            "backnum": "10",
+            "batorder": 5,
+            "batsThrows": "우타",
+            "birth": "19870728",
+            "height": "183.0",
+            "hitType": "우투우타",
+            "playerCode": "76313",
+            "playerName": "황재균",
+            "position": "5",
+            "positionName": "3루수",
+            "weight": "96.0"
+          },
+          {
+            "backnum": "36",
+            "batorder": 6,
+            "batsThrows": "좌타",
+            "birth": "19861029",
+            "height": "187.0",
+            "hitType": "좌투좌타",
+            "playerCode": "75334",
+            "playerName": "오재일",
+            "position": "3",
+            "positionName": "1루수",
+            "weight": "95.0"
+          },
+          {
+            "backnum": "27",
+            "batorder": 7,
+            "batsThrows": "우타",
+            "birth": "19950612",
+            "height": "185.0",
+            "hitType": "우투우타",
+            "playerCode": "64166",
+            "playerName": "배정대",
+            "position": "8",
+            "positionName": "중견수",
+            "weight": "80.0"
+          },
+          {
+            "backnum": "4",
+            "batorder": 8,
+            "batsThrows": "우타",
+            "birth": "19920224",
+            "height": "180.0",
+            "hitType": "우투우타",
+            "playerCode": "64504",
+            "playerName": "오윤석",
+            "position": "4",
+            "positionName": "2루수",
+            "weight": "87.0"
+          },
+          {
+            "backnum": "2",
+            "batorder": 9,
+            "batsThrows": "우타",
+            "birth": "19950428",
+            "height": "183.0",
+            "hitType": "우투우타",
+            "playerCode": "64006",
+            "playerName": "심우준",
+            "position": "6",
+            "positionName": "유격수",
+            "weight": "74.0"
+          }
+        ],
+        "pitcherBullpen": [
+          {
+            "batsThrows": "우언",
+            "hitType": "우완언더",
+            "playerCode": "64001",
+            "playerName": "고영표",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "68043",
+            "playerName": "김민",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "65048",
+            "playerName": "김민수",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "52060",
+            "playerName": "박영현",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "좌투",
+            "hitType": "좌완투수",
+            "playerCode": "52043",
+            "playerName": "벤자민",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "50030",
+            "playerName": "소형준",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "69041",
+            "playerName": "손동현",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우언",
+            "hitType": "우완언더",
+            "playerCode": "73117",
+            "playerName": "우규민",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "54063",
+            "playerName": "원상현",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "69054",
+            "playerName": "이상동",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "64768",
+            "playerName": "조이현",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "65060",
+            "playerName": "주권",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "69032",
+            "playerName": "쿠에바스",
+            "pos": "1"
+          }
+        ]
+      },
+      "awayTeamPreviousGames": [
+        {
+          "aCode": "LG",
+          "aName": "LG",
+          "aScore": 5,
+          "gameId": "33331009LGKT02024",
+          "gdate": 20241009,
+          "gmkey": "33331009LGKT0",
+          "gweek": "수",
+          "gyear": 2024,
+          "hCode": "KT",
+          "hName": "KT",
+          "hScore": 6,
+          "result": "승"
+        },
+        {
+          "aCode": "LG",
+          "aName": "LG",
+          "aScore": 6,
+          "gameId": "33331008LGKT02024",
+          "gdate": 20241008,
+          "gmkey": "33331008LGKT0",
+          "gweek": "화",
+          "gyear": 2024,
+          "hCode": "KT",
+          "hName": "KT",
+          "hScore": 5,
+          "result": "패"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 2,
+          "gameId": "33331006KTLG02024",
+          "gdate": 20241006,
+          "gmkey": "33331006KTLG0",
+          "gweek": "일",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 7,
+          "result": "패"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 3,
+          "gameId": "33331005KTLG02024",
+          "gdate": 20241005,
+          "gmkey": "33331005KTLG0",
+          "gweek": "토",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 2,
+          "result": "승"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 1,
+          "gameId": "44441003KTOB02024",
+          "gdate": 20241003,
+          "gmkey": "44441003KTOB0",
+          "gweek": "목",
+          "gyear": 2024,
+          "hCode": "OB",
+          "hName": "두산",
+          "hScore": 0,
+          "result": "승"
+        }
+      ],
+      "awayTopPlayer": {
+        "currentSeasonStats": {
+          "ab": 404,
+          "gameCount": 113,
+          "gday": "20241011",
+          "hit": 111,
+          "hr": 7,
+          "hra": "0.275",
+          "obp": 0.355,
+          "rbi": 59
+        },
+        "currentSeasonStatsOnOpponents": {
+          "hit": 17,
+          "hr": 1,
+          "hra": "0.298"
+        },
+        "hotColdZone": [
+          {
+            "hra": "0.245",
+            "hraStep": "3",
+            "kk": 16.7,
+            "zone": 1
+          },
+          {
+            "hra": "0.429",
+            "hraStep": "5",
+            "kk": 4.4,
+            "zone": 2
+          },
+          {
+            "hra": "0.257",
+            "hraStep": "3",
+            "kk": 6.1,
+            "zone": 3
+          },
+          {
+            "hra": "0.269",
+            "hraStep": "3",
+            "kk": 5.3,
+            "zone": 4
+          },
+          {
+            "hra": "0.500",
+            "hraStep": "5",
+            "kk": 0.9,
+            "zone": 5
+          },
+          {
+            "hra": "0.316",
+            "hraStep": "4",
+            "kk": 3.5,
+            "zone": 6
+          },
+          {
+            "hra": "0.315",
+            "hraStep": "4",
+            "kk": 10.5,
+            "zone": 7
+          },
+          {
+            "hra": "0.292",
+            "hraStep": "3",
+            "kk": 2.6,
+            "zone": 8
+          },
+          {
+            "hra": "0.391",
+            "hraStep": "4",
+            "kk": 9.6,
+            "zone": 9
+          },
+          {
+            "hra": "0.500",
+            "hraStep": "5",
+            "kk": 0.9,
+            "zone": 10
+          },
+          {
+            "hra": "0.125",
+            "hraStep": "2",
+            "kk": 3.5,
+            "zone": 11
+          },
+          {
+            "hra": "0.026",
+            "hraStep": "1",
+            "kk": 21.1,
+            "zone": 12
+          },
+          {
+            "hra": "0.103",
+            "hraStep": "2",
+            "kk": 14.9,
+            "zone": 13
+          }
+        ],
+        "playerCode": "64166",
+        "playerInfo": {
+          "backnum": "27",
+          "birth": "19950612",
+          "height": "185.0",
+          "hitType": "우투우타",
+          "name": "배정대",
+          "pCode": "64166",
+          "weight": "80.0"
+        },
+        "recentFiveGamesStats": {
+          "ab": 21,
+          "gameCount": 5,
+          "hit": 9,
+          "hr": 1,
+          "hra": "0.429",
+          "obp": 0.429,
+          "playerCode": "64166",
+          "playerName": "배정대",
+          "rbi": 2
+        }
+      },
+      "gameInfo": {
+        "aCode": "KT",
+        "aFullName": "kt wiz",
+        "aName": "KT",
+        "aPCode": "65056",
+        "cancelFlag": "N",
+        "gameFlag": "3",
+        "gdate": 20241011,
+        "gtime": "18:30",
+        "hCode": "LG",
+        "hFullName": "LG 트윈스",
+        "hName": "LG",
+        "hPCode": "61101",
+        "isPostSeason": true,
+        "optionFlag": 1,
+        "ptsFlag": "Y",
+        "round": 5,
+        "stadium": "잠실",
+        "statusCode": "1"
+      },
+      "generateDate": "20241010",
+      "homeStandings": {
+        "d": 2,
+        "era": "4.63",
+        "hr": 115,
+        "hra": "0.283",
+        "l": 66,
+        "name": "LG",
+        "rank": 3,
+        "seriesOutcome": {
+          "d": 0,
+          "l": 2,
+          "w": 2
+        },
+        "w": 76,
+        "wra": "0.535"
+      },
+      "homeStarter": {
+        "currentPitKindStats": [
+          {
+            "pit_rt": 36.9000015258789,
+            "speed": 140,
+            "type": "FAST"
+          },
+          {
+            "pit_rt": 28.5,
+            "speed": 127,
+            "type": "CHUP"
+          },
+          {
+            "pit_rt": 28.3999996185303,
+            "speed": 110,
+            "type": "CURV"
+          }
+        ],
+        "currentSeasonStats": {
+          "bb": 42,
+          "er": 57,
+          "era": "3.83",
+          "gameCount": 25,
+          "gday": "20241011",
+          "hit": 144,
+          "hp": 5,
+          "hr": 12,
+          "inn": "134.0",
+          "inn2": "134",
+          "kk": 136,
+          "l": 6,
+          "r": 58,
+          "s": 0,
+          "teamCode": "LG",
+          "teamName": "LG",
+          "w": 10,
+          "whip": "1.39"
+        },
+        "currentSeasonStatsOnOpponents": {
+          "bb": 14,
+          "er": 6,
+          "era": "2.70",
+          "gameCount": 4,
+          "inn": "20.0",
+          "kk": 23,
+          "l": 0,
+          "s": 0,
+          "w": 3
+        },
+        "playerInfo": {
+          "backnum": "1",
+          "birth": "19921120",
+          "height": "185.0",
+          "hitType": "우투우타",
+          "name": "임찬규",
+          "pCode": "61101",
+          "weight": "80.0"
+        }
+      },
+      "homeTeamLineUp": {
+        "batterCandidate": [
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "52154",
+            "playerName": "이주헌",
+            "pos": "2",
+            "position": "포수"
+          },
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "77243",
+            "playerName": "허도환",
+            "pos": "2",
+            "position": "포수"
+          },
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "54164",
+            "playerName": "김대원",
+            "pos": "4",
+            "position": "2루수"
+          },
+          {
+            "batsThrows": "좌타",
+            "hitType": "우투좌타",
+            "playerCode": "51100",
+            "playerName": "이영빈",
+            "pos": "6",
+            "position": "유격수"
+          },
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "69100",
+            "playerName": "구본혁",
+            "pos": "6",
+            "position": "유격수"
+          },
+          {
+            "batsThrows": "우타",
+            "hitType": "우투우타",
+            "playerCode": "52103",
+            "playerName": "최원영",
+            "pos": "7",
+            "position": "좌익수"
+          },
+          {
+            "batsThrows": "좌타",
+            "hitType": "우투좌타",
+            "playerCode": "65905",
+            "playerName": "최승민",
+            "pos": "8",
+            "position": "중견수"
+          }
+        ],
+        "fullLineUp": [
+          {
+            "backnum": "1",
+            "batsThrows": "우투",
+            "birth": "19921120",
+            "height": "185.0",
+            "hitType": "우완투수",
+            "playerCode": "61101",
+            "playerName": "임찬규",
+            "position": "1",
+            "positionName": "선발투수",
+            "weight": "80.0"
+          },
+          {
+            "backnum": "51",
+            "batorder": 1,
+            "batsThrows": "좌타",
+            "birth": "19931121",
+            "height": "189.0",
+            "hitType": "우투좌타",
+            "playerCode": "66108",
+            "playerName": "홍창기",
+            "position": "9",
+            "positionName": "우익수",
+            "weight": "94.0"
+          },
+          {
+            "backnum": "4",
+            "batorder": 2,
+            "batsThrows": "좌타",
+            "birth": "19960121",
+            "height": "171.0",
+            "hitType": "우투좌타",
+            "playerCode": "65207",
+            "playerName": "신민재",
+            "position": "4",
+            "positionName": "2루수",
+            "weight": "67.0"
+          },
+          {
+            "backnum": "23",
+            "batorder": 3,
+            "batsThrows": "우타",
+            "birth": "19931014",
+            "height": "183.0",
+            "hitType": "우투우타",
+            "playerCode": "53123",
+            "playerName": "오스틴",
+            "position": "3",
+            "positionName": "1루수",
+            "weight": "97.0"
+          },
+          {
+            "backnum": "10",
+            "batorder": 4,
+            "batsThrows": "좌타",
+            "birth": "19900312",
+            "height": "185.0",
+            "hitType": "우투좌타",
+            "playerCode": "79109",
+            "playerName": "오지환",
+            "position": "6",
+            "positionName": "유격수",
+            "weight": "80.0"
+          },
+          {
+            "backnum": "22",
+            "batorder": 5,
+            "batsThrows": "좌타",
+            "birth": "19880112",
+            "height": "188.0",
+            "hitType": "우투좌타",
+            "playerCode": "76290",
+            "playerName": "김현수",
+            "position": "7",
+            "positionName": "좌익수",
+            "weight": "105.0"
+          },
+          {
+            "backnum": "2",
+            "batorder": 6,
+            "batsThrows": "좌타",
+            "birth": "20000719",
+            "height": "182.0",
+            "hitType": "우투좌타",
+            "playerCode": "69102",
+            "playerName": "문보경",
+            "position": "5",
+            "positionName": "3루수",
+            "weight": "88.0"
+          },
+          {
+            "backnum": "27",
+            "batorder": 7,
+            "batsThrows": "우타",
+            "birth": "19900407",
+            "height": "178.0",
+            "hitType": "우투우타",
+            "playerCode": "79365",
+            "playerName": "박동원",
+            "position": "2",
+            "positionName": "포수",
+            "weight": "92.0"
+          },
+          {
+            "backnum": "17",
+            "batorder": 8,
+            "batsThrows": "좌타",
+            "birth": "19900224",
+            "height": "180.0",
+            "hitType": "우투좌타",
+            "playerCode": "62415",
+            "playerName": "박해민",
+            "position": "8",
+            "positionName": "중견수",
+            "weight": "75.0"
+          },
+          {
+            "backnum": "8",
+            "batorder": 9,
+            "batsThrows": "좌타",
+            "birth": "19970220",
+            "height": "175.0",
+            "hitType": "좌투좌타",
+            "playerCode": "68119",
+            "playerName": "문성주",
+            "position": "0",
+            "positionName": "지명타자",
+            "weight": "78.0"
+          }
+        ],
+        "pitcherBullpen": [
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "66145",
+            "playerName": "김대현",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "좌투",
+            "hitType": "좌완투수",
+            "playerCode": "64596",
+            "playerName": "김유영",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "75867",
+            "playerName": "김진성",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "65109",
+            "playerName": "백승현",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "좌투",
+            "hitType": "좌완투수",
+            "playerCode": "67143",
+            "playerName": "손주영",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "54119",
+            "playerName": "에르난데스",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "좌투",
+            "hitType": "좌완투수",
+            "playerCode": "54134",
+            "playerName": "엔스",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "50106",
+            "playerName": "유영찬",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "50904",
+            "playerName": "이종준",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "69108",
+            "playerName": "이지강",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우언",
+            "hitType": "우완언더",
+            "playerCode": "69159",
+            "playerName": "정우영",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "우투",
+            "hitType": "우완투수",
+            "playerCode": "65320",
+            "playerName": "최원태",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "좌투",
+            "hitType": "좌완투수",
+            "playerCode": "63248",
+            "playerName": "함덕주",
+            "pos": "1"
+          }
+        ]
+      },
+      "homeTeamPreviousGames": [
+        {
+          "aCode": "LG",
+          "aName": "LG",
+          "aScore": 5,
+          "gameId": "33331009LGKT02024",
+          "gdate": 20241009,
+          "gmkey": "33331009LGKT0",
+          "gweek": "수",
+          "gyear": 2024,
+          "hCode": "KT",
+          "hName": "KT",
+          "hScore": 6,
+          "result": "패"
+        },
+        {
+          "aCode": "LG",
+          "aName": "LG",
+          "aScore": 6,
+          "gameId": "33331008LGKT02024",
+          "gdate": 20241008,
+          "gmkey": "33331008LGKT0",
+          "gweek": "화",
+          "gyear": 2024,
+          "hCode": "KT",
+          "hName": "KT",
+          "hScore": 5,
+          "result": "승"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 2,
+          "gameId": "33331006KTLG02024",
+          "gdate": 20241006,
+          "gmkey": "33331006KTLG0",
+          "gweek": "일",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 7,
+          "result": "승"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 3,
+          "gameId": "33331005KTLG02024",
+          "gdate": 20241005,
+          "gmkey": "33331005KTLG0",
+          "gweek": "토",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 2,
+          "result": "패"
+        },
+        {
+          "aCode": "LG",
+          "aName": "LG",
+          "aScore": 11,
+          "gameId": "20240928LGSS02024",
+          "gdate": 20240928,
+          "gmkey": "20240928LGSS0",
+          "gweek": "토",
+          "gyear": 2024,
+          "hCode": "SS",
+          "hName": "삼성",
+          "hScore": 4,
+          "result": "승"
+        }
+      ],
+      "homeTopPlayer": {
+        "currentSeasonStats": {
+          "ab": 387,
+          "gameCount": 128,
+          "gday": "20241011",
+          "hit": 115,
+          "hr": 0,
+          "hra": "0.297",
+          "obp": 0.401,
+          "rbi": 40
+        },
+        "currentSeasonStatsOnOpponents": {
+          "hit": 18,
+          "hr": 0,
+          "hra": "0.340"
+        },
+        "hotColdZone": [
+          {
+            "hra": "0.313",
+            "hraStep": "4",
+            "kk": 8.5,
+            "zone": 1
+          },
+          {
+            "hra": "0.304",
+            "hraStep": "4",
+            "kk": 6.4,
+            "zone": 2
+          },
+          {
+            "hra": "0.324",
+            "hraStep": "4",
+            "kk": 12.8,
+            "zone": 3
+          },
+          {
+            "hra": "0.276",
+            "hraStep": "3",
+            "kk": 0,
+            "zone": 4
+          },
+          {
+            "hra": "0.276",
+            "hraStep": "3",
+            "kk": 2.1,
+            "zone": 5
+          },
+          {
+            "hra": "0.389",
+            "hraStep": "4",
+            "kk": 8.5,
+            "zone": 6
+          },
+          {
+            "hra": "0.265",
+            "hraStep": "3",
+            "kk": 8.5,
+            "zone": 7
+          },
+          {
+            "hra": "0.367",
+            "hraStep": "4",
+            "kk": 0,
+            "zone": 8
+          },
+          {
+            "hra": "0.213",
+            "hraStep": "3",
+            "kk": 8.5,
+            "zone": 9
+          },
+          {
+            "hra": "0.429",
+            "hraStep": "5",
+            "kk": 4.3,
+            "zone": 10
+          },
+          {
+            "hra": "0.278",
+            "hraStep": "3",
+            "kk": 10.6,
+            "zone": 11
+          },
+          {
+            "hra": "0.217",
+            "hraStep": "3",
+            "kk": 10.6,
+            "zone": 12
+          },
+          {
+            "hra": "0.289",
+            "hraStep": "3",
+            "kk": 19.1,
+            "zone": 13
+          }
+        ],
+        "playerCode": "65207",
+        "playerInfo": {
+          "backnum": "4",
+          "birth": "19960121",
+          "height": "171.0",
+          "hitType": "우투좌타",
+          "name": "신민재",
+          "pCode": "65207",
+          "weight": "67.0"
+        },
+        "recentFiveGamesStats": {
+          "ab": 20,
+          "gameCount": 5,
+          "hit": 8,
+          "hr": 0,
+          "hra": "0.400",
+          "obp": 0.478,
+          "playerCode": "65207",
+          "playerName": "신민재",
+          "rbi": 3
+        }
+      },
+      "seasonVsResult": {
+        "aCode": "KT",
+        "ad": 0,
+        "al": 9,
+        "aw": 7,
+        "hCode": "LG",
+        "hd": 0,
+        "hl": 7,
+        "hw": 9
+      }
+    }
+  },
+  "success": true
+}

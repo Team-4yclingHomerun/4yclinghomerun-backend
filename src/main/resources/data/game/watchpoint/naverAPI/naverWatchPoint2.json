@@ -1,0 +1,968 @@
+
+{
+  "code": 200,
+  "result": {
+    "previewData": {
+      "awayStandings": {
+        "d": 2,
+        "era": "4.63",
+        "hr": 115,
+        "hra": "0.283",
+        "l": 66,
+        "name": "LG",
+        "rank": 3,
+        "seriesOutcome": { "d": 0, "l": 1, "w": 1 },
+        "w": 76,
+        "wra": "0.535"
+      },
+      "awayStarter": {
+        "currentPitKindStats": [
+          { "pit_rt": 27.399999618530273, "speed": 144, "type": "FAST" },
+          { "pit_rt": 26.5, "speed": 136, "type": "SLID" },
+          { "pit_rt": 16.100000381469727, "speed": 126, "type": "CHUP" }
+        ],
+        "currentSeasonStats": {
+          "bb": 57,
+          "er": 60,
+          "era": "4.26",
+          "gameCount": 24,
+          "gday": "20241008",
+          "hit": 126,
+          "hp": 5,
+          "hr": 10,
+          "inn": "126.2",
+          "inn2": "126 2/3",
+          "kk": 103,
+          "l": 7,
+          "r": 66,
+          "s": 0,
+          "teamCode": "LG",
+          "teamName": "LG",
+          "w": 9,
+          "whip": "1.44"
+        },
+        "currentSeasonStatsOnOpponents": {
+          "bb": 6,
+          "er": 7,
+          "era": "3.50",
+          "gameCount": 3,
+          "inn": "18.0",
+          "kk": 20,
+          "l": 0,
+          "s": 0,
+          "w": 2
+        },
+        "playerInfo": {
+          "backnum": "20",
+          "birth": "19970107",
+          "height": "184.0",
+          "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+          "name": "\ucd5c\uc6d0\ud0dc",
+          "pCode": "65320",
+          "weight": "104.0"
+        }
+      },
+      "awayTeamLineUp": {
+        "batterCandidate": [
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "52154",
+            "playerName": "\uc774\uc8fc\ud5cc",
+            "pos": "2",
+            "position": "\ud3ec\uc218"
+          },
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "77243",
+            "playerName": "\ud5c8\ub3c4\ud658",
+            "pos": "2",
+            "position": "\ud3ec\uc218"
+          },
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "54164",
+            "playerName": "\uae40\ub300\uc6d0",
+            "pos": "4",
+            "position": "2\ub8e8\uc218"
+          },
+          {
+            "batsThrows": "\uc88c\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "51100",
+            "playerName": "\uc774\uc601\ube48",
+            "pos": "6",
+            "position": "\uc720\uaca9\uc218"
+          },
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "69100",
+            "playerName": "\uad6c\ubcf8\ud601",
+            "pos": "6",
+            "position": "\uc720\uaca9\uc218"
+          },
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "52103",
+            "playerName": "\ucd5c\uc6d0\uc601",
+            "pos": "7",
+            "position": "\uc88c\uc775\uc218"
+          },
+          {
+            "batsThrows": "\uc88c\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "65905",
+            "playerName": "\ucd5c\uc2b9\ubbfc",
+            "pos": "8",
+            "position": "\uc911\uacac\uc218"
+          }
+        ],
+        "fullLineUp": [
+          {
+            "backnum": "20",
+            "batsThrows": "\uc6b0\ud22c",
+            "birth": "19970107",
+            "height": "184.0",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "65320",
+            "playerName": "\ucd5c\uc6d0\ud0dc",
+            "position": "1",
+            "positionName": "\uc120\ubc1c\ud22c\uc218",
+            "weight": "104.0"
+          },
+          {
+            "backnum": "51",
+            "batorder": 1,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "19931121",
+            "height": "189.0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "66108",
+            "playerName": "\ud64d\ucc3d\uae30",
+            "position": "9",
+            "positionName": "\uc6b0\uc775\uc218",
+            "weight": "94.0"
+          },
+          {
+            "backnum": "4",
+            "batorder": 2,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "19960121",
+            "height": "171.0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "65207",
+            "playerName": "\uc2e0\ubbfc\uc7ac",
+            "position": "4",
+            "positionName": "2\ub8e8\uc218",
+            "weight": "67.0"
+          },
+          {
+            "backnum": "23",
+            "batorder": 3,
+            "batsThrows": "\uc6b0\ud0c0",
+            "birth": "19931014",
+            "height": "183.0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "53123",
+            "playerName": "\uc624\uc2a4\ud2f4",
+            "position": "3",
+            "positionName": "1\ub8e8\uc218",
+            "weight": "97.0"
+          },
+          {
+            "backnum": "2",
+            "batorder": 4,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "20000719",
+            "height": "182.0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "69102",
+            "playerName": "\ubb38\ubcf4\uacbd",
+            "position": "5",
+            "positionName": "3\ub8e8\uc218",
+            "weight": "88.0"
+          },
+          {
+            "backnum": "27",
+            "batorder": 5,
+            "batsThrows": "\uc6b0\ud0c0",
+            "birth": "19900407",
+            "height": "178.0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "79365",
+            "playerName": "\ubc15\ub3d9\uc6d0",
+            "position": "2",
+            "positionName": "\ud3ec\uc218",
+            "weight": "92.0"
+          },
+          {
+            "backnum": "10",
+            "batorder": 6,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "19900312",
+            "height": "185.0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "79109",
+            "playerName": "\uc624\uc9c0\ud658",
+            "position": "6",
+            "positionName": "\uc720\uaca9\uc218",
+            "weight": "80.0"
+          },
+          {
+            "backnum": "22",
+            "batorder": 7,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "19880112",
+            "height": "188.0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "76290",
+            "playerName": "\uae40\ud604\uc218",
+            "position": "0",
+            "positionName": "\uc9c0\uba85\ud0c0\uc790",
+            "weight": "105.0"
+          },
+          {
+            "backnum": "17",
+            "batorder": 8,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "19900224",
+            "height": "180.0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "62415",
+            "playerName": "\ubc15\ud574\ubbfc",
+            "position": "8",
+            "positionName": "\uc911\uacac\uc218",
+            "weight": "75.0"
+          },
+          {
+            "backnum": "8",
+            "batorder": 9,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "19970220",
+            "height": "175.0",
+            "hitType": "\uc88c\ud22c\uc88c\ud0c0",
+            "playerCode": "68119",
+            "playerName": "\ubb38\uc131\uc8fc",
+            "position": "7",
+            "positionName": "\uc88c\uc775\uc218",
+            "weight": "78.0"
+          }
+        ],
+        "pitcherBullpen": [
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "66145",
+            "playerName": "\uae40\ub300\ud604",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc88c\ud22c",
+            "hitType": "\uc88c\uc644\ud22c\uc218",
+            "playerCode": "64596",
+            "playerName": "\uae40\uc720\uc601",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "75867",
+            "playerName": "\uae40\uc9c4\uc131",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "65109",
+            "playerName": "\ubc31\uc2b9\ud604",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc88c\ud22c",
+            "hitType": "\uc88c\uc644\ud22c\uc218",
+            "playerCode": "67143",
+            "playerName": "\uc190\uc8fc\uc601",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "54119",
+            "playerName": "\uc5d0\ub974\ub09c\ub370\uc2a4",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc88c\ud22c",
+            "hitType": "\uc88c\uc644\ud22c\uc218",
+            "playerCode": "54134",
+            "playerName": "\uc5d4\uc2a4",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "50106",
+            "playerName": "\uc720\uc601\ucc2c",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "50904",
+            "playerName": "\uc774\uc885\uc900",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "69108",
+            "playerName": "\uc774\uc9c0\uac15",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "61101",
+            "playerName": "\uc784\ucc2c\uaddc",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\uc5b8",
+            "hitType": "\uc6b0\uc644\uc5b8\ub354",
+            "playerCode": "69159",
+            "playerName": "\uc815\uc6b0\uc601",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc88c\ud22c",
+            "hitType": "\uc88c\uc644\ud22c\uc218",
+            "playerCode": "63248",
+            "playerName": "\ud568\ub355\uc8fc",
+            "pos": "1"
+          }
+        ]
+      },
+      "awayTeamPreviousGames": [
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 2,
+          "gameId": "33331006KTLG02024",
+          "gdate": 20241006,
+          "gmkey": "33331006KTLG0",
+          "gweek": "\uc77c",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 7,
+          "result": "\uc2b9"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 3,
+          "gameId": "33331005KTLG02024",
+          "gdate": 20241005,
+          "gmkey": "33331005KTLG0",
+          "gweek": "\ud1a0",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 2,
+          "result": "\ud328"
+        },
+        {
+          "aCode": "LG",
+          "aName": "LG",
+          "aScore": 11,
+          "gameId": "20240928LGSS02024",
+          "gdate": 20240928,
+          "gmkey": "20240928LGSS0",
+          "gweek": "\ud1a0",
+          "gyear": 2024,
+          "hCode": "SS",
+          "hName": "\uc0bc\uc131",
+          "hScore": 4,
+          "result": "\uc2b9"
+        },
+        {
+          "aCode": "WO",
+          "aName": "\ud0a4\uc6c0",
+          "aScore": 3,
+          "gameId": "20240926WOLG02024",
+          "gdate": 20240926,
+          "gmkey": "20240926WOLG0",
+          "gweek": "\ubaa9",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 6,
+          "result": "\uc2b9"
+        },
+        {
+          "aCode": "HH",
+          "aName": "\ud55c\ud654",
+          "aScore": 4,
+          "gameId": "20240925HHLG02024",
+          "gdate": 20240925,
+          "gmkey": "20240925HHLG0",
+          "gweek": "\uc218",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 2,
+          "result": "\ud328"
+        }
+      ],
+      "awayTopPlayer": {
+        "currentSeasonStats": {
+          "ab": 387,
+          "gameCount": 128,
+          "gday": "20241008",
+          "hit": 115,
+          "hr": 0,
+          "hra": "0.297",
+          "obp": 0.401,
+          "rbi": 40
+        },
+        "currentSeasonStatsOnOpponents": { "hit": 18, "hr": 0, "hra": "0.340" },
+        "hotColdZone": [
+          { "hra": "0.313", "hraStep": "4", "kk": 8.5, "zone": 1 },
+          { "hra": "0.304", "hraStep": "4", "kk": 6.4, "zone": 2 },
+          { "hra": "0.324", "hraStep": "4", "kk": 12.8, "zone": 3 },
+          { "hra": "0.276", "hraStep": "3", "kk": 0, "zone": 4 },
+          { "hra": "0.276", "hraStep": "3", "kk": 2.1, "zone": 5 },
+          { "hra": "0.389", "hraStep": "4", "kk": 8.5, "zone": 6 },
+          { "hra": "0.265", "hraStep": "3", "kk": 8.5, "zone": 7 },
+          { "hra": "0.367", "hraStep": "4", "kk": 0, "zone": 8 },
+          { "hra": "0.213", "hraStep": "3", "kk": 8.5, "zone": 9 },
+          { "hra": "0.429", "hraStep": "5", "kk": 4.3, "zone": 10 },
+          { "hra": "0.278", "hraStep": "3", "kk": 10.6, "zone": 11 },
+          { "hra": "0.217", "hraStep": "3", "kk": 10.6, "zone": 12 },
+          { "hra": "0.289", "hraStep": "3", "kk": 19.1, "zone": 13 }
+        ],
+        "playerCode": "65207",
+        "playerInfo": {
+          "backnum": "4",
+          "birth": "19960121",
+          "height": "171.0",
+          "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+          "name": "\uc2e0\ubbfc\uc7ac",
+          "pCode": "65207",
+          "weight": "67.0"
+        },
+        "recentFiveGamesStats": {
+          "ab": 12,
+          "gameCount": 5,
+          "hit": 6,
+          "hr": 0,
+          "hra": "0.500",
+          "obp": 0.6,
+          "playerCode": "65207",
+          "playerName": "\uc2e0\ubbfc\uc7ac",
+          "rbi": 3
+        }
+      },
+      "gameInfo": {
+        "aCode": "LG",
+        "aFullName": "LG \ud2b8\uc708\uc2a4",
+        "aName": "LG",
+        "aPCode": "65320",
+        "cancelFlag": "N",
+        "gameFlag": "3",
+        "gdate": 20241008,
+        "gtime": "18:30",
+        "hCode": "KT",
+        "hFullName": "kt wiz",
+        "hName": "KT",
+        "hPCode": "52043",
+        "isPostSeason": true,
+        "optionFlag": 1,
+        "ptsFlag": "Y",
+        "round": 3,
+        "stadium": "\uc218\uc6d0",
+        "statusCode": "1"
+      },
+      "generateDate": "20241007",
+      "homeStandings": {
+        "d": 2,
+        "era": "5.11",
+        "hr": 145,
+        "hra": "0.279",
+        "l": 70,
+        "name": "KT",
+        "rank": 5,
+        "seriesOutcome": { "d": 0, "l": 1, "w": 1 },
+        "w": 72,
+        "wra": "0.507"
+      },
+      "homeStarter": {
+        "currentPitKindStats": [
+          { "pit_rt": 39.20000076293945, "speed": 146, "type": "FAST" },
+          { "pit_rt": 27.899999618530273, "speed": 130, "type": "SLID" },
+          { "pit_rt": 23.799999237060547, "speed": 138, "type": "CUTT" }
+        ],
+        "currentSeasonStats": {
+          "bb": 48,
+          "er": 77,
+          "era": "4.63",
+          "gameCount": 28,
+          "gday": "20241008",
+          "hit": 141,
+          "hp": 4,
+          "hr": 28,
+          "inn": "149.2",
+          "inn2": "149 2/3",
+          "kk": 156,
+          "l": 8,
+          "r": 90,
+          "s": 0,
+          "teamCode": "KT",
+          "teamName": "KT",
+          "w": 11,
+          "whip": "1.26"
+        },
+        "currentSeasonStatsOnOpponents": {
+          "bb": 9,
+          "er": 5,
+          "era": "1.93",
+          "gameCount": 4,
+          "inn": "23.1",
+          "kk": 20,
+          "l": 1,
+          "s": 0,
+          "w": 1
+        },
+        "playerInfo": {
+          "backnum": "43",
+          "birth": "19930726",
+          "height": "188.0",
+          "hitType": "\uc88c\ud22c\uc88c\ud0c0",
+          "name": "\ubca4\uc790\ubbfc",
+          "pCode": "52043",
+          "weight": "95.0"
+        }
+      },
+      "homeTeamLineUp": {
+        "batterCandidate": [
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "68089",
+            "playerName": "\uc870\ub300\ud604",
+            "pos": "2",
+            "position": "\ud3ec\uc218"
+          },
+          {
+            "batsThrows": "\uc88c\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "50054",
+            "playerName": "\ucc9c\uc131\ud638",
+            "pos": "4",
+            "position": "2\ub8e8\uc218"
+          },
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "64504",
+            "playerName": "\uc624\uc724\uc11d",
+            "pos": "4",
+            "position": "2\ub8e8\uc218"
+          },
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "62556",
+            "playerName": "\uc2e0\ubcf8\uae30",
+            "pos": "6",
+            "position": "\uc720\uaca9\uc218"
+          },
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "64007",
+            "playerName": "\ubb38\uc0c1\ucca0",
+            "pos": "7",
+            "position": "\uc88c\uc775\uc218"
+          },
+          {
+            "batsThrows": "\uc88c\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "64004",
+            "playerName": "\uae40\ubbfc\ud601",
+            "pos": "7",
+            "position": "\uc88c\uc775\uc218"
+          },
+          {
+            "batsThrows": "\uc6b0\ud0c0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "64012",
+            "playerName": "\uc1a1\ubbfc\uc12d",
+            "pos": "9",
+            "position": "\uc6b0\uc775\uc218"
+          }
+        ],
+        "fullLineUp": [
+          {
+            "backnum": "43",
+            "batsThrows": "\uc88c\ud22c",
+            "birth": "19930726",
+            "height": "188.0",
+            "hitType": "\uc88c\uc644\ud22c\uc218",
+            "playerCode": "52043",
+            "playerName": "\ubca4\uc790\ubbfc",
+            "position": "1",
+            "positionName": "\uc120\ubc1c\ud22c\uc218",
+            "weight": "95.0"
+          },
+          {
+            "backnum": "3",
+            "batorder": 1,
+            "batsThrows": "\uc591\ud0c0",
+            "birth": "19900524",
+            "height": "189.0",
+            "hitType": "\uc6b0\ud22c\uc591\ud0c0",
+            "playerCode": "67025",
+            "playerName": "\ub85c\ud558\uc2a4",
+            "position": "9",
+            "positionName": "\uc6b0\uc775\uc218",
+            "weight": "102.0"
+          },
+          {
+            "backnum": "50",
+            "batorder": 2,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "19990729",
+            "height": "184.0",
+            "hitType": "\uc6b0\ud22c\uc88c\ud0c0",
+            "playerCode": "68050",
+            "playerName": "\uac15\ubc31\ud638",
+            "position": "0",
+            "positionName": "\uc9c0\uba85\ud0c0\uc790",
+            "weight": "98.0"
+          },
+          {
+            "backnum": "22",
+            "batorder": 3,
+            "batsThrows": "\uc6b0\ud0c0",
+            "birth": "19900117",
+            "height": "187.0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "78548",
+            "playerName": "\uc7a5\uc131\uc6b0",
+            "position": "2",
+            "positionName": "\ud3ec\uc218",
+            "weight": "100.0"
+          },
+          {
+            "backnum": "36",
+            "batorder": 4,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "19861029",
+            "height": "187.0",
+            "hitType": "\uc88c\ud22c\uc88c\ud0c0",
+            "playerCode": "75334",
+            "playerName": "\uc624\uc7ac\uc77c",
+            "position": "3",
+            "positionName": "1\ub8e8\uc218",
+            "weight": "95.0"
+          },
+          {
+            "backnum": "10",
+            "batorder": 5,
+            "batsThrows": "\uc6b0\ud0c0",
+            "birth": "19870728",
+            "height": "183.0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "76313",
+            "playerName": "\ud669\uc7ac\uade0",
+            "position": "5",
+            "positionName": "3\ub8e8\uc218",
+            "weight": "96.0"
+          },
+          {
+            "backnum": "7",
+            "batorder": 6,
+            "batsThrows": "\uc6b0\ud0c0",
+            "birth": "19900323",
+            "height": "175.0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "79402",
+            "playerName": "\uae40\uc0c1\uc218",
+            "position": "4",
+            "positionName": "2\ub8e8\uc218",
+            "weight": "68.0"
+          },
+          {
+            "backnum": "27",
+            "batorder": 7,
+            "batsThrows": "\uc6b0\ud0c0",
+            "birth": "19950612",
+            "height": "185.0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "64166",
+            "playerName": "\ubc30\uc815\ub300",
+            "position": "8",
+            "positionName": "\uc911\uacac\uc218",
+            "weight": "80.0"
+          },
+          {
+            "backnum": "2",
+            "batorder": 8,
+            "batsThrows": "\uc6b0\ud0c0",
+            "birth": "19950428",
+            "height": "183.0",
+            "hitType": "\uc6b0\ud22c\uc6b0\ud0c0",
+            "playerCode": "64006",
+            "playerName": "\uc2ec\uc6b0\uc900",
+            "position": "6",
+            "positionName": "\uc720\uaca9\uc218",
+            "weight": "74.0"
+          },
+          {
+            "backnum": "58",
+            "batorder": 9,
+            "batsThrows": "\uc88c\ud0c0",
+            "birth": "20040126",
+            "height": "173.0",
+            "hitType": "\uc88c\ud22c\uc88c\ud0c0",
+            "playerCode": "53058",
+            "playerName": "\uc815\uc900\uc601",
+            "position": "7",
+            "positionName": "\uc88c\uc775\uc218",
+            "weight": "73.0"
+          }
+        ],
+        "pitcherBullpen": [
+          {
+            "batsThrows": "\uc6b0\uc5b8",
+            "hitType": "\uc6b0\uc644\uc5b8\ub354",
+            "playerCode": "64001",
+            "playerName": "\uace0\uc601\ud45c",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "68043",
+            "playerName": "\uae40\ubbfc",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "65048",
+            "playerName": "\uae40\ubbfc\uc218",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "52060",
+            "playerName": "\ubc15\uc601\ud604",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "50030",
+            "playerName": "\uc18c\ud615\uc900",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "69041",
+            "playerName": "\uc190\ub3d9\ud604",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\uc5b8",
+            "hitType": "\uc6b0\uc644\uc5b8\ub354",
+            "playerCode": "65056",
+            "playerName": "\uc5c4\uc0c1\ubc31",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\uc5b8",
+            "hitType": "\uc6b0\uc644\uc5b8\ub354",
+            "playerCode": "73117",
+            "playerName": "\uc6b0\uaddc\ubbfc",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "54063",
+            "playerName": "\uc6d0\uc0c1\ud604",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "69054",
+            "playerName": "\uc774\uc0c1\ub3d9",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "64768",
+            "playerName": "\uc870\uc774\ud604",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "65060",
+            "playerName": "\uc8fc\uad8c",
+            "pos": "1"
+          },
+          {
+            "batsThrows": "\uc6b0\ud22c",
+            "hitType": "\uc6b0\uc644\ud22c\uc218",
+            "playerCode": "69032",
+            "playerName": "\ucfe0\uc5d0\ubc14\uc2a4",
+            "pos": "1"
+          }
+        ]
+      },
+      "homeTeamPreviousGames": [
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 2,
+          "gameId": "33331006KTLG02024",
+          "gdate": 20241006,
+          "gmkey": "33331006KTLG0",
+          "gweek": "\uc77c",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 7,
+          "result": "\ud328"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 3,
+          "gameId": "33331005KTLG02024",
+          "gdate": 20241005,
+          "gmkey": "33331005KTLG0",
+          "gweek": "\ud1a0",
+          "gyear": 2024,
+          "hCode": "LG",
+          "hName": "LG",
+          "hScore": 2,
+          "result": "\uc2b9"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 1,
+          "gameId": "44441003KTOB02024",
+          "gdate": 20241003,
+          "gmkey": "44441003KTOB0",
+          "gweek": "\ubaa9",
+          "gyear": 2024,
+          "hCode": "OB",
+          "hName": "\ub450\uc0b0",
+          "hScore": 0,
+          "result": "\uc2b9"
+        },
+        {
+          "aCode": "KT",
+          "aName": "KT",
+          "aScore": 4,
+          "gameId": "44441002KTOB02024",
+          "gdate": 20241002,
+          "gmkey": "44441002KTOB0",
+          "gweek": "\uc218",
+          "gyear": 2024,
+          "hCode": "OB",
+          "hName": "\ub450\uc0b0",
+          "hScore": 0,
+          "result": "\uc2b9"
+        },
+        {
+          "aCode": "SK",
+          "aName": "SSG",
+          "aScore": 3,
+          "gameId": "66661001SKKT02024",
+          "gdate": 20241001,
+          "gmkey": "66661001SKKT0",
+          "gweek": "\ud654",
+          "gyear": 2024,
+          "hCode": "KT",
+          "hName": "KT",
+          "hScore": 4,
+          "result": "\uc2b9"
+        }
+      ],
+      "homeTopPlayer": {
+        "currentSeasonStats": {
+          "ab": 572,
+          "gameCount": 144,
+          "gday": "20241008",
+          "hit": 188,
+          "hr": 32,
+          "hra": "0.329",
+          "obp": 0.421,
+          "rbi": 112
+        },
+        "currentSeasonStatsOnOpponents": { "hit": 22, "hr": 7, "hra": "0.361" },
+        "hotColdZone": [
+          { "hra": "0.256", "hraStep": "3", "kk": 3.5, "zone": 1 },
+          { "hra": "0.448", "hraStep": "5", "kk": 0.9, "zone": 2 },
+          { "hra": "0.420", "hraStep": "5", "kk": 4.3, "zone": 3 },
+          { "hra": "0.321", "hraStep": "4", "kk": 4.3, "zone": 4 },
+          { "hra": "0.472", "hraStep": "5", "kk": 1.7, "zone": 5 },
+          { "hra": "0.375", "hraStep": "4", "kk": 4.3, "zone": 6 },
+          { "hra": "0.294", "hraStep": "3", "kk": 10.4, "zone": 7 },
+          { "hra": "0.320", "hraStep": "4", "kk": 6.1, "zone": 8 },
+          { "hra": "0.425", "hraStep": "5", "kk": 10.4, "zone": 9 },
+          { "hra": "0.211", "hraStep": "3", "kk": 6.1, "zone": 10 },
+          { "hra": "0.308", "hraStep": "4", "kk": 3.5, "zone": 11 },
+          { "hra": "0.222", "hraStep": "3", "kk": 20, "zone": 12 },
+          { "hra": "0.181", "hraStep": "2", "kk": 24.3, "zone": 13 }
+        ],
+        "playerCode": "67025",
+        "playerInfo": {
+          "backnum": "3",
+          "birth": "19900524",
+          "height": "189.0",
+          "hitType": "\uc6b0\ud22c\uc591\ud0c0",
+          "name": "\ub85c\ud558\uc2a4",
+          "pCode": "67025",
+          "weight": "102.0"
+        },
+        "recentFiveGamesStats": {
+          "ab": 17,
+          "gameCount": 5,
+          "hit": 6,
+          "hr": 2,
+          "hra": "0.353",
+          "obp": 0.476,
+          "playerCode": "67025",
+          "playerName": "\ub85c\ud558\uc2a4",
+          "rbi": 4
+        }
+      },
+      "seasonVsResult": {
+        "aCode": "LG",
+        "ad": 0,
+        "al": 7,
+        "aw": 9,
+        "hCode": "KT",
+        "hd": 0,
+        "hl": 9,
+        "hw": 7
+      }
+    }
+  },
+  "success": true
+}

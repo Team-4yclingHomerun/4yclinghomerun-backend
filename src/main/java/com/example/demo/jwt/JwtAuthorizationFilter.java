@@ -67,6 +67,7 @@ public class JwtAuthorizationFilter implements Filter {
             "/member/verify-email",
             "/member/duplicate-email",
             "/api/player/*",
+            "/api/game/*",
             "/ws/chat",
             "/chat"
     };
