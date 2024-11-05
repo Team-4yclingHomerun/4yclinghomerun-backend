@@ -3,7 +3,9 @@ package com.example.demo.news.controller;
 import com.example.demo.news.dto.NewsListSearchWordRequest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,7 @@ import java.io.InputStream;
  * 11/4/24       JAEIK       최초 생성
  */
 @RestController
+@Slf4j
 @Tag(name = "Json데이터:news")
 @RequestMapping("/api/article")
 public class NewsController {
@@ -101,21 +104,37 @@ public class NewsController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/newslist/search")
+    @GetMapping("/newslist")
     public ResponseEntity<JsonNode> getMockNewsListSearchWord(@RequestParam String searchWord) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/news/news_newslistlist_detail/newslist.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
-        return ResponseEntity.ok(jsonNode);
+
+        // ArrayNode 결과를 저장하기위해 객체생성
+        ArrayNode filterResults = objectMapper.createArrayNode();
+
+        // 특정 노드에 접근하는 이름 지정
+        JsonNode listNode = jsonNode.path("data").path("list");
+
+        for (JsonNode item: listNode) {
+            String title =item.has("artcTitle") ? item.get("artcTitle").asText(): "";
+            String contents =item.has("artcContents") ? item.get("artcContents").asText(): "";
+            log.info("title{}:",title);
+
+            if (title.contains(searchWord) || contents.contains(searchWord)) {
+                filterResults.add(item);
+            }
+        }
+        return ResponseEntity.ok(filterResults);
     }
 
-    @GetMapping("/newslist")
-    public ResponseEntity<JsonNode> getMockNewsList() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/data/news/news_newslistlist_detail/newslist.json");
-        JsonNode jsonNode = objectMapper.readTree(inputStream);
-        return ResponseEntity.ok(jsonNode);
-    }
+//    @GetMapping("/newslist")
+//    public ResponseEntity<JsonNode> getMockNewsList() throws IOException {
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        InputStream inputStream = getClass().getResourceAsStream("/data/news/news_newslistlist_detail/newslist.json");
+//        JsonNode jsonNode = objectMapper.readTree(inputStream);
+//        return ResponseEntity.ok(jsonNode);
+//    }
 
     @GetMapping("/newsdetail/artcSeq-187627")
     public ResponseEntity<JsonNode> getMockNewsDetailArtcSeq() throws IOException {

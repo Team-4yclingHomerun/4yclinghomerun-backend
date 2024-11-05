@@ -1,0 +1,42 @@
+
+{
+  "data": {
+    "list": [
+      {
+        "crowd": 55047,
+        "game": 72,
+        "teamCode": "OB",
+        "teamName": "\ub450\uc0b0"
+      },
+      { "crowd": 45992, "game": 72, "teamCode": "NC", "teamName": "NC" },
+      { "crowd": 41317, "game": 72, "teamCode": "LG", "teamName": "LG" },
+      {
+        "crowd": 36717,
+        "game": 72,
+        "teamCode": "LT",
+        "teamName": "\ub86f\ub370"
+      },
+      { "crowd": 30608, "game": 72, "teamCode": "SK", "teamName": "SK" },
+      {
+        "crowd": 27819,
+        "game": 72,
+        "teamCode": "SS",
+        "teamName": "\uc0bc\uc131"
+      },
+      {
+        "crowd": 27158,
+        "game": 72,
+        "teamCode": "WO",
+        "teamName": "\ud0a4\uc6c0"
+      },
+      { "crowd": 22499, "game": 72, "teamCode": "KT", "teamName": "KT" },
+      { "crowd": 21198, "game": 72, "teamCode": "HT", "teamName": "KIA" },
+      {
+        "crowd": 19962,
+        "game": 72,
+        "teamCode": "HH",
+        "teamName": "\ud55c\ud654"
+      }
+    ]
+  }
+}
