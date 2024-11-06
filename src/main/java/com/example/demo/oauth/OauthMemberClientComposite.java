@@ -1,6 +1,5 @@
 package com.example.demo.oauth;
 
-import com.example.demo.oauth.kakao.KakaoMemberClient;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

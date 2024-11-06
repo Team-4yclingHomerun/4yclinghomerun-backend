@@ -4,13 +4,12 @@ import com.example.demo.member.dto.MemberSignInRequest;
 import com.example.demo.member.dto.MemberSignUpRequest;
 import com.example.demo.member.entity.Member;
 import com.example.demo.member.entity.MemberStatus;
-import com.example.demo.member.entity.Role;
 import com.example.demo.member.entity.Roles;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+
 
 import java.time.Instant;
-import java.util.Set;
+
 
 /**
  * packageName    : com.example.demo.member.mapper

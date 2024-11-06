@@ -2,9 +2,7 @@ package com.example.demo.member.service;
 
 import com.example.demo.member.dto.MemberSignInRequest;
 import com.example.demo.member.dto.MemberSignInResponse;
-import com.example.demo.member.dto.MemberSignUpRequest;
 import com.example.demo.member.dto.MemberVerifyResponse;
-import com.example.demo.member.entity.Member;
 
 /**
  * packageName    : com.example.demo.member.service

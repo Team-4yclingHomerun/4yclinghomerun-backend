@@ -1,6 +1,5 @@
 package com.example.demo.member.service;
 
-import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.exception.CustomException;
 import com.example.demo.exception.DeleteMemberErrorCode;
 import com.example.demo.exception.SignInErrorCode;
@@ -16,18 +15,13 @@ import com.example.demo.member.repository.MemberRepository;
 import com.example.demo.member.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
+
 import java.time.Instant;
 import java.util.*;
 
-import static org.hibernate.validator.internal.util.Contracts.assertTrue;
 
 /**
  * packageName    : com.example.demo.member.service

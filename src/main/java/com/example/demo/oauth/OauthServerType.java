@@ -1,6 +1,5 @@
 package com.example.demo.oauth;
 
-import java.util.Locale;
 
 import static java.util.Locale.ENGLISH;
 

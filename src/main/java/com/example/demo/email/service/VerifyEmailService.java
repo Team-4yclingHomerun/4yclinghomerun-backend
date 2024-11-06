@@ -2,11 +2,9 @@ package com.example.demo.email.service;
 
 import com.example.demo.email.dto.EmailSignUpOrLoginResponse;
 import com.example.demo.email.repository.EmailRepository;
-import com.example.demo.email.dto.EmailCertificationResponse;
 import com.example.demo.email.entity.VerifyEmailCode;
 import com.example.demo.exception.SignInErrorCode;
 import com.example.demo.exception.SignUpErrorCode;
-import com.example.demo.jwt.JwtProvider;
 import com.example.demo.jwt.JwtToken;
 import com.example.demo.member.entity.Member;
 import com.example.demo.member.entity.Role;
@@ -17,8 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.Optional;
-import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

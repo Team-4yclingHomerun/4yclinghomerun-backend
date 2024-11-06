@@ -1,7 +1,6 @@
 package com.example.demo.member.entity;
 
 import com.example.demo.jpa.support.UuidBaseEntity;
-import com.example.demo.oauth.OauthMember;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -2,10 +2,6 @@ package com.example.demo.jwt;
 
 import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.member.entity.Role;
-import com.example.demo.member.service.MemberService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,7 +10,6 @@ import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * packageName    : com.example.demo.jwt

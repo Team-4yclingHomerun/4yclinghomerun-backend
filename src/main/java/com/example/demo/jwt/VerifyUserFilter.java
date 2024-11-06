@@ -10,10 +10,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.net.http.HttpRequest;
 
 /**
  * packageName    : com.example.demo.jwt

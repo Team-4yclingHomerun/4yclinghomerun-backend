@@ -4,7 +4,6 @@ import com.example.demo.jwt.JwtProperties;
 import com.example.demo.jwt.JwtProvider;
 import com.example.demo.jwt.JwtToken;
 import com.example.demo.member.entity.Role;
-import com.example.demo.oauth.OauthMember;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
