@@ -64,5 +64,4 @@ public class ChatService {
             log.error(e.getMessage(),e);
         }
     }
-
 }

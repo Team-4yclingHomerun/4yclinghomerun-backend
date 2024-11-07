@@ -30,12 +30,12 @@ public class ChatController {
 
     private final ChatService chatService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ChatRoom createRoom(@RequestParam String roomName) {
         return chatService.createRoom(roomName);
     }
 
-    @GetMapping
+    @GetMapping("/find")
     public ChatRoom findRoom(@RequestParam String roomId) {
         return chatService.findRoomById(roomId);
     }

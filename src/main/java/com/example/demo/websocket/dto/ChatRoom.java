@@ -38,6 +38,7 @@ public class ChatRoom {
         sendMessage(chatMessage, chatService);
     }
     public <T> void sendMessage(T message, ChatService chatService) {
+        // 병렬 스트림을 생성하여, 여러 클라이언트에게 동시에 메시지를 보낼 수 있게한다.
         sessions.parallelStream().forEach(session -> chatService.sendMessage(session, message));
     }
 }

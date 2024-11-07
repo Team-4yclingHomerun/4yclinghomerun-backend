@@ -29,7 +29,7 @@ import java.io.InputStream;
 @RequestMapping("/api/game")
 public class GameController {
 
-    @GetMapping("/boxscore0")
+    @GetMapping("/boxscore/gameDate-20241011/gmkey-33331011KTLG0")
     public ResponseEntity<JsonNode> getMockBoxScore() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/boxscore/boxscore0.json");
@@ -37,7 +37,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/boxscore1")
+    @GetMapping("/boxscore/gameDate-20241009/gmkey-33331009LGKT0")
     public ResponseEntity<JsonNode> getMockBoxScore1() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/boxscore/boxscore1.json");
@@ -46,7 +46,7 @@ public class GameController {
 
     }
 
-    @GetMapping("/boxscore2")
+    @GetMapping("/boxscore/gameDate-20241008/gmkey-33331008LGKT0")
     public ResponseEntity<JsonNode> getMockBoxScore2() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/boxscore/boxscore2.json");
@@ -54,7 +54,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/boxscore3")
+    @GetMapping("/boxscore/gameDate-20241006/gmkey-33331006KTLG0")
     public ResponseEntity<JsonNode> getMockBoxScore3() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/boxscore/boxscore3.json");
@@ -62,7 +62,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/boxscore4")
+    @GetMapping("/boxscore/gameDate-20241005/gmkey-33331005KTLG0")
     public ResponseEntity<JsonNode> getMockBoxScore4() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/boxscore/boxscore4.json");
@@ -70,7 +70,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/boxscore5")
+    @GetMapping("/boxscore/gameDate-20240928/gmkey-20240928WOKT0")
     public ResponseEntity<JsonNode> getMockBoxScore5() throws IOException {
         ObjectMapper objectMapper =  new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/boxscore/boxscore5.json");
@@ -86,7 +86,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/monthSchedule3")
+    @GetMapping("/monthschedule/yearMonth-202403")
     public ResponseEntity<JsonNode> getMockMonthSchedule3() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Resource resource = new ClassPathResource("/data/game/monthSchedule/monthSchedule3.json");
@@ -95,7 +95,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/monthSchedule4")
+    @GetMapping("/monthschedule/yearMonth-202404")
     public ResponseEntity<JsonNode> getMockMonthSchedule4() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/monthSchedule/monthSchedule4.json");
@@ -103,7 +103,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/monthSchedule5")
+    @GetMapping("/monthschedule/yearMonth-202405")
     public ResponseEntity<JsonNode> getMockMonthSchedule5() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/monthSchedule/monthSchedule5.json");
@@ -111,7 +111,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/monthSchedule6")
+    @GetMapping("/monthschedule/yearMonth-202406")
     public ResponseEntity<JsonNode> getMockMonthSchedule6() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/monthSchedule/monthSchedule6.json");
@@ -119,7 +119,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/monthSchedule7")
+    @GetMapping("/monthschedule/yearMonth-202407")
     public ResponseEntity<JsonNode> getMockMonthSchedule7() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/monthSchedule/monthSchedule7.json");
@@ -127,7 +127,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/monthSchedule8")
+    @GetMapping("/monthschedule/yearMonth-202408")
     public ResponseEntity<JsonNode> getMockMonthSchedule8() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/monthSchedule/monthSchedule8.json");
@@ -135,7 +135,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/monthSchedule9")
+    @GetMapping("/monthschedule/yearMonth-202409")
     public ResponseEntity<JsonNode> getMockMonthSchedule9() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/monthSchedule/monthSchedule9.json");
@@ -143,7 +143,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/monthSchedule10")
+    @GetMapping("/monthschedule/yearMonth-202410")
     public ResponseEntity<JsonNode> getMockMonthSchedule10() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/monthSchedule/monthSchedule10.json");
@@ -159,7 +159,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/watchPoint0")
+    @GetMapping("/watchpoint/gameDate-20241011/gmkey-33331011KTLG0")
     public ResponseEntity<JsonNode> getMockWatchPoint0() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint0.json");
@@ -167,7 +167,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/watchPoint1")
+    @GetMapping("/watchpoint/gameDate-20241009/gmkey-33331009LGKT0")
     public ResponseEntity<JsonNode> getMockWatchPoint1() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint1.json");
@@ -175,7 +175,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/watchPoint2")
+    @GetMapping("/watchpoint/gameDate-20241008/gmkey-33331008LGKT0")
     public ResponseEntity<JsonNode> getMockWatchPoint2() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint2.json");
@@ -183,7 +183,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/watchPoint3")
+    @GetMapping("/watchpoint/gameDate-20241006/gmkey-33331006KTLG0")
     public ResponseEntity<JsonNode> getMockWatchPoint3() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint3.json");
@@ -191,7 +191,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/watchPoint4")
+    @GetMapping("/watchpoint/gameDate-20241005/gmkey-33331005KTLG0")
     public ResponseEntity<JsonNode> getMockWatchPoint4() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint4.json");
@@ -199,7 +199,7 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/watchPoint5")
+    @GetMapping("/watchpoint/gameDate-20240928/gmkey-20240928WOKT0")
     public ResponseEntity<JsonNode> getMockWatchPoint5() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint5.json");

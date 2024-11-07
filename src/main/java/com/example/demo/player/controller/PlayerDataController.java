@@ -48,7 +48,7 @@ public class PlayerDataController {
         return ResponseEntity.ok(playerList);
     }
 
-    @GetMapping("/catcherdetail")
+    @GetMapping("/catcherdetail/pcode-50066")
     public ResponseEntity<CatcherDetailResponse> getMockCatcherDetail() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -61,7 +61,7 @@ public class PlayerDataController {
         return ResponseEntity.ok(catcherDetailResponse);
     }
 
-    @GetMapping("/coachdetail")
+    @GetMapping("/coachdetail/pcode-89620")
     public ResponseEntity<JsonNode> getMockCoachDetail() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/player/coachdetail/pcode=89620.json");
@@ -69,7 +69,7 @@ public class PlayerDataController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/infielderdetail")
+    @GetMapping("/infielderdetail/pcode-68050")
     public ResponseEntity<JsonNode> getMockInfielderDetail() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/player/infielderdetail/pcode=68050.json");
@@ -77,7 +77,7 @@ public class PlayerDataController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/outfielderdetail")
+    @GetMapping("/outfielderdetail/pcode-67025")
     public ResponseEntity<JsonNode> getOutFielderDetail() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/player/outfielderdetail/pcode=67025.json");
@@ -85,7 +85,7 @@ public class PlayerDataController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/pitcherdetail")
+    @GetMapping("/pitcherdetail/pcode-53006")
     public ResponseEntity<JsonNode> getPitcherDetail() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/data/player/pitcherdetail/pcode=53006.json");
