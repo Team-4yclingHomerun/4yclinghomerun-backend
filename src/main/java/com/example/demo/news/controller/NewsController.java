@@ -4,6 +4,7 @@ package com.example.demo.news.controller;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -113,9 +114,10 @@ public class NewsController {
         // ArrayNode 결과를 저장하기위해 객체생성
         ArrayNode filterResults = objectMapper.createArrayNode();
 
-        // 특정 노드에 접근하는 이름 지정
+        // 특정 노드에 접근하는 경로 지정
         JsonNode listNode = jsonNode.path("data").path("list");
 
+        // 검색 필터링 하는 로직
         for (JsonNode item: listNode) {
             String title =item.has("artcTitle") ? item.get("artcTitle").asText(): "";
             String contents =item.has("artcContents") ? item.get("artcContents").asText(): "";
@@ -125,7 +127,12 @@ public class NewsController {
                 filterResults.add(item);
             }
         }
-        return ResponseEntity.ok(filterResults);
+
+        ObjectNode responseNode = objectMapper.createObjectNode();
+        ObjectNode dateNode = objectMapper.createObjectNode();
+        dateNode.set("list", filterResults);
+        responseNode.set("data", dateNode);
+        return ResponseEntity.ok(responseNode);
     }
 
 //    @GetMapping("/newslist")
