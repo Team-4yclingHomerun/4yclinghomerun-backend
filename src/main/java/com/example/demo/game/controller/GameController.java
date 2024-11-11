@@ -165,7 +165,7 @@ public class GameController {
     @GetMapping("/watchpoint/gameDate-20241011/gmkey-33331011KTLG0")
     public ResponseEntity<JsonNode> getMockWatchPoint0() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint0.json");
+        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchpoint/ktAPI/watchPoint0.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
         return ResponseEntity.ok(jsonNode);
     }
@@ -173,7 +173,7 @@ public class GameController {
     @GetMapping("/watchpoint/gameDate-20241009/gmkey-33331009LGKT0")
     public ResponseEntity<JsonNode> getMockWatchPoint1() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint1.json");
+        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchpoint/ktAPI/watchPoint1.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
         return ResponseEntity.ok(jsonNode);
     }
@@ -181,7 +181,7 @@ public class GameController {
     @GetMapping("/watchpoint/gameDate-20241008/gmkey-33331008LGKT0")
     public ResponseEntity<JsonNode> getMockWatchPoint2() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint2.json");
+        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchpoint/ktAPI/watchPoint2.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
         return ResponseEntity.ok(jsonNode);
     }
@@ -189,7 +189,7 @@ public class GameController {
     @GetMapping("/watchpoint/gameDate-20241006/gmkey-33331006KTLG0")
     public ResponseEntity<JsonNode> getMockWatchPoint3() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint3.json");
+        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchpoint/ktAPI/watchPoint3.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
         return ResponseEntity.ok(jsonNode);
     }
@@ -197,7 +197,7 @@ public class GameController {
     @GetMapping("/watchpoint/gameDate-20241005/gmkey-33331005KTLG0")
     public ResponseEntity<JsonNode> getMockWatchPoint4() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint4.json");
+        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchpoint/ktAPI/watchPoint4.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
         return ResponseEntity.ok(jsonNode);
     }
@@ -205,39 +205,39 @@ public class GameController {
     @GetMapping("/watchpoint/gameDate-20240928/gmkey-20240928WOKT0")
     public ResponseEntity<JsonNode> getMockWatchPoint5() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchPoint/ktAPI/watchPoint5.json");
+        InputStream inputStream = getClass().getResourceAsStream("/data/game/watchpoint/ktAPI/watchPoint5.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
         return ResponseEntity.ok(jsonNode);
     }
 
     @GetMapping("/navergameinfo/gmkey-33331011KTLG0")
     public ResponseEntity<JsonNode> getMockNaverWatchPoint0() throws IOException {
-        return getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint0.json");
+        return getMockNaverWatchPoint("/data/game/watchpoint/naverAPI/naverWatchPoint0.json");
     }
 
     @GetMapping("/navergameinfo/gmkey-33331009LGKT0")
     public ResponseEntity<JsonNode> getMockNaverWatchPoint1() throws IOException {
-        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint1.json" );
+        return  getMockNaverWatchPoint("/data/game/watchpoint/naverAPI/naverWatchPoint1.json" );
     }
 
     @GetMapping("/navergameinfo/gmkey-33331008LGKT0")
     public ResponseEntity<JsonNode> getMockNaverWatchPoint2() throws IOException {
-        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint2.json" );
+        return  getMockNaverWatchPoint("/data/game/watchpoint/naverAPI/naverWatchPoint2.json" );
     }
 
     @GetMapping("/navergameinfo/gmkey-33331006KTLG0")
     public ResponseEntity<JsonNode> getMockNaverWatchPoint3() throws IOException {
-        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint3.json" );
+        return  getMockNaverWatchPoint("/data/game/watchpoint/naverAPI/naverWatchPoint3.json" );
     }
 
     @GetMapping("/navergameinfo/gmkey-33331005KTLG0")
     public ResponseEntity<JsonNode> getMockNaverWatchPoint4() throws IOException {
-        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint4.json" );
+        return  getMockNaverWatchPoint("/data/game/watchpoint/naverAPI/naverWatchPoint4.json" );
     }
 
     @GetMapping("/navergameinfo/gmkey-20240928WOKT0")
     public ResponseEntity<JsonNode> getMockNaverWatchPoint5() throws IOException {
-        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint5.json" );
+        return  getMockNaverWatchPoint("/data/game/watchpoint/naverAPI/naverWatchPoint5.json" );
     }
 
     @GetMapping("/weekSchedule")
