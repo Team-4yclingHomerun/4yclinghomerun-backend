@@ -84,7 +84,7 @@ public class GameController {
     @GetMapping("/ktwizteamrank")
     public ResponseEntity<JsonNode> getMockKtWizTeamRank() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/data/game/ktWizTeamRank/ktWizTeamRank.json");
+        InputStream inputStream = getClass().getResourceAsStream("/data/game/ktTeamRank/ktWizTeamRank.json");
         JsonNode jsonNode = objectMapper.readTree(inputStream);
         return ResponseEntity.ok(jsonNode);
     }
@@ -210,34 +210,34 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    @GetMapping("/naverWatchPoint0")
-    public ResponseEntity<JsonNode> getMockNaverWatchPoint0(@RequestParam String gmkey) throws IOException {
-        return getMockNaverWatchPoint(gmkey,"/data/game/watchPoint/naverAPI/naverWatchPoint0.json");
+    @GetMapping("/navergameinfo/gmkey-33331011KTLG0")
+    public ResponseEntity<JsonNode> getMockNaverWatchPoint0() throws IOException {
+        return getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint0.json");
     }
 
-    @GetMapping("/naverWatchPoint1")
-    public ResponseEntity<JsonNode> getMockNaverWatchPoint1(@RequestParam String gmkey) throws IOException {
-        return  getMockNaverWatchPoint(gmkey,"/data/game/watchPoint/naverAPI/naverWatchPoint1.json" );
+    @GetMapping("/navergameinfo/gmkey-33331009LGKT0")
+    public ResponseEntity<JsonNode> getMockNaverWatchPoint1() throws IOException {
+        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint1.json" );
     }
 
-    @GetMapping("/naverWatchPoint2")
-    public ResponseEntity<JsonNode> getMockNaverWatchPoint2(@RequestParam String gmkey) throws IOException {
-        return  getMockNaverWatchPoint(gmkey,"/data/game/watchPoint/naverAPI/naverWatchPoint2.json" );
+    @GetMapping("/navergameinfo/gmkey-33331008LGKT0")
+    public ResponseEntity<JsonNode> getMockNaverWatchPoint2() throws IOException {
+        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint2.json" );
     }
 
-    @GetMapping("/naverWatchPoint3")
-    public ResponseEntity<JsonNode> getMockNaverWatchPoint3(@RequestParam String gmkey) throws IOException {
-        return  getMockNaverWatchPoint(gmkey,"/data/game/watchPoint/naverAPI/naverWatchPoint3.json" );
+    @GetMapping("/navergameinfo/gmkey-33331006KTLG0")
+    public ResponseEntity<JsonNode> getMockNaverWatchPoint3() throws IOException {
+        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint3.json" );
     }
 
-    @GetMapping("/naverWatchPoint4")
-    public ResponseEntity<JsonNode> getMockNaverWatchPoint4(@RequestParam String gmkey) throws IOException {
-        return  getMockNaverWatchPoint(gmkey,"/data/game/watchPoint/naverAPI/naverWatchPoint4.json" );
+    @GetMapping("/navergameinfo/gmkey-33331005KTLG0")
+    public ResponseEntity<JsonNode> getMockNaverWatchPoint4() throws IOException {
+        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint4.json" );
     }
 
-    @GetMapping("/naverWatchPoint5")
-    public ResponseEntity<JsonNode> getMockNaverWatchPoint5(@RequestParam String gmkey) throws IOException {
-        return  getMockNaverWatchPoint(gmkey,"/data/game/watchPoint/naverAPI/naverWatchPoint5.json" );
+    @GetMapping("/navergameinfo/gmkey-20240928WOKT0")
+    public ResponseEntity<JsonNode> getMockNaverWatchPoint5() throws IOException {
+        return  getMockNaverWatchPoint("/data/game/watchPoint/naverAPI/naverWatchPoint5.json" );
     }
 
     @GetMapping("/weekSchedule")
@@ -248,38 +248,12 @@ public class GameController {
         return ResponseEntity.ok(jsonNode);
     }
 
-    private ResponseEntity<JsonNode> getMockNaverWatchPoint(String gmkey, String jsonFilePath) throws IOException {
+    private ResponseEntity<JsonNode> getMockNaverWatchPoint(String jsonFilePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream(jsonFilePath);
         JsonNode jsonNode = objectMapper.readTree(inputStream);
+        return ResponseEntity.ok(jsonNode);
 
-        JsonNode filterResults = jsonNode.path("result").path("previewData").path("homeTeamPreviousGames");
 
-        ArrayNode homeTeamPreviousGames = objectMapper.createArrayNode();
-
-        // gmkey에 맞는 데이터 필터링
-        for (JsonNode item : filterResults) {
-            String currentGameKey = item.path("gmkey").asText();
-            if (gmkey.equals(currentGameKey)) {
-                homeTeamPreviousGames.add(item);
-            }
-        }
-
-        ObjectNode responseNode = objectMapper.createObjectNode();
-        responseNode.set("code", objectMapper.valueToTree(200));
-
-        ObjectNode resultNode = objectMapper.createObjectNode();
-        ObjectNode previewDateNode = objectMapper.createObjectNode();
-        previewDateNode.set("homeTeamPreviousGames", homeTeamPreviousGames);
-
-        resultNode.set("previewData", previewDateNode);
-        responseNode.set("result", resultNode);
-
-        // 데이터가 없을 경우 빈 객체 반환
-        if (homeTeamPreviousGames.isEmpty()) {
-            previewDateNode.set("homeTeamPreviousGames", objectMapper.createObjectNode());
-        }
-
-        return ResponseEntity.ok(responseNode);
     }
 }
