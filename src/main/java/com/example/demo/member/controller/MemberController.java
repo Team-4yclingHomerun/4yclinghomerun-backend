@@ -36,7 +36,7 @@ import static com.example.demo.auth.AuthorizationConstants.LOGIN_MEMBER_ATTRIBUT
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/yclinghomerun/user")
+@RequestMapping("/api/user")
 @Tag(name = "멤버", description = "Member API")
 public class MemberController {
     private final MemberService memberService;

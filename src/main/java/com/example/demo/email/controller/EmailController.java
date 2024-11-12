@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequiredArgsConstructor
 @Tag(name = "이메일 인증", description = "이메일인증 API")
-@RequestMapping("/member")
+@RequestMapping("/api/member")
 public class EmailController {
 
     private final EmailSendService emailSendService;

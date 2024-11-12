@@ -54,6 +54,7 @@ public class GoogleMemberClient implements OauthMemberClient {
         params.add("client_secret", googleOauthProperties.clientSecret());
         params.add("redirect_uri", googleOauthProperties.redirectUri());
         params.add("code", authCode);
+        System.out.println("Token request params: " + params);
         return params;
     }
 }

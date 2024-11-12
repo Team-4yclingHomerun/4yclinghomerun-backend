@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @Tag(name = "소셜로그인", description = "소셜로그인 API")
-@RequestMapping("/oauth")
+@RequestMapping("/api/oauth")
 public class OauthController {
 
     private final OauthService oauthService;
