@@ -1,6 +1,7 @@
 package com.example.demo.websocket;
 
 import com.example.demo.websocket.dto.ChatRoom;
+import com.example.demo.websocket.dto.ChatRoomCreateRequest;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
@@ -37,9 +38,9 @@ public class ChatRoomRepository {
         return chatRooms;
     }
 
-//    public ChatRoom createChatRoom(String name) {
-//        ChatRoom chatRoom = ChatRoom.create(name);
-//        chatRoomMap.put(chatRoom.getRoomId(), chatRoom);
-//        return chatRoom;
-//    }
+    public ChatRoom createChatRoom(ChatRoomCreateRequest roomName) {
+        ChatRoom chatRoom = ChatRoom.create(roomName);
+        chatRoomMap.put(chatRoom.getRoomId(), chatRoom);
+        return chatRoom;
+    }
 }

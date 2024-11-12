@@ -81,8 +81,10 @@ dependencies {
 
 	// webSocket
 	implementation("org.springframework.boot:spring-boot-starter-websocket")
-	implementation("org.webjars:sockjs-client:1.1.2")
+	implementation("org.webjars:sockjs-client:1.5.1")
 	implementation("org.webjars:stomp-websocket:2.3.3-1")
+	//implementation("org.webjars:sockjs-client:1.1.2")
+	//implementation("org.webjars:stomp-websocket:2.3.4")
 }
 
 tasks.withType<Test> {

@@ -2,17 +2,16 @@ package com.example.demo.websocket.dto;
 
 /**
  * packageName    : com.example.demo.websocket.dto
- * fileName       : MessageType
+ * fileName       : ChatRoomCreateRequest
  * author         : JAEIK
- * date           : 10/28/24
+ * date           : 11/12/24
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 10/28/24        JAEIK       최초 생성
+ * 11/12/24       JAEIK       최초 생성
  */
-public enum MessageType {
-    ENTER,
-    JOIN,
-    TALK
+public record ChatRoomCreateRequest(
+        String roomName
+) {
 }

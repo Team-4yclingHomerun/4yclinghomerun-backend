@@ -1,8 +1,13 @@
 package com.example.demo.websocket;
 
+import com.example.demo.websocket.dto.ChatMessage;
 import com.example.demo.websocket.dto.ChatRoom;
+import com.example.demo.websocket.dto.MessageType;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.simp.SimpMessageSendingOperations;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,20 +28,16 @@ import org.springframework.web.bind.annotation.RestController;
  * 10/29/24        JAEIK       최초 생성
  */
 @RequiredArgsConstructor
-@RestController
-@Tag(name = "채팅", description = "채팅 API")
-@RequestMapping("/chat")
+@Controller
 public class ChatController {
 
-    private final ChatService chatService;
+    private final SimpMessageSendingOperations messageSendingOperations;
 
-    @PostMapping("/create")
-    public ChatRoom createRoom(@RequestParam String roomName) {
-        return chatService.createRoom(roomName);
-    }
-
-    @GetMapping("/find")
-    public ChatRoom findRoom(@RequestParam String roomId) {
-        return chatService.findRoomById(roomId);
+    @MessageMapping("/chat/message")
+    public void message(ChatMessage message) {
+        if (MessageType.JOIN.equals(message.getType()))
+            message.setMessage(message.getSender() + "님이 입장하셨습니다.");
+        // @SendTo 없이 메서드 내에서 직접 전송
+        messageSendingOperations.convertAndSend("/topic/chat/room/" + message.getRoomId(), message);
     }
 }
