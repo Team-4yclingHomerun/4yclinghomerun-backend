@@ -53,24 +53,20 @@ public class JwtAuthorizationFilter implements Filter {
             "/swagger-ui.html",
             "/swagger-ui/**",
             "/v3/api-docs/**",
-            "/yclinghomerun/user/signUp",
-            "/yclinghomerun/user/login",
-            "/yclinghomerun/user/verify-username",
-            "/yclinghomerun/user/verify-nickname",
+            "/yclinghomerun/user/*",
             "/public/**",
             "/oauth/*",
-            "/oauth/login/kakao",
-            "/oauth/login/google",
-            "/login/auth/redirected/kakao",
-            "/login/auth/redirected/google",
+            "/oauth/login/*",
+            "/login/auth/redirected/*",
             "/member/send-email",
             "/member/verify-email",
             "/member/duplicate-email",
             "/api/player/*",
             "/api/game/*",
             "/api/article/*",
-            "/ws/chat",
-            "/chat"
+            "/ws-stomp",
+            "/ws-stomp/**",
+            "/chat/*"
     };
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;
