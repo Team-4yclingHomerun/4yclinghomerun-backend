@@ -1,4 +1,7 @@
-package com.example.demo.oauth;
+package com.example.demo.oauth.common;
+
+import com.example.demo.oauth.common.dto.OauthServerType;
+import com.example.demo.oauth.common.entity.OauthMember;
 
 /**
  * packageName    : com.example.demo.oauth

@@ -1,6 +1,6 @@
 package com.example.demo.web.configuration;
 
-import com.example.demo.oauth.OauthServerTypeConverter;
+import com.example.demo.oauth.common.OauthServerTypeConverter;
 import com.example.demo.web.properties.DemoCorsProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.example.demo.oauth.service;
+package com.example.demo.oauth.common.service;
 
 import com.example.demo.exception.SignInErrorCode;
 import com.example.demo.jwt.JwtToken;
@@ -6,11 +6,11 @@ import com.example.demo.member.entity.Role;
 import com.example.demo.member.entity.Roles;
 import com.example.demo.member.repository.RoleRepository;
 import com.example.demo.member.service.JwtAuthenticationProxyService;
-import com.example.demo.oauth.OauthMember;
-import com.example.demo.oauth.OauthMemberClientComposite;
-import com.example.demo.oauth.OauthMemberRepository;
-import com.example.demo.oauth.OauthServerType;
-import com.example.demo.oauth.authcode.AuthCodeRequestUrlProviderComposite;
+import com.example.demo.oauth.common.entity.OauthMember;
+import com.example.demo.oauth.common.OauthMemberClientComposite;
+import com.example.demo.oauth.common.repository.OauthMemberRepository;
+import com.example.demo.oauth.common.dto.OauthServerType;
+import com.example.demo.oauth.common.authcode.AuthCodeRequestUrlProviderComposite;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

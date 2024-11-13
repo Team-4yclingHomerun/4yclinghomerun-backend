@@ -1,4 +1,4 @@
-package com.example.demo.oauth;
+package com.example.demo.oauth.common.entity;
 
 
 import com.example.demo.jpa.support.UuidBaseEntity;

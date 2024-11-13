@@ -1,5 +1,7 @@
-package com.example.demo.oauth;
+package com.example.demo.oauth.common.repository;
 
+import com.example.demo.oauth.common.entity.OauthId;
+import com.example.demo.oauth.common.entity.OauthMember;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

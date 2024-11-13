@@ -1,4 +1,4 @@
-package com.example.demo.oauth.kakao.dto;
+package com.example.demo.oauth.common.dto;
 
 /**
  * packageName    : com.example.demo.oauth.kakao.dto

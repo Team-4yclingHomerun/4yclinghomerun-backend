@@ -1,7 +1,7 @@
 package com.example.demo.oauth.kakao;
 
-import com.example.demo.oauth.OauthServerType;
-import com.example.demo.oauth.authcode.AuthCodeRequestUrlProvider;
+import com.example.demo.oauth.common.dto.OauthServerType;
+import com.example.demo.oauth.common.authcode.AuthCodeRequestUrlProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -25,6 +25,7 @@ public class KakaoOauthRequestUrlProvider implements AuthCodeRequestUrlProvider 
 
     private final String url;
 
+    // 생성자에서 URL 설정
     public KakaoOauthRequestUrlProvider(KakaoOauthProperties kakaoOauthProperties) {
         this.url = UriComponentsBuilder  // URI 구성하는데 특화된 빌더
                 .fromUriString("https://kauth.kakao.com/oauth/authorize")

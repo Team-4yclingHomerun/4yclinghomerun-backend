@@ -1,10 +1,11 @@
 package com.example.demo.oauth.kakao;
 
-import com.example.demo.oauth.OauthMember;
-import com.example.demo.oauth.OauthMemberClient;
-import com.example.demo.oauth.OauthServerType;
+import com.example.demo.oauth.common.entity.OauthMember;
+import com.example.demo.oauth.common.OauthMemberClient;
+import com.example.demo.oauth.common.dto.OauthServerType;
 import com.example.demo.oauth.kakao.dto.KakaoMemberResponse;
 import com.example.demo.oauth.kakao.dto.KakaoToken;
+import com.example.demo.oauth.kakao.service.KakaoApiClientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

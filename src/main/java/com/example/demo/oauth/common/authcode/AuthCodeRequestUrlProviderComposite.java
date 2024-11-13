@@ -1,7 +1,7 @@
-package com.example.demo.oauth.authcode;
+package com.example.demo.oauth.common.authcode;
 
 
-import com.example.demo.oauth.OauthServerType;
+import com.example.demo.oauth.common.dto.OauthServerType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

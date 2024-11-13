@@ -1,6 +1,7 @@
-package com.example.demo.oauth.kakao;
+package com.example.demo.oauth.kakao.service;
 
 import com.example.demo.jwt.JwtProperties;
+import com.example.demo.oauth.kakao.KakaoApiClient;
 import com.example.demo.oauth.kakao.dto.KakaoMemberResponse;
 import com.example.demo.oauth.kakao.dto.KakaoToken;
 import org.springframework.http.MediaType;
@@ -20,7 +21,7 @@ import org.springframework.web.client.RestClient;
  * 10/19/24        JAEIK       최초 생성
  */
 @Service
-public class KakaoApiClientService implements KakaoApiClient{
+public class KakaoApiClientService implements KakaoApiClient {
 
     @Override
     public KakaoToken fetchToken(MultiValueMap<String, String> params) {

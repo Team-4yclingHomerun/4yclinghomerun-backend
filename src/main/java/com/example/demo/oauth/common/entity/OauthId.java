@@ -1,6 +1,7 @@
-package com.example.demo.oauth;
+package com.example.demo.oauth.common.entity;
 
 
+import com.example.demo.oauth.common.dto.OauthServerType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;

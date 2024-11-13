@@ -1,7 +1,7 @@
 package com.example.demo.member.entity;
 
 import com.example.demo.jpa.support.BaseEntity;
-import com.example.demo.oauth.OauthMember;
+import com.example.demo.oauth.common.entity.OauthMember;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

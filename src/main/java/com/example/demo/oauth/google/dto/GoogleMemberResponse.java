@@ -1,8 +1,8 @@
 package com.example.demo.oauth.google.dto;
 
-import com.example.demo.oauth.OauthId;
-import com.example.demo.oauth.OauthMember;
-import com.example.demo.oauth.OauthServerType;
+import com.example.demo.oauth.common.entity.OauthId;
+import com.example.demo.oauth.common.entity.OauthMember;
+import com.example.demo.oauth.common.dto.OauthServerType;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 

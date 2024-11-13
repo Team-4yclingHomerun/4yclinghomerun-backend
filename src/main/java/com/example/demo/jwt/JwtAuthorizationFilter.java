@@ -57,14 +57,14 @@ public class JwtAuthorizationFilter implements Filter {
             "/public/**",
             "/api/oauth/*",
             "/api/oauth/login/*",
-            "/login/auth/redirected/*",
+            "/api/login/auth/redirected/*",
             "/api/member/**",
             "/api/player/*",
             "/api/game/*",
             "/api/article/*",
             "/api/ws-stomp",
             "/api/ws-stomp/**",
-            "/chat/*"
+            "/api/chat/*"
     };
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;

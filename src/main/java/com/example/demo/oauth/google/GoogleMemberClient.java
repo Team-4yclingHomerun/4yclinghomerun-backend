@@ -1,15 +1,19 @@
 package com.example.demo.oauth.google;
 
-import com.example.demo.oauth.OauthMember;
-import com.example.demo.oauth.OauthMemberClient;
-import com.example.demo.oauth.OauthServerType;
+import com.example.demo.oauth.common.entity.OauthMember;
+import com.example.demo.oauth.common.OauthMemberClient;
+import com.example.demo.oauth.common.dto.OauthServerType;
 import com.example.demo.oauth.google.dto.GoogleMemberResponse;
 import com.example.demo.oauth.google.dto.GoogleToken;
+import com.example.demo.oauth.google.service.GoogleApiClientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * packageName    : com.example.demo.oauth.google
@@ -37,8 +41,10 @@ public class GoogleMemberClient implements OauthMemberClient {
 
     @Override
     public OauthMember fetch(String authCode) {
+        String decoded = URLDecoder.decode(authCode, StandardCharsets.UTF_8);
+        log.info("Decoded authCode: {}" + decoded);
         // 토큰 요청
-        GoogleToken tokenInfo = googleApiClient.fetchToken(tokenRequestParams(authCode));
+        GoogleToken tokenInfo = googleApiClient.fetchToken(tokenRequestParams(decoded));
         log.info("tokenInfo:{}:", tokenInfo);
         // 액세스 토큰으로 사용자 정보 요청
         GoogleMemberResponse googleMemberResponse = googleApiClient.fetchMember("Bearer " + tokenInfo.accessToken());

@@ -1,12 +1,14 @@
-package com.example.demo.oauth.google;
+package com.example.demo.oauth.google.service;
 
 import com.example.demo.jwt.JwtProperties;
+import com.example.demo.oauth.google.GoogleApiClient;
 import com.example.demo.oauth.google.dto.GoogleMemberResponse;
 import com.example.demo.oauth.google.dto.GoogleToken;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient;
+
 
 /**
  * packageName    : com.example.demo.oauth.google
@@ -20,7 +22,7 @@ import org.springframework.web.client.RestClient;
  * 10/20/24        JAEIK       최초 생성
  */
 @Service
-public class GoogleApiClientService implements GoogleApiClient{
+public class GoogleApiClientService implements GoogleApiClient {
 
     private final RestClient restClient = RestClient.create();
 

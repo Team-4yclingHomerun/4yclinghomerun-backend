@@ -1,5 +1,6 @@
-package com.example.demo.oauth;
+package com.example.demo.oauth.common;
 
+import com.example.demo.oauth.common.dto.OauthServerType;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

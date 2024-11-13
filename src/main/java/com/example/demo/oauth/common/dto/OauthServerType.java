@@ -1,4 +1,4 @@
-package com.example.demo.oauth;
+package com.example.demo.oauth.common.dto;
 
 
 import static java.util.Locale.ENGLISH;

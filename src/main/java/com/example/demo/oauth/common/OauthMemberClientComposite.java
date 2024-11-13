@@ -1,5 +1,7 @@
-package com.example.demo.oauth;
+package com.example.demo.oauth.common;
 
+import com.example.demo.oauth.common.dto.OauthServerType;
+import com.example.demo.oauth.common.entity.OauthMember;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

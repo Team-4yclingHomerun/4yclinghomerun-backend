@@ -1,9 +1,9 @@
-package com.example.demo.oauth.controller;
+package com.example.demo.oauth.common.controller;
 
 import com.example.demo.jwt.JwtToken;
-import com.example.demo.oauth.OauthServerType;
-import com.example.demo.oauth.kakao.dto.OauthCodeVerifyRequest;
-import com.example.demo.oauth.service.OauthService;
+import com.example.demo.oauth.common.dto.OauthServerType;
+import com.example.demo.oauth.common.dto.OauthCodeVerifyRequest;
+import com.example.demo.oauth.common.service.OauthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
@@ -43,7 +43,6 @@ public class OauthController {
              HttpServletResponse response) {
         String redirectUrl = oauthService.getAuthCodeRequestUrl(oauthservertype);
         log.info("Redirect URL: {}", redirectUrl);
-        System.out.println(redirectUrl);
         response.sendRedirect(redirectUrl);
         return ResponseEntity.ok().build();
     }
