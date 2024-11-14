@@ -41,10 +41,8 @@ public class GoogleMemberClient implements OauthMemberClient {
 
     @Override
     public OauthMember fetch(String authCode) {
-        String decoded = URLDecoder.decode(authCode, StandardCharsets.UTF_8);
-        log.info("Decoded authCode: {}" + decoded);
         // 토큰 요청
-        GoogleToken tokenInfo = googleApiClient.fetchToken(tokenRequestParams(decoded));
+        GoogleToken tokenInfo = googleApiClient.fetchToken(tokenRequestParams(authCode));
         log.info("tokenInfo:{}:", tokenInfo);
         // 액세스 토큰으로 사용자 정보 요청
         GoogleMemberResponse googleMemberResponse = googleApiClient.fetchMember("Bearer " + tokenInfo.accessToken());
