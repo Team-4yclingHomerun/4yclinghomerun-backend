@@ -38,6 +38,6 @@ public class ChatController {
         if (MessageType.JOIN.equals(message.getType()))
             message.setMessage(message.getSender() + "님이 입장하셨습니다.");
         // @SendTo 없이 메서드 내에서 직접 전송
-        messageSendingOperations.convertAndSend("/topic/chat/room/" + message.getRoomId(), message);
+        messageSendingOperations.convertAndSend("/topic/chat/room" , message);
     }
 }

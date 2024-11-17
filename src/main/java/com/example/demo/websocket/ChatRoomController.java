@@ -51,14 +51,14 @@ public class ChatRoomController {
         return ResponseEntity.ok().body(chatRoomResponse);
     }
 
-    @GetMapping("/room/enter/{roomId}")
-    public String roomDetail(Model model, @PathVariable String roomId) {
-        model.addAttribute("roomId", roomId);
-        return "/chat/roomdetail";
-    }
+//    @GetMapping("/room")
+//    public String rooms(Model model) {
+//        return "/chat/room";
+//    }
 
-    @GetMapping("/room")
-    public String rooms(Model model) {
-        return "/chat/room";
-    }
+    //    @GetMapping("/room/enter/{roomId}")
+//    public String roomDetail(Model model, @PathVariable String roomId) {
+//        model.addAttribute("roomId", roomId);
+//        return "/chat/roomdetail";
+//    }
 }

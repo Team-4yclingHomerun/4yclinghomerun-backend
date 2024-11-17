@@ -32,7 +32,7 @@ public class ChatRoomRepository {
         return chatRoomMap.get(roomId);
     }
 
-    public List<ChatRoom> findAllRoom() {
+    public List<ChatRoom> findAllRooms() {
         List<ChatRoom> chatRooms = new ArrayList<>(chatRoomMap.values());
         Collections.reverse(chatRooms);
         return chatRooms;

@@ -39,7 +39,7 @@ public class ChatService {
     }
 
     public List<ChatRoomResponse> searchAllRoom() {
-        List<ChatRoom> chatRoom = chatRoomRepository.findAllRoom();
+        List<ChatRoom> chatRoom = chatRoomRepository.findAllRooms();
         return chatRoom.stream()
                 .map(room -> new ChatRoomResponse(room.getRoomId(),room.getRoomName()))
                 .collect(Collectors.toList());
