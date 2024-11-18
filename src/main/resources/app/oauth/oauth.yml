@@ -3,13 +3,13 @@ demo:
    kakao:
     client-id: ${KAKAO_CLIENT_ID}  # Rest API 키
     client-secret: ${KAKAO_CLIENT_SECRET}
-    redirect-uri: http://localhost:5173/oauth/kakao
+    redirect-uri: https://4yclinghomerun-deploy.vercel.app/oauth/kakao
     scope: profile_nickname, profile_image
 
    google:
     client-id: ${GOOGLE_CLIENT_ID}
     client-secret: ${GOOGLE_CLIENT_SECRET}
-    redirect-uri: http://localhost:5173/oauth/google
+    redirect-uri: https://4yclinghomerun-deploy.vercel.app/oauth/google
 #   redirect-uri: https://4yclinghomerun.duckdns.org/login/auth/redirected/google
     scope: 'https://www.googleapis.com/auth/userinfo.profile
            https://www.googleapis.com/auth/userinfo.email openid'
