@@ -18,10 +18,11 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChatMessage {
+public class ChatMessageRequest {
     private MessageType type;
     private String sender;
     private String message;
+    private String createAt;
 
     public void setSender(String sender) {
         this.sender = sender;
