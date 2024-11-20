@@ -63,8 +63,7 @@ public class JwtAuthorizationFilter implements Filter {
             "/api/game/*",
             "/api/article/*",
             "/api/ws-stomp",
-            "/api/ws-stomp/**",
-            "/api/chat/*"
+            "/api/ws-stomp/**"
     };
     private final JwtParser jwtParser;
     private final DemoAuthorizationPathProperties authorizationPathProperties;
@@ -142,7 +141,7 @@ public class JwtAuthorizationFilter implements Filter {
             throw new IllegalArgumentException("'sub'은 String 타입이어야 합니다.");
         }
         if (!(claims.get("role") instanceof String roleString)) { // "USER"
-            throw new Error("'role'은 String 타입이어야 합니다.");
+            throw new IllegalArgumentException("'role'은 String 타입이어야 합니다.");
         }
 
         UUID id = UUID.fromString(uuidString);
