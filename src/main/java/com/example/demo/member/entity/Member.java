@@ -66,6 +66,7 @@ public class Member extends UuidBaseEntity {
     public void setToDeletedMember() {
         this.status = MemberStatus.REMOVED;
     }
+
 }
 
 

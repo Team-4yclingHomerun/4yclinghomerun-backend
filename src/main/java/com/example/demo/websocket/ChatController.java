@@ -8,6 +8,7 @@ import com.example.demo.jwt.JwtAuthorizationFilter;
 import com.example.demo.jwt.JwtParser;
 import com.example.demo.jwt.JwtProperties;
 import com.example.demo.jwt.JwtProvider;
+import com.example.demo.member.service.MemberService;
 import com.example.demo.websocket.dto.ChatMessageRequest;
 import com.example.demo.websocket.dto.MessageType;
 import com.example.demo.websocket.entity.ChatMessage;
@@ -41,6 +42,7 @@ public class ChatController {
     private final SimpMessageSendingOperations messageSendingOperations;
     private final ChatMessageRepository chatMessageRepository;
     private final ChatMessageDtoMapper chatMessageDtoMapper;
+    private final MemberService memberService;
 
     @MessageMapping("/chat/message")
     public void message(ChatMessageRequest message, HttpServletRequest request) {
@@ -52,6 +54,9 @@ public class ChatController {
         if (authenticateMember == null) {
             throw ChatErrorCode.NOT_FOUND_USER.defaultException();
         }
+
+        String nickName = memberService.getNicknameFromAuthenticateMember(authenticateMember);
+        message.setSender(nickName);
 
         if (MessageType.JOIN.equals(message.getType()))
             message.setMessage(message.getSender() + "님이 입장하셨습니다.");
