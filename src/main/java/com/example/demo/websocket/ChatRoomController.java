@@ -1,10 +1,13 @@
 package com.example.demo.websocket;
 
+import com.example.demo.websocket.dto.ChatMessageResponse;
 import com.example.demo.websocket.dto.ChatRoomCreateRequest;
 import com.example.demo.websocket.dto.ChatRoomResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +32,13 @@ import java.util.List;
 public class ChatRoomController {
 
     private final ChatService chatService;
+
+    @Operation(summary = "채팅방 메시지 조회")
+    @GetMapping("/find-messages")
+    public ResponseEntity<?> getChatMessages(Pageable pageable) {
+        Slice<ChatMessageResponse> chatMessageResponseSlice = chatService.findMessages(pageable);
+        return ResponseEntity.ok().body(chatMessageResponseSlice);
+    }
 
     @Operation(summary = "모든 채팅방 조회")
     @GetMapping("/rooms")

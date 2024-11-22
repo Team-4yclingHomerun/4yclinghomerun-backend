@@ -1,8 +1,10 @@
 package com.example.demo.websocket.dto;
 
+import com.example.demo.websocket.entity.ChatMessage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Slice;
 
 /**
  * packageName    : com.example.demo.websocket.dto
@@ -22,7 +24,6 @@ public class ChatMessageRequest {
     private MessageType type;
     private String sender;
     private String message;
-    private String createAt;
 
     public void setSender(String sender) {
         this.sender = sender;
