@@ -18,29 +18,28 @@ import java.util.*;
  * -----------------------------------------------------------
  * 11/8/24       JAEIK       최초 생성
  */
-@Repository
 public class ChatRoomRepository {
 
-    private Map<String, ChatRoom> chatRoomMap;
-
-    @PostConstruct
-    private void init() {
-        chatRoomMap = new LinkedHashMap<>();
-    }
-
-    public ChatRoom findRoomById(String roomId) {
-        return chatRoomMap.get(roomId);
-    }
-
-    public List<ChatRoom> findAllRooms() {
-        List<ChatRoom> chatRooms = new ArrayList<>(chatRoomMap.values());
-        Collections.reverse(chatRooms);
-        return chatRooms;
-    }
-
-    public ChatRoom createChatRoom(ChatRoomCreateRequest roomName) {
-        ChatRoom chatRoom = ChatRoom.create(roomName);
-        chatRoomMap.put(chatRoom.getRoomId(), chatRoom);
-        return chatRoom;
-    }
+//    private Map<String, ChatRoom> chatRoomMap;
+//
+//    @PostConstruct
+//    private void init() {
+//        chatRoomMap = new LinkedHashMap<>();
+//    }
+//
+//    public ChatRoom findRoomById(String roomId) {
+//        return chatRoomMap.get(roomId);
+//    }
+//
+//    public List<ChatRoom> findAllRooms() {
+//        List<ChatRoom> chatRooms = new ArrayList<>(chatRoomMap.values());
+//        Collections.reverse(chatRooms);
+//        return chatRooms;
+//    }
+//
+//    public ChatRoom createChatRoom(ChatRoomCreateRequest roomName) {
+//        ChatRoom chatRoom = ChatRoom.create(roomName);
+//        chatRoomMap.put(chatRoom.getRoomId(), chatRoom);
+//        return chatRoom;
+//    }
 }

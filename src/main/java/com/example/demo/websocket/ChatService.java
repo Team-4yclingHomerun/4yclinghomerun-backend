@@ -32,8 +32,6 @@ public class ChatService {
 
     private final ChatMessageRepository chatMessageRepository;
 
-    private final ChatRoomRepository chatRoomRepository;
-
     private final ChatMessageDtoMapper chatMessageDtoMapper;
 
     public Slice<ChatMessageResponse> findMessages(Pageable pageable) {
@@ -43,20 +41,20 @@ public class ChatService {
         return new SliceImpl<>(chatMessageResponses, pageable, chatMessageSlice.hasNext());
     }
 
-    public ChatRoomResponse createRoom(ChatRoomCreateRequest roomName) {
-          ChatRoom chatRoom = chatRoomRepository.createChatRoom(roomName);
-          return new ChatRoomResponse(chatRoom.getRoomId(), chatRoom.getRoomName());
-    }
-
-    public ChatRoomResponse searchRoomById(String roomId) {
-        ChatRoom chatRoom = chatRoomRepository.findRoomById(roomId);
-        return new ChatRoomResponse(chatRoom.getRoomId(), chatRoom.getRoomName());
-    }
-
-    public List<ChatRoomResponse> searchAllRoom() {
-        List<ChatRoom> chatRoom = chatRoomRepository.findAllRooms();
-        return chatRoom.stream()
-                .map(room -> new ChatRoomResponse(room.getRoomId(),room.getRoomName()))
-                .collect(Collectors.toList());
-    }
+//    public ChatRoomResponse createRoom(ChatRoomCreateRequest roomName) {
+//          ChatRoom chatRoom = chatRoomRepository.createChatRoom(roomName);
+//          return new ChatRoomResponse(chatRoom.getRoomId(), chatRoom.getRoomName());
+//    }
+//
+//    public ChatRoomResponse searchRoomById(String roomId) {
+//        ChatRoom chatRoom = chatRoomRepository.findRoomById(roomId);
+//        return new ChatRoomResponse(chatRoom.getRoomId(), chatRoom.getRoomName());
+//    }
+//
+//    public List<ChatRoomResponse> searchAllRoom() {
+//        List<ChatRoom> chatRoom = chatRoomRepository.findAllRooms();
+//        return chatRoom.stream()
+//                .map(room -> new ChatRoomResponse(room.getRoomId(),room.getRoomName()))
+//                .collect(Collectors.toList());
+//    }
 }

@@ -40,26 +40,26 @@ public class ChatRoomController {
         return ResponseEntity.ok().body(chatMessageResponseSlice);
     }
 
-    @Operation(summary = "모든 채팅방 조회")
-    @GetMapping("/rooms")
-    public ResponseEntity<?> getRooms() {
-        List<ChatRoomResponse> chatRoomResponseList = chatService.searchAllRoom();
-        return ResponseEntity.ok().body(chatRoomResponseList);
-    }
-
-    @Operation(summary = "채팅방 생성")
-    @PostMapping("/room")
-    public ResponseEntity<?> createNewRoom(ChatRoomCreateRequest roomName) {
-        ChatRoomResponse roomCreateResponse = chatService.createRoom(roomName);
-        return ResponseEntity.ok().body(roomCreateResponse);
-    }
-
-    @Operation(summary = "특정 채팅방 조회")
-    @GetMapping("/rooms/{roomId}")
-    public ResponseEntity<?> getRoomInfo(@PathVariable String roomId) {
-        ChatRoomResponse chatRoomResponse = chatService.searchRoomById(roomId);
-        return ResponseEntity.ok().body(chatRoomResponse);
-    }
+//    @Operation(summary = "모든 채팅방 조회")
+//    @GetMapping("/rooms")
+//    public ResponseEntity<?> getRooms() {
+//        List<ChatRoomResponse> chatRoomResponseList = chatService.searchAllRoom();
+//        return ResponseEntity.ok().body(chatRoomResponseList);
+//    }
+//
+//    @Operation(summary = "채팅방 생성")
+//    @PostMapping("/room")
+//    public ResponseEntity<?> createNewRoom(ChatRoomCreateRequest roomName) {
+//        ChatRoomResponse roomCreateResponse = chatService.createRoom(roomName);
+//        return ResponseEntity.ok().body(roomCreateResponse);
+//    }
+//
+//    @Operation(summary = "특정 채팅방 조회")
+//    @GetMapping("/rooms/{roomId}")
+//    public ResponseEntity<?> getRoomInfo(@PathVariable String roomId) {
+//        ChatRoomResponse chatRoomResponse = chatService.searchRoomById(roomId);
+//        return ResponseEntity.ok().body(chatRoomResponse);
+//    }
 
 //    @GetMapping("/room")
 //    public String rooms(Model model) {
