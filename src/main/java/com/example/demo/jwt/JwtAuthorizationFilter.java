@@ -142,7 +142,7 @@ public class JwtAuthorizationFilter implements Filter {
             throw new IllegalArgumentException("'sub'은 String 타입이어야 합니다.");
         }
         if (!(claims.get("role") instanceof String roleString)) { // "USER"
-            throw new Error("'role'은 String 타입이어야 합니다.");
+            throw new IllegalArgumentException("'role'은 String 타입이어야 합니다.");
         }
 
         UUID id = UUID.fromString(uuidString);
@@ -179,12 +179,12 @@ public class JwtAuthorizationFilter implements Filter {
     }
 
     private boolean verify(
-            String currentMethod,
-            String currentUri,
-            Role[] currentRoles,
-            String requiredMethod,
-            String requiredUriPattern,
-            Role... requiredRoles
+            String currentMethod, // 요청 HTTP 메서드 (GET, POST, PUT, DELETE)
+            String currentUri, // 요청 URI
+            Role[] currentRoles, // 요청을 보내는 사용자의 역할
+            String requiredMethod, // 서버에서 요구되는 HTTP 메서드
+            String requiredUriPattern, // 서버에서 요구하는 URI 패턴 (/user/*)
+            Role... requiredRoles // 요청에 요구하는 역할
     ) throws AccessDeniedException {
         if (!Objects.equals(currentMethod, requiredMethod)) {
             return false;
@@ -209,7 +209,7 @@ public class JwtAuthorizationFilter implements Filter {
     private int roleBits(Role... roles) {
         int bit = 0;
         for (var role : roles) {
-            bit |= role.bit();
+            bit |= role.bit(); // 각 role의 비트 값을 OR 연산으로 합침
         }
         return bit;
     }

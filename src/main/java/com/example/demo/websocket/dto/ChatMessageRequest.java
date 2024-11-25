@@ -1,8 +1,10 @@
 package com.example.demo.websocket.dto;
 
+import com.example.demo.websocket.entity.ChatMessage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Slice;
 
 /**
  * packageName    : com.example.demo.websocket.dto
@@ -18,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChatMessage {
+public class ChatMessageRequest {
     private MessageType type;
     private String sender;
     private String message;

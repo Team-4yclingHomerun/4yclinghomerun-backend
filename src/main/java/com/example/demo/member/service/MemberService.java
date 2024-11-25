@@ -1,5 +1,6 @@
 package com.example.demo.member.service;
 
+import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.exception.CustomException;
 import com.example.demo.exception.DeleteMemberErrorCode;
 import com.example.demo.exception.SignInErrorCode;
@@ -151,6 +152,15 @@ public class MemberService
                 .id(member.getId())
                 .roles(getAllRoles(member))
                 .build();
+    }
+
+    @Override
+    public String getNicknameFromAuthenticateMember(AuthenticateMember authenticateMember) {
+        Optional<Member> member = memberRepository.findByUsername(authenticateMember.username());
+        String nickName = member
+                .map(Member::getNickname)
+                .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException);
+        return nickName;
     }
 
     private Set<Role> getAllRoles(Member member) {

@@ -1,26 +1,29 @@
-package com.example.demo.websocket;
+package com.example.demo.websocket.repository;
 
-import com.example.demo.websocket.dto.ChatRoom;
-import com.example.demo.websocket.dto.ChatRoomCreateRequest;
-import jakarta.annotation.PostConstruct;
+import com.example.demo.websocket.entity.ChatMessage;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
-
 /**
- * packageName    : com.example.demo.websocket
- * fileName       : ChatRommRepository
+ * packageName    : com.example.demo.websocket.repository
+ * fileName       : ChatMessageRepository
  * author         : JAEIK
- * date           : 11/8/24
+ * date           : 11/19/24
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 11/8/24       JAEIK       최초 생성
+ * 11/19/24       JAEIK       최초 생성
  */
-public class ChatRoomRepository {
+@Repository
+public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> {
 
-//    private Map<String, ChatRoom> chatRoomMap;
+    Slice<ChatMessage> findAllByOrderByCreateAtDesc(Pageable pageable);
+
+    //    private Map<String, ChatRoom> chatRoomMap;
 //
 //    @PostConstruct
 //    private void init() {
@@ -42,4 +45,5 @@ public class ChatRoomRepository {
 //        chatRoomMap.put(chatRoom.getRoomId(), chatRoom);
 //        return chatRoom;
 //    }
+
 }
