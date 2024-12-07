@@ -4,10 +4,13 @@ import com.example.demo.exception.AuthorizationErrorCode;
 import com.example.demo.exception.AuthorizationException;
 import com.example.demo.jwt.JwtParser;
 import com.example.demo.jwt.JwtProperties;
+import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.MessagingException;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.messaging.support.ChannelInterceptor;
@@ -37,7 +40,15 @@ public class StompHandler implements ChannelInterceptor {
         // webSocket 연결시 헤더의 jwt token 검증
         // validateToken 자체에 예외처리가 있으므로 따로 예외처리 할 필요 없음
         if (StompCommand.CONNECT == accessor.getCommand()) {
-            jwtParser.validateToken(accessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER));
+            try {
+                String token = accessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER);
+                jwtParser.validateToken(token);
+                log.debug("Received token: {}", token);
+                //jwtParser.validateToken(accessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER));
+            } catch (JwtException e) {
+                log.error("연결 오류:", e);
+                throw new MessagingException("jwt Token 연결오류", e);
+            }
         }
         return message;
     }

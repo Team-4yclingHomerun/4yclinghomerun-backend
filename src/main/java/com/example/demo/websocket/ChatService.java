@@ -4,6 +4,8 @@ import com.example.demo.websocket.dto.*;
 import com.example.demo.websocket.entity.ChatMessage;
 import com.example.demo.websocket.mapper.ChatMessageDtoMapper;
 import com.example.demo.websocket.repository.ChatMessageRepository;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;

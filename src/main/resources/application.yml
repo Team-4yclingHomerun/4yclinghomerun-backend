@@ -6,7 +6,7 @@ spring:
       - optional:file:.env[.properties]
       - app/authorization/authorization.yml
       - app/cors/cors.yml
-      - app/oauth/oauth.yml
+      - app/oauth/oauth-local.yml
       - app/mail/mail.yml
 
   flyway:
