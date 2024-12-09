@@ -5,6 +5,7 @@ import com.example.demo.exception.CustomException;
 import com.example.demo.exception.DeleteMemberErrorCode;
 import com.example.demo.exception.SignInErrorCode;
 import com.example.demo.exception.SignUpErrorCode;
+import com.example.demo.jwt.JwtParser;
 import com.example.demo.jwt.JwtToken;
 import com.example.demo.member.dto.*;
 import com.example.demo.member.entity.Member;
@@ -14,6 +15,7 @@ import com.example.demo.member.entity.Roles;
 import com.example.demo.member.mapper.MemberDtoMapper;
 import com.example.demo.member.repository.MemberRepository;
 import com.example.demo.member.repository.RoleRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -47,6 +49,7 @@ public class MemberService
     private final MemberDtoMapper memberDtoMapper;
     private final PasswordEncoder passwordEncoder;
     private final JwtAuthenticationProxyService jwtProvider;
+    private final JwtParser jwtParser;
 
     @Override
     public Member signUp(Member member) {
@@ -169,5 +172,19 @@ public class MemberService
             roles.add(role.getRoleName());
         }
         return roles;
+    }
+
+    // 헤더(토큰)을 통해 닉네임 조회
+    public MemberFindNicknameResponse getNicknameFromToken(HttpServletRequest request) {
+        String token = jwtParser.extractToken(request);
+
+        AuthenticateMember authenticateMember = jwtParser.getAuthenticateMember(token);
+
+        Optional<Member> member = memberRepository.findByUsername(authenticateMember.username());
+        String nickname = member.map(Member::getNickname)
+                .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException);
+
+        return new MemberFindNicknameResponse(nickname);
+
     }
 }

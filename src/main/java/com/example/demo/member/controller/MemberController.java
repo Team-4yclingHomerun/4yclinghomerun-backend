@@ -1,18 +1,13 @@
 package com.example.demo.member.controller;
 
 import com.example.demo.auth.AuthenticateMember;
-import com.example.demo.member.dto.MemberSignInRequest;
-import com.example.demo.member.dto.MemberSignInResponse;
-import com.example.demo.member.dto.MemberSignUpRequest;
-import com.example.demo.member.dto.NicknameCheckRequest;
-import com.example.demo.member.dto.NicknameCheckResponse;
-import com.example.demo.member.dto.UsernameCheckRequest;
-import com.example.demo.member.dto.UsernameCheckResponse;
+import com.example.demo.member.dto.*;
 import com.example.demo.member.entity.MemberStatus;
 import com.example.demo.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -79,5 +74,12 @@ public class MemberController {
     ResponseEntity<?> checkNickname(@Valid @RequestBody NicknameCheckRequest request) {
         NicknameCheckResponse response = memberService.checkNicknameAvailability(request);
         return ResponseEntity.ok().body(response);
+    }
+
+    @Operation(summary = "닉네임 조회",description = "헤더를 통해 백엔드 내부에서 닉네임을 조회합니다.")
+    @GetMapping("/find-nickname")
+    ResponseEntity<?> findByNickname(HttpServletRequest request) {
+        MemberFindNicknameResponse nicknameResponse = memberService.getNicknameFromToken(request);
+        return ResponseEntity.ok().body(nicknameResponse);
     }
 }

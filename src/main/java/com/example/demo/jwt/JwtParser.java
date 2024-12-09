@@ -1,17 +1,18 @@
 package com.example.demo.jwt;
 
+import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.exception.AuthorizationErrorCode;
+import com.example.demo.member.entity.Role;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SecurityException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
-import java.util.Base64;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 
 /**
  * packageName    : com.example.demo.jwt
@@ -73,5 +74,44 @@ public class JwtParser {
 
         }
         return false;
+    }
+
+    /* Jwt 토큰에서 사용자 인증 정보를 가져오는 메서드
+      - 토큰 정보 object 타입이 일치하는지 확인한다 일치하지않으면 예외
+    */
+    public AuthenticateMember getAuthenticateMember(String token) {
+        if (!validateToken(token)) {
+            throw new IllegalArgumentException("유효하지 않은 JWT 토큰 입니다.");
+        }
+
+        Map<String, Object> claims = parseClaims(token);
+        log.debug("Parsed claims: {}", claims);
+
+        if (!(claims.get("id") instanceof String uuidString)) {
+            throw new IllegalArgumentException("'id'는 String 타입이어야 합니다.");
+        }
+        if (!(claims.get("sub") instanceof String username)) {
+            throw new IllegalArgumentException("'sub'은 String 타입이어야 합니다.");
+        }
+        if (!(claims.get("role") instanceof String roleString)) { // "USER"
+            throw new IllegalArgumentException("'role'은 String 타입이어야 합니다.");
+        }
+
+        UUID id = UUID.fromString(uuidString);
+        Role role = Role.valueOf(roleString);
+
+        return new AuthenticateMember(id, username, Set.of(role));
+    }
+
+    public String extractToken(HttpServletRequest request) {
+        String header = request.getHeader(JwtProperties.ACCESS_TOKEN_HEADER);
+        if (header == null) {
+            throw new IllegalArgumentException("Authorization 헤더가 비어있습니다.");
+        }
+        if (!header.startsWith(JwtProperties.ACCESS_TOKEN_HEADER)) {
+            throw new IllegalArgumentException("Authorization 헤더의 형식이 잘못되었습니다");
+        }
+
+        return header.substring(JwtProperties.ACCESS_TOKEN_PREFIX.length());
     }
 }

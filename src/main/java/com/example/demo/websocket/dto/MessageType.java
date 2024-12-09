@@ -14,5 +14,6 @@ package com.example.demo.websocket.dto;
 public enum MessageType {
     ENTER,
     JOIN,
+    CHAT,
     TALK
 }

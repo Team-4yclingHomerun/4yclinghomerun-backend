@@ -89,7 +89,7 @@ public class JwtAuthorizationFilter implements Filter {
             // JWT 토큰 추출
             String token = authorization.substring(ACCESS_TOKEN_PREFIX.length());
             // JWT 기반으로 사용자 인증정보 추출
-            AuthenticateMember authenticateMember = getAuthenticateMember(token);
+            AuthenticateMember authenticateMember = jwtParser.getAuthenticateMember(token);
             log.debug("AuthenticateMember added to request attributes: {}", authenticateMember);
             // 사용자의 권환 확인
             verifyAuthorization(httpServletRequest.getMethod(), httpServletRequest.getRequestURI(), authenticateMember);
@@ -122,33 +122,6 @@ public class JwtAuthorizationFilter implements Filter {
 
     private boolean hasAuthorizationWithPrefix(String authorizationToken) {
         return authorizationToken != null && authorizationToken.startsWith(ACCESS_TOKEN_PREFIX);
-    }
-
-    /* Jwt 토큰에서 사용자 인증 정보를 가져오는 메서드
-      - 토큰 정보 object 타입이 일치하는지 확인한다 일치하지않으면 예외
-    */
-    private AuthenticateMember getAuthenticateMember(String token) {
-        if (!jwtParser.validateToken(token)) {
-            throw new IllegalArgumentException("유효하지 않은 JWT 토큰 입니다.");
-        }
-
-        Map<String, Object> claims = jwtParser.parseClaims(token);
-        log.debug("Parsed claims: {}", claims);
-
-        if (!(claims.get("id") instanceof String uuidString)) {
-            throw new IllegalArgumentException("'id'는 String 타입이어야 합니다.");
-        }
-        if (!(claims.get("sub") instanceof String username)) {
-            throw new IllegalArgumentException("'sub'은 String 타입이어야 합니다.");
-        }
-        if (!(claims.get("role") instanceof String roleString)) { // "USER"
-            throw new IllegalArgumentException("'role'은 String 타입이어야 합니다.");
-        }
-
-        UUID id = UUID.fromString(uuidString);
-        Role role = Role.valueOf(roleString);
-
-        return new AuthenticateMember(id, username, Set.of(role));
     }
 
     /* 사용자의 권환을 확인하는 메서드
