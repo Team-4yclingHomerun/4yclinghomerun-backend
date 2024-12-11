@@ -1,27 +1,25 @@
 package com.example.demo.websocket;
 
 import com.example.demo.auth.AuthenticateMember;
-import com.example.demo.auth.AuthorizationConstants;
-import com.example.demo.exception.ChatErrorCode;
-import com.example.demo.exception.CustomException;
-import com.example.demo.jwt.JwtAuthorizationFilter;
+import com.example.demo.exception.SignInErrorCode;
 import com.example.demo.jwt.JwtParser;
 import com.example.demo.jwt.JwtProperties;
-import com.example.demo.jwt.JwtProvider;
+import com.example.demo.member.entity.Member;
+import com.example.demo.member.repository.MemberRepository;
 import com.example.demo.member.service.MemberService;
 import com.example.demo.websocket.dto.ChatMessageRequest;
 import com.example.demo.websocket.dto.MessageType;
 import com.example.demo.websocket.entity.ChatMessage;
 import com.example.demo.websocket.mapper.ChatMessageDtoMapper;
 import com.example.demo.websocket.repository.ChatMessageRepository;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.stereotype.Controller;
+
+import java.util.Optional;
 
 
 /**
@@ -43,27 +41,31 @@ public class ChatController {
     private final SimpMessageSendingOperations messageSendingOperations;
     private final ChatMessageRepository chatMessageRepository;
     private final ChatMessageDtoMapper chatMessageDtoMapper;
-    private final MemberService memberService;
+    private final MemberRepository memberRepository;
+    private final JwtParser jwtParser;
 
     @MessageMapping("/chat/message")
     public void message(ChatMessageRequest message, SimpMessageHeaderAccessor headerAccessor) {
         log.debug("message:{}", message);
+        String token = headerAccessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER);
 
-        AuthenticateMember authenticateMember = (AuthenticateMember) headerAccessor.getSessionAttributes()
-                        .get(AuthorizationConstants.LOGIN_MEMBER_ATTRIBUTE);
-        log.debug("authenticateMember:{}", authenticateMember);
-
-        if (authenticateMember == null) {
-            throw ChatErrorCode.NOT_FOUND_USER.defaultException();
+        if (token != null && token.startsWith(JwtProperties.ACCESS_TOKEN_PREFIX)) {
+            token = token.substring(JwtProperties.ACCESS_TOKEN_PREFIX.length());
         }
 
-        String nickName = memberService.getNicknameFromAuthenticateMember(authenticateMember);
-        message.setSender(nickName);
+        AuthenticateMember authenticateMember = jwtParser.getAuthenticateMember(token);
+
+        Optional<Member> member = memberRepository.findByUsername(authenticateMember.username());
+        String nickname = member
+                .map(Member::getNickname)
+                .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException);
+
+        message.setSender(nickname);
 
         if (MessageType.JOIN.equals(message.getType()))
-            message.setMessage(message.getSender() + "님이 입장하셨습니다.");
+            message.setMessage( nickname + "님이 입장하셨습니다.");
 
-        ChatMessage chatMessage = chatMessageDtoMapper.toEntity(message);
+        ChatMessage chatMessage = chatMessageDtoMapper.convertToEntity(message);
         chatMessageRepository.save(chatMessage);
 
         // @SendTo 없이 메서드 내에서 직접 전송

@@ -108,7 +108,7 @@ public class JwtParser {
         if (header == null) {
             throw new IllegalArgumentException("Authorization 헤더가 비어있습니다.");
         }
-        if (!header.startsWith(JwtProperties.ACCESS_TOKEN_HEADER)) {
+        if (!header.startsWith(JwtProperties.ACCESS_TOKEN_PREFIX)) {
             throw new IllegalArgumentException("Authorization 헤더의 형식이 잘못되었습니다");
         }
 

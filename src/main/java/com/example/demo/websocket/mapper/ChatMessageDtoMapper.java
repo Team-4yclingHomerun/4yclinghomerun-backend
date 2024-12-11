@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Mapper(componentModel = "spring")
 public interface ChatMessageDtoMapper {
-    ChatMessage toEntity(ChatMessageRequest messageRequest);
+    ChatMessage convertToEntity(ChatMessageRequest messageRequest);
 
     List<ChatMessageResponse> toChatMessageResponseList(List<ChatMessage> chatMessages);
 }
