@@ -4,7 +4,10 @@ import com.example.demo.websocket.entity.ChatMessage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.domain.Slice;
+
+import java.time.Instant;
 
 /**
  * packageName    : com.example.demo.websocket.dto

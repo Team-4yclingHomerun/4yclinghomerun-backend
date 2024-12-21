@@ -6,9 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.Instant;
 
@@ -23,10 +21,12 @@ import java.time.Instant;
  * -----------------------------------------------------------
  * 11/19/24       JAEIK       최초 생성
  */
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Getter
+@ToString
+@AllArgsConstructor
+@Builder
 @Table(schema = "chat")
 public class ChatMessage extends BaseEntity {
     @Enumerated(EnumType.STRING)
@@ -34,4 +34,11 @@ public class ChatMessage extends BaseEntity {
     private String sender;
     private String message;
     private Instant createAt;
+
+//    public ChatMessage(MessageType type, String sender, String message, Instant createAt) {
+//        this.type = type;
+//        this.sender = sender;
+//        this.message = message;
+//        this.createAt = Instant.now();
+//    }
 }

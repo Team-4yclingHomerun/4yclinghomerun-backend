@@ -86,6 +86,7 @@ public class VerifyEmailService {
             for (var item : member.getRoles()) {
                 role = item.getRoleName();
             }
+
             JwtToken jwtToken = jwtAuthenticationProxyService.createJwtToken(
                     member.getId(),
                     member.getUsername(), role);
