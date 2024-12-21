@@ -59,18 +59,13 @@ public class ChatController {
 
         Optional<Member> member = memberRepository.findByUsername(authenticateMember.username());
 
-        String nickname;
+        Optional<OauthMember> oauthMember = oauthMemberRepository.findById(authenticateMember.id());
 
-        if (member.isPresent()) {
-            nickname = member.get().getNickname();
-        } else {
-            Optional<OauthMember> oauthMember = oauthMemberRepository.findById(authenticateMember.id());
-            if (oauthMember.isPresent()) {
-                nickname = oauthMember.get().getNickname();
-            } else {
-                throw SignInErrorCode.NOT_FOUND_USERNAME.defaultException();
-            }
-        }
+        String nickname = member
+                .map(Member::getNickname)
+                .orElseGet(() -> oauthMember
+                        .map(OauthMember::getNickname)
+                        .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException));
 
         message.setSender(nickname);
 
