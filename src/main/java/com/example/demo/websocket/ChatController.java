@@ -6,7 +6,8 @@ import com.example.demo.jwt.JwtParser;
 import com.example.demo.jwt.JwtProperties;
 import com.example.demo.member.entity.Member;
 import com.example.demo.member.repository.MemberRepository;
-import com.example.demo.member.service.MemberService;
+import com.example.demo.oauth.common.entity.OauthMember;
+import com.example.demo.oauth.common.repository.OauthMemberRepository;
 import com.example.demo.websocket.dto.ChatMessageRequest;
 import com.example.demo.websocket.dto.MessageType;
 import com.example.demo.websocket.entity.ChatMessage;
@@ -41,6 +42,7 @@ public class ChatController {
     private final SimpMessageSendingOperations messageSendingOperations;
     private final ChatMessageRepository chatMessageRepository;
     private final ChatMessageDtoMapper chatMessageDtoMapper;
+    private final OauthMemberRepository oauthMemberRepository;
     private final MemberRepository memberRepository;
     private final JwtParser jwtParser;
 
@@ -56,14 +58,25 @@ public class ChatController {
         AuthenticateMember authenticateMember = jwtParser.getAuthenticateMember(token);
 
         Optional<Member> member = memberRepository.findByUsername(authenticateMember.username());
-        String nickname = member
-                .map(Member::getNickname)
-                .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException);
+
+        String nickname;
+
+        if (member.isPresent()) {
+            nickname = member.get().getNickname();
+        } else {
+            Optional<OauthMember> oauthMember = oauthMemberRepository.findById(authenticateMember.id());
+            if (oauthMember.isPresent()) {
+                nickname = oauthMember.get().getNickname();
+            } else {
+                throw SignInErrorCode.NOT_FOUND_USERNAME.defaultException();
+            }
+        }
 
         message.setSender(nickname);
 
-        if (MessageType.JOIN.equals(message.getType()))
-            message.setMessage( nickname + "님이 입장하셨습니다.");
+        if (MessageType.JOIN.equals(message.getType())) {
+            message.setMessage(nickname + "님이 입장하셨습니다.");
+        }
 
         ChatMessage chatMessage = chatMessageDtoMapper.convertToEntity(message);
         chatMessageRepository.save(chatMessage);
