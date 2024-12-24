@@ -15,6 +15,8 @@ import com.example.demo.member.entity.Roles;
 import com.example.demo.member.mapper.MemberDtoMapper;
 import com.example.demo.member.repository.MemberRepository;
 import com.example.demo.member.repository.RoleRepository;
+import com.example.demo.oauth.common.entity.OauthMember;
+import com.example.demo.oauth.common.repository.OauthMemberRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -47,6 +49,7 @@ public class MemberService
     private final MemberRepository memberRepository;
     private final RoleRepository roleRepository;
     private final MemberDtoMapper memberDtoMapper;
+    private final OauthMemberRepository oauthMemberRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtAuthenticationProxyService jwtProvider;
     private final JwtParser jwtParser;
@@ -181,8 +184,13 @@ public class MemberService
         AuthenticateMember authenticateMember = jwtParser.getAuthenticateMember(token);
 
         Optional<Member> member = memberRepository.findByUsername(authenticateMember.username());
-        String nickname = member.map(Member::getNickname)
-                .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException);
+        Optional<OauthMember> oauthMember = oauthMemberRepository.findById(authenticateMember.id());
+
+        String nickname = member
+                .map(Member::getNickname)
+                .orElseGet(() -> oauthMember
+                        .map(OauthMember::getNickname)
+                        .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException));
 
         return new MemberFindNicknameResponse(nickname);
 
