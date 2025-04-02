@@ -20,6 +20,7 @@ public record ChatMessageResponse(
         MessageType type,
         String sender,
         String message,
-        Instant createAt
+        Instant createAt,
+        boolean isMine
 ) {
 }

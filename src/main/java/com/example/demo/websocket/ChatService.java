@@ -1,11 +1,13 @@
 package com.example.demo.websocket;
 
+import com.example.demo.jwt.JwtParser;
 import com.example.demo.websocket.dto.*;
 import com.example.demo.websocket.entity.ChatMessage;
 import com.example.demo.websocket.mapper.ChatMessageDtoMapper;
 import com.example.demo.websocket.repository.ChatMessageRepository;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -35,11 +37,25 @@ public class ChatService {
     private final ChatMessageRepository chatMessageRepository;
 
     private final ChatMessageDtoMapper chatMessageDtoMapper;
+    private final JwtParser jwtParser;
 
-    public Slice<ChatMessageResponse> findMessages(Pageable pageable) {
+    public Slice<ChatMessageResponse> findMessages(HttpServletRequest request, Pageable pageable) {
+        String token = jwtParser.extractToken(request);
+
         Slice<ChatMessage> chatMessageSlice = chatMessageRepository.findAllByOrderByCreateAtDesc(pageable);
-        List<ChatMessage> chatMessageList = chatMessageSlice.getContent();
-        List<ChatMessageResponse> chatMessageResponses = chatMessageDtoMapper.toChatMessageResponseList(chatMessageList);
+        List<ChatMessageResponse> chatMessageResponses =
+                chatMessageSlice
+                        .stream()
+                        .map(chatMessage -> new ChatMessageResponse(
+                               chatMessage.getType(),
+                                chatMessage.getSender(),
+                                chatMessage.getMessage(),
+                                chatMessage.getCreateAt(),
+                                chatMessage.getSender().equals(token)
+                        ))
+                        .toList();
+
+
         return new SliceImpl<>(chatMessageResponses, pageable, chatMessageSlice.hasNext());
     }
 

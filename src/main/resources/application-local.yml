@@ -18,9 +18,11 @@ spring:
     url: ${LOCAL_DATABASE_URI}
     username: ${LOCAL_DATABASE_ROOT}
     password: ${LOCAL_DATABASE_PASSWORD}
+
   flyway:
     locations:
       - db/migration
+    baseline-on-migrate: true
    #   - db/migration/local
 
 logging:

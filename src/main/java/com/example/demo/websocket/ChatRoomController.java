@@ -5,6 +5,7 @@ import com.example.demo.websocket.dto.ChatRoomCreateRequest;
 import com.example.demo.websocket.dto.ChatRoomResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -35,8 +36,8 @@ public class ChatRoomController {
 
     @Operation(summary = "채팅방 메시지 조회")
     @GetMapping("/find-messages")
-    public ResponseEntity<?> getChatMessages(Pageable pageable) {
-        Slice<ChatMessageResponse> chatMessageResponseSlice = chatService.findMessages(pageable);
+    public ResponseEntity<?> getChatMessages(HttpServletRequest request, Pageable pageable) {
+        Slice<ChatMessageResponse> chatMessageResponseSlice = chatService.findMessages(request,pageable);
         return ResponseEntity.ok().body(chatMessageResponseSlice);
     }
 

@@ -80,4 +80,8 @@ public class ChatController {
         messageSendingOperations.convertAndSend("/topic/chat/room", message);
         log.debug("send message /topic/chat/room: {}", message);
     }
+
+//    private String getNickname(AuthenticateMember authenticateMember) {
+//        Optional<Member> member = memberRepository.findByUsername(authenticateMember.username());
+//    }
 }

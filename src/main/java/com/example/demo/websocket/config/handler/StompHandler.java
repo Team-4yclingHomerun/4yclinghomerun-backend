@@ -1,7 +1,6 @@
 package com.example.demo.websocket.config.handler;
 
-import com.example.demo.exception.AuthorizationErrorCode;
-import com.example.demo.exception.AuthorizationException;
+
 import com.example.demo.jwt.JwtParser;
 import com.example.demo.jwt.JwtProperties;
 import io.jsonwebtoken.JwtException;
@@ -10,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessagingException;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.messaging.support.ChannelInterceptor;
