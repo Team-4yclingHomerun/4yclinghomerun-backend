@@ -18,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 import java.time.Instant;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,16 +45,19 @@ public class ChatMessageRepositoryTest {
     @Test
     @DisplayName("chatMessage 객체가 잘 저장되는지")
     void convertToEntityTest() {
+        UUID testUUID = UUID.randomUUID(); // 랜덤 UUID 생성
+
         // given
-        ChatMessageRequest chatMessageRequest = new ChatMessageRequest(MessageType.TALK,"kim","dfdffdas");
+        ChatMessageRequest chatMessageRequest = new ChatMessageRequest(MessageType.TALK,"kim","안녕");
 
 
         //when
-        ChatMessage chatMessage = chatMessageDtoMapper.convertToEntity(chatMessageRequest);
+        ChatMessage chatMessage = chatMessageDtoMapper.convertToEntity(chatMessageRequest,testUUID);
         System.out.println(chatMessage.toString());
         System.out.println("ChatMessage Type: " + chatMessage.getType());
         System.out.println("ChatMessage Type: " + chatMessage.getSender());
         System.out.println("ChatMessage Type: " + chatMessage.getMessage());
+        System.out.println("ChatMessage Type: " + chatMessage.getSenderId());
 
         chatMessageRepository.save(chatMessage);
 
@@ -61,14 +65,16 @@ public class ChatMessageRepositoryTest {
         assertThat(chatMessage).isNotNull();
         assertThat(chatMessage.getType()).isEqualTo(MessageType.TALK);
         assertThat(chatMessage.getSender()).isEqualTo("kim");
-        assertThat(chatMessage.getMessage()).isEqualTo("dfdffdas");
+        assertThat(chatMessage.getMessage()).isEqualTo("안녕");
+        assertThat(chatMessage.getSenderId()).isEqualTo(testUUID);
 
         // 데이터베이스에 저장된 객체가 제대로 저장되었는지 확인
         ChatMessage savedChatMessage = chatMessageRepository.findById(chatMessage.getId()).orElse(null);
         assertThat(savedChatMessage).isNotNull();
         assertThat(savedChatMessage.getType()).isEqualTo(MessageType.TALK);
         assertThat(savedChatMessage.getSender()).isEqualTo("kim");
-        assertThat(savedChatMessage.getMessage()).isEqualTo("dfdffdas");
+        assertThat(savedChatMessage.getMessage()).isEqualTo("안녕");
+        assertThat(savedChatMessage.getSenderId()).isEqualTo(testUUID);
 
     }
 }
