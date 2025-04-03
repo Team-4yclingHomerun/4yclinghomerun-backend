@@ -3,10 +3,7 @@ package com.example.demo.websocket;
 import com.example.demo.jwt.JwtParser;
 import com.example.demo.websocket.dto.*;
 import com.example.demo.websocket.entity.ChatMessage;
-import com.example.demo.websocket.mapper.ChatMessageDtoMapper;
 import com.example.demo.websocket.repository.ChatMessageRepository;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +13,7 @@ import org.springframework.data.domain.SliceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.UUID;
 
 /**
  * packageName    : com.example.demo.websocket
@@ -35,12 +32,18 @@ import java.util.stream.Collectors;
 public class ChatService {
 
     private final ChatMessageRepository chatMessageRepository;
-
-    private final ChatMessageDtoMapper chatMessageDtoMapper;
     private final JwtParser jwtParser;
 
     public Slice<ChatMessageResponse> findMessages(HttpServletRequest request, Pageable pageable) {
+
         String token = jwtParser.extractToken(request);
+        UUID userId;
+
+        if (token != null && jwtParser.validateToken(token)) {
+            userId = jwtParser.getAuthenticateMember(token).id();
+        } else {
+            userId = null;
+        }
 
         Slice<ChatMessage> chatMessageSlice = chatMessageRepository.findAllByOrderByCreateAtDesc(pageable);
         List<ChatMessageResponse> chatMessageResponses =
@@ -51,7 +54,7 @@ public class ChatService {
                                 chatMessage.getSender(),
                                 chatMessage.getMessage(),
                                 chatMessage.getCreateAt(),
-                                chatMessage.getSender().equals(token)
+                                userId != null &&  userId.equals(chatMessage.getSenderId())
                         ))
                         .toList();
 

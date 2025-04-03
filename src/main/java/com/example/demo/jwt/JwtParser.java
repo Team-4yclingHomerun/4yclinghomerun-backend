@@ -105,8 +105,12 @@ public class JwtParser {
 
     public String extractToken(HttpServletRequest request) {
         String header = request.getHeader(JwtProperties.ACCESS_TOKEN_HEADER);
-        if (header == null) {
-            throw new IllegalArgumentException("Authorization 헤더가 비어있습니다.");
+//        if (header == null) {
+//            throw new IllegalArgumentException("Authorization 헤더가 비어있습니다.");
+//        }
+        // 비로그인도 (이 프로젝트에서는 화이트에러로 관리하고있지만  채팅방메시지를 비로그인자도 볼 수 있게하기 위해)
+        if (header == null || header.isBlank()) {
+            return null;
         }
         if (!header.startsWith(JwtProperties.ACCESS_TOKEN_PREFIX)) {
             throw new IllegalArgumentException("Authorization 헤더의 형식이 잘못되었습니다");

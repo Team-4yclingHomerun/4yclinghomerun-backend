@@ -2,13 +2,11 @@ package com.example.demo.websocket.entity;
 
 import com.example.demo.jpa.support.BaseEntity;
 import com.example.demo.websocket.dto.MessageType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
+import java.util.UUID;
 
 /**
  * packageName    : com.example.demo.websocket.entity
@@ -32,6 +30,7 @@ public class ChatMessage extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MessageType type;
     private String sender;
+    private UUID senderId;
     private String message;
     private Instant createAt;
 
