@@ -67,13 +67,13 @@ public class ChatController {
                         .map(OauthMember::getNickname)
                         .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException));
 
-        message.setSender(nickname);
+        message.updateSender(nickname);
 
         if (MessageType.JOIN.equals(message.getType())) {
             message.setMessage(nickname + "님이 입장하셨습니다.");
         }
 
-        ChatMessage chatMessage = chatMessageDtoMapper.convertToEntity(message);
+        ChatMessage chatMessage = chatMessageDtoMapper.convertToEntity(message, authenticateMember.id());
         chatMessageRepository.save(chatMessage);
 
         // @SendTo 없이 메서드 내에서 직접 전송

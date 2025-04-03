@@ -108,7 +108,7 @@ public class JwtParser {
 //        if (header == null) {
 //            throw new IllegalArgumentException("Authorization 헤더가 비어있습니다.");
 //        }
-        // 비로그인도 (이 프로젝트에서는 화이트에러로 관리하고있지만  채팅방메시지를 비로그인자도 볼 수 있게하기 위해)
+        // 비로그인도 (채팅메시지는 비로그인도 봐야해서 화이트에러를 있지만 토큰을 추출해서 고유아이디를 가져와야하므로)
         if (header == null || header.isBlank()) {
             return null;
         }

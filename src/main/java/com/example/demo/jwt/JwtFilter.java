@@ -27,7 +27,7 @@ public class JwtFilter /* implements Filter */ {
     private final JwtParser jwtParser;
     private final JwtProvider jwtProvider;
 
-    //    @Override
+    //    @Override 안쓰는거 공부를 위해 남겨놈
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         // HTTP 요청에서 토큰 추출

@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.springframework.data.domain.Slice;
 
 import java.time.Instant;
+import java.util.UUID;
 
 /**
  * packageName    : com.example.demo.websocket.dto
@@ -28,10 +29,10 @@ public class ChatMessageRequest {
     private String sender;
     private String message;
 
-    public void setSender(String sender) {
+    public void updateSender(String sender) {
         this.sender = sender;
-    }
 
+    }
     public void setMessage(String message) {
         this.message = message;
     }
