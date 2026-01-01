@@ -40,7 +40,7 @@ public class JwtProvider {
 
         return Jwts.builder()
                 .subject(subject)
-                .claims(claimMap)
+                .claims(claimMap) // // Role, 이름 등 payload
                 .issuedAt(issuedAt)
                 .expiration(expiration) //유효 기간
                 .signWith(secretKey) // 서명 설정

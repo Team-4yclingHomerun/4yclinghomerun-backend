@@ -23,10 +23,7 @@ import org.springframework.util.PatternMatchUtils;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
-import java.util.UUID;
 
 import static com.example.demo.auth.AuthorizationConstants.LOGIN_MEMBER_ATTRIBUTE;
 import static com.example.demo.jwt.JwtProperties.ACCESS_TOKEN_PREFIX;
@@ -74,7 +71,7 @@ public class JwtAuthorizationFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         // 요청 URI 화이트리스트에 있는지 확인
-        if (whiteListCheck(httpServletRequest.getRequestURI()) || isSwaggerRequest(httpServletRequest.getRequestURI())) {
+        if (whiteListCheck(httpServletRequest.getRequestURI())) {
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
@@ -119,6 +116,10 @@ public class JwtAuthorizationFilter implements Filter {
         log.info("요청 URI: {}", uri);
         return PatternMatchUtils.simpleMatch(whiteListUris, uri);
     }
+
+//    private boolean isSwaggerRequest(String uri) {
+//        return uri.startsWith("/swagger-ui") || uri.startsWith("/v3/api-docs");
+//    }
 
     private boolean hasAuthorizationWithPrefix(String authorizationToken) {
         return authorizationToken != null && authorizationToken.startsWith(ACCESS_TOKEN_PREFIX);
@@ -186,11 +187,6 @@ public class JwtAuthorizationFilter implements Filter {
         }
         return bit;
     }
-
-    private boolean isSwaggerRequest(String uri) {
-        return uri.startsWith("/swagger-ui") || uri.startsWith("/v3/api-docs");
-    }
-
 
 
     //    private void checkRolesForUri(String uri, Role[] currentRole) throws AccessDeniedException {
