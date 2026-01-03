@@ -25,15 +25,12 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ChatMessageRequest {
-    private MessageType type;
-    private String sender;
     private String message;
 
-    public void updateSender(String sender) {
-        this.sender = sender;
-
-    }
-    public void setMessage(String message) {
-        this.message = message;
+    @Override
+    public String toString() {
+        return "ChatMessageRequest{" +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

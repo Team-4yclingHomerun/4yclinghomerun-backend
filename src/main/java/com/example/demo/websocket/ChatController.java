@@ -9,6 +9,7 @@ import com.example.demo.member.repository.MemberRepository;
 import com.example.demo.oauth.common.entity.OauthMember;
 import com.example.demo.oauth.common.repository.OauthMemberRepository;
 import com.example.demo.websocket.dto.ChatMessageRequest;
+import com.example.demo.websocket.dto.ChatMessageResponse;
 import com.example.demo.websocket.dto.MessageType;
 import com.example.demo.websocket.entity.ChatMessage;
 import com.example.demo.websocket.mapper.ChatMessageDtoMapper;
@@ -67,18 +68,13 @@ public class ChatController {
                         .map(OauthMember::getNickname)
                         .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException));
 
-        message.updateSender(nickname);
 
-        if (MessageType.JOIN.equals(message.getType())) {
-            message.setMessage(nickname + "님이 입장하셨습니다.");
-        }
-
-        ChatMessage chatMessage = chatMessageDtoMapper.convertToEntity(message, authenticateMember.id());
+        ChatMessage chatMessage = chatMessageDtoMapper.convertToEntity(message, MessageType.TALK, nickname, authenticateMember.id());
         chatMessageRepository.save(chatMessage);
 
         // @SendTo 없이 메서드 내에서 직접 전송
-        messageSendingOperations.convertAndSend("/topic/chat/room", message);
-        log.debug("send message /topic/chat/room: {}", message);
+        messageSendingOperations.convertAndSend("/topic/chat/room", ChatMessageResponse.talk(chatMessage,nickname,true));
+        log.info("send message /topic/chat/room: {}", ChatMessageResponse.talk(chatMessage,nickname,true));
     }
 
 //    private String getNickname(AuthenticateMember authenticateMember) {

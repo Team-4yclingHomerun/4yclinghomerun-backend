@@ -23,4 +23,24 @@ public record ChatMessageResponse(
         Instant createAt,
         boolean isMine
 ) {
+
+    public static ChatMessageResponse talk(ChatMessage chatMessage, String sender, boolean isMine) {
+        return new ChatMessageResponse(
+                MessageType.TALK,
+                sender,
+                chatMessage.getMessage(),
+                chatMessage.getCreateAt(),
+                isMine
+        );
+    }
+
+    public static ChatMessageResponse join(String sender, boolean isMine) {
+        return new ChatMessageResponse(
+                MessageType.JOIN,
+                sender,
+                sender + " 채팅방에 참여했습니다.",
+                Instant.now(),
+                isMine
+        );
+    }
 }

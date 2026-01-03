@@ -2,6 +2,7 @@ package com.example.demo.websocket.mapper;
 
 import com.example.demo.websocket.dto.ChatMessageRequest;
 import com.example.demo.websocket.dto.ChatMessageResponse;
+import com.example.demo.websocket.dto.MessageType;
 import com.example.demo.websocket.entity.ChatMessage;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -24,7 +25,6 @@ import java.util.UUID;
 @Mapper(componentModel = "spring")
 public interface ChatMessageDtoMapper {
     @Mapping(target = "createAt", expression = "java(java.time.Instant.now())")
-    ChatMessage convertToEntity(ChatMessageRequest messageRequest, UUID senderId);
-
+    ChatMessage convertToEntity(ChatMessageRequest messageRequest, MessageType type, String sender, UUID senderId);
     List<ChatMessageResponse> toChatMessageResponseList(List<ChatMessage> chatMessages);
 }

@@ -40,9 +40,11 @@ public class StompHandler implements ChannelInterceptor {
         if (StompCommand.CONNECT == accessor.getCommand()) {
             try {
                 String token = accessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER);
+                if (token != null && token.startsWith(JwtProperties.ACCESS_TOKEN_PREFIX)) {
+                    token = token.substring(JwtProperties.ACCESS_TOKEN_PREFIX.length()); // "Bearer " 제거
+                }
                 jwtParser.validateToken(token);
                 log.debug("Received token: {}", token);
-                //jwtParser.validateToken(accessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER));
             } catch (JwtException e) {
                 log.error("연결 오류:", e);
                 throw new MessagingException("jwt Token 연결오류", e);
