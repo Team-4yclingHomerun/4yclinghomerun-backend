@@ -40,6 +40,11 @@ public class ChatJoinHandler implements ApplicationListener<SessionSubscribeEven
     public void onApplicationEvent(SessionSubscribeEvent event) {
         StompHeaderAccessor accessor = StompHeaderAccessor.wrap(event.getMessage());
 
+        // 모든 SUBSCRIBE 발생하므로 채팅방에서만
+        if (!"/topic/chat/room".equals(accessor.getDestination())) {
+            return;
+        }
+
         if ("/topic/chat/room".equals(accessor.getDestination())) {
             String token = accessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER);
             if (token != null && token.startsWith(JwtProperties.ACCESS_TOKEN_PREFIX)) {
@@ -54,8 +59,10 @@ public class ChatJoinHandler implements ApplicationListener<SessionSubscribeEven
                             .map(OauthMember::getNickname)
                             .orElseThrow(SignInErrorCode.NOT_FOUND_USERNAME::defaultException));
 
-            messageSendingOperations.convertAndSend("/topic/chat/room", ChatMessageResponse.join(nickname, false) );
-            log.info("채팅방에 참여했습니다 : {}", ChatMessageResponse.join(nickname, false));
+            accessor.getSessionAttributes().put("sender", nickname);
+
+            messageSendingOperations.convertAndSend("/topic/chat/room", ChatMessageResponse.join(nickname) );
+            log.info("채팅방에 참여했습니다 : {}", ChatMessageResponse.join(nickname));
         }
     }
 }

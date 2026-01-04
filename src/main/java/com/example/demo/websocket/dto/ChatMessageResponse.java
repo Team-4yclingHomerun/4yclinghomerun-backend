@@ -34,13 +34,24 @@ public record ChatMessageResponse(
         );
     }
 
-    public static ChatMessageResponse join(String sender, boolean isMine) {
+    public static ChatMessageResponse join(String sender) {
         return new ChatMessageResponse(
                 MessageType.JOIN,
                 sender,
                 sender + " 채팅방에 참여했습니다.",
                 Instant.now(),
-                isMine
+                false
+
+        );
+    }
+
+    public static ChatMessageResponse leave(String sender) {
+        return new ChatMessageResponse(
+                MessageType.LEAVE,
+                sender,
+                sender + " 채팅방을 나갔습니다.",
+                Instant.now(),
+                false
         );
     }
 }
