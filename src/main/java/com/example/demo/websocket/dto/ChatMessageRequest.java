@@ -1,14 +1,8 @@
 package com.example.demo.websocket.dto;
 
-import com.example.demo.websocket.entity.ChatMessage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.domain.Slice;
-
-import java.time.Instant;
-import java.util.UUID;
 
 /**
  * packageName    : com.example.demo.websocket.dto

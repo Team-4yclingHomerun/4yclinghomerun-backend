@@ -1,10 +1,9 @@
 package com.example.demo.websocket.config.handler;
 
-import com.example.demo.websocket.dto.ChatMessageResponse;
+import com.example.demo.websocket.service.ChatEventService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
-import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
@@ -26,7 +25,7 @@ import java.util.Map;
 @Component
 @RequiredArgsConstructor
 public class ChatLeaveHandler implements ApplicationListener<SessionDisconnectEvent> {
-    private final SimpMessageSendingOperations simpMessageSendingOperations;
+    private final ChatEventService chatEventService;
 
     @Override
     public void onApplicationEvent(SessionDisconnectEvent event) {
@@ -39,7 +38,9 @@ public class ChatLeaveHandler implements ApplicationListener<SessionDisconnectEv
 
         String nickname = (String) sessionAttributes.get("sender");
 
-        simpMessageSendingOperations.convertAndSend("/topic/chat/room", ChatMessageResponse.leave(nickname));
-        log.info("채팅방을 나갔습니다. {}", ChatMessageResponse.leave(nickname));
+        chatEventService.leave(nickname, accessor.getSessionId());
+
+        log.info("채팅방 leave 시도: nickname={}, session={}",
+                nickname, accessor.getSessionId());
     }
 }

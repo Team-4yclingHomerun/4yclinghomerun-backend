@@ -1,12 +1,8 @@
 package com.example.demo.websocket.dto;
 
-import com.example.demo.websocket.ChatService;
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.web.socket.WebSocketSession;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
 /**

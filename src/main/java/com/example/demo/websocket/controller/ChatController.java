@@ -1,4 +1,4 @@
-package com.example.demo.websocket;
+package com.example.demo.websocket.controller;
 
 import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.exception.SignInErrorCode;
@@ -76,8 +76,4 @@ public class ChatController {
         messageSendingOperations.convertAndSend("/topic/chat/room", ChatMessageResponse.talk(chatMessage,nickname,true));
         log.info("send message /topic/chat/room: {}", ChatMessageResponse.talk(chatMessage,nickname,true));
     }
-
-//    private String getNickname(AuthenticateMember authenticateMember) {
-//        Optional<Member> member = memberRepository.findByUsername(authenticateMember.username());
-//    }
 }

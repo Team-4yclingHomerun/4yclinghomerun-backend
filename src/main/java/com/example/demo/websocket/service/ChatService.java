@@ -1,7 +1,5 @@
-package com.example.demo.websocket;
+package com.example.demo.websocket.service;
 
-import com.example.demo.auth.AuthenticateMember;
-import com.example.demo.auth.AuthorizationConstants;
 import com.example.demo.jwt.JwtParser;
 import com.example.demo.websocket.dto.*;
 import com.example.demo.websocket.entity.ChatMessage;

@@ -1,4 +1,4 @@
-package com.example.demo.websocket;
+package com.example.demo.websocket.repository;
 
 import com.example.demo.websocket.dto.ChatRoom;
 import com.example.demo.websocket.dto.ChatRoomCreateRequest;
