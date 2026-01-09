@@ -39,7 +39,6 @@ public class ChatLeaveHandler implements ApplicationListener<SessionDisconnectEv
         String nickname = (String) sessionAttributes.get("sender");
 
         chatEventService.leave(nickname, accessor.getSessionId());
-
         log.info("채팅방 leave 시도: nickname={}, session={}",
                 nickname, accessor.getSessionId());
     }

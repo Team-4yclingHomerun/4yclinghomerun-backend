@@ -4,6 +4,10 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+prometheus-websocket/data/
+grafana-websocket/data/
+grafana-websocket/logs/
+grafana-websocket/plugins/
 # 환경변수
 .env
 ### STS ###

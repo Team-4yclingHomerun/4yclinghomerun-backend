@@ -1,18 +1,19 @@
 package com.example.demo.websocket.config.handler;
 
 
+import com.example.demo.auth.AuthenticateMember;
 import com.example.demo.jwt.JwtParser;
 import com.example.demo.jwt.JwtProperties;
-import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.MessagingException;
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.messaging.support.ChannelInterceptor;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * packageName    : com.example.demo.websocket.config.handler
@@ -35,23 +36,28 @@ public class StompHandler implements ChannelInterceptor {
     @Override
     public Message<?> preSend(Message<?> message, MessageChannel channel) {
         StompHeaderAccessor accessor = StompHeaderAccessor.wrap(message);
+
         // webSocket 연결시 헤더의 jwt token 검증
-        // validateToken 자체에 예외처리가 있으므로 따로 예외처리 할 필요 없음
         if (StompCommand.CONNECT == accessor.getCommand()) {
-            try {
-                String token = accessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER);
-                if (token != null && token.startsWith(JwtProperties.ACCESS_TOKEN_PREFIX)) {
-                    token = token.substring(JwtProperties.ACCESS_TOKEN_PREFIX.length()); // "Bearer " 제거
-                }
-                jwtParser.validateToken(token);
-                log.debug("Received token: {}", token);
-            } catch (JwtException e) {
-                log.error("연결 오류:", e);
-                throw new MessagingException("jwt Token 연결오류", e);
+            String token = accessor.getFirstNativeHeader(JwtProperties.ACCESS_TOKEN_HEADER);
+
+            if (token != null && token.startsWith(JwtProperties.ACCESS_TOKEN_PREFIX)) {
+                token = token.substring(JwtProperties.ACCESS_TOKEN_PREFIX.length()); // "Bearer " 제거
+            }
+
+            AuthenticateMember auth = jwtParser.getAuthenticateMember(token);
+
+            Map<String, Object> sessionAttributes = accessor.getSessionAttributes();
+            if (sessionAttributes != null) {
+                sessionAttributes.put("Auth", auth);
+                log.info(auth.username());
             }
         }
         return message;
     }
 }
+
+
+
 
 

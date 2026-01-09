@@ -35,4 +35,8 @@ logging:
     org.springframework.web: DEBUG
 
 server:
+  tomcat:
+    threads:
+      max: 300
   port: 8080
+

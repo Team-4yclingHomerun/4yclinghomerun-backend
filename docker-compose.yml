@@ -1,6 +1,60 @@
 version: "3"
 
 services:
+  prometheus:
+    image: prom/prometheus
+    container_name: websocket-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus-websocket/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus-websocket/data:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.enable-remote-write-receiver
+      - --enable-feature=native-histograms
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=14d        # WebSocket 테스트용
+      - --storage.tsdb.retention.size=5GB        # WebSocket 테스트용
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.console.templates=/usr/share/prometheus/consoles
+      - --web.enable-admin-api
+  grafana:
+      image: grafana/grafana
+      container_name: websocket-grafana
+      restart: unless-stopped
+      ports:
+        - "3000:3000"
+      volumes:
+        - ./grafana-websocket:/var/lib/grafana
+      environment:
+        - GF_SECURITY_ADMIN_USER=admin
+        - GF_SECURITY_ADMIN_PASSWORD=1815
+        - GF_USERS_ALLOW_SIGN_UP=false
+      depends_on:
+        - prometheus
+
+  k6:
+      image: grafana/k6
+      container_name: websocket-k6
+      depends_on:
+        - prometheus
+      volumes:
+        - ./k6/scripts:/scripts
+      environment:
+        - K6_PROMETHEUS_RW_SERVER_URL=http://prometheus:9090/api/v1/write
+        - K6_PROMETHEUS_RW_TREND_AS_NATIVE_HISTOGRAM=true #  WebSocket 연결 수, 메시지 지연 시간 분포 확인 시 유리
+      command: >
+        run /scripts/ws-test.js
+        --out experimental-prometheus-rw
+        --log-format raw
+        --log-output stdout
+
+  #        run
+#        --out experimental-prometheus-rw=0.0.0.0:6565
+#        /scripts/ws-test.js
+
   demo_auth_postgres14:
     image: postgres:14
     environment:
@@ -15,6 +69,17 @@ services:
     volumes:
       - stick_volume_auth_postgres14:/var/lib/postgresql/data
       - ./db/initdb.d:/docker-entrypoint-initdb.d:ro
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter
+    container_name: websocket-postgres-exporter
+    restart: unless-stopped
+    environment:
+      DATA_SOURCE_NAME: "postgresql://root:root@demo_auth_postgres14:5432/auth?sslmode=disable"
+    ports:
+      - "9187:9187"
+    depends_on:
+      - demo_auth_postgres14
 
 volumes:
   stick_volume_auth_postgres14:

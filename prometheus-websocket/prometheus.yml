@@ -1,3 +1,4 @@
+# v
 global:
   scrape_interval: 15s         # 모든 target의 메트릭을 15초마다 수집
   evaluation_interval: 15s     # rule (알람 등)을 15초마다 평가
